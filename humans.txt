@@ -1,8 +1,8 @@
 /* TEAM */   
-CEO/President/: Omar Houmz
-Site: omarhoumz.github.io
-E-mail: omarhoumz@gmail.com
-Twitter: https://twitter.com/omarhoumz
+	CEO/President/: Omar Houmz
+	Site: omarhoumz.github.io
+	E-mail: omarhoumz@gmail.com
+	Twitter: https://twitter.com/omarhoumz
 
 /* SITE */
 	Last update: 2018
@@ -11,4 +11,4 @@ Twitter: https://twitter.com/omarhoumz
 	IDE: VS Code
 
 /* humanstxt */
-Site: http://humanstxt.org
+	Site: http://humanstxt.org
