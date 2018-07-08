@@ -1,0 +1,14 @@
+/* TEAM */   
+CEO/President/: Omar Houmz
+Site: omarhoumz.github.io
+E-mail: omarhoumz@gmail.com
+Twitter: https://twitter.com/omarhoumz
+
+/* SITE */
+	Last update: 2018
+	Language: English
+	Doctype: HTML5
+	IDE: VS Code
+
+/* humanstxt */
+Site: http://humanstxt.org
