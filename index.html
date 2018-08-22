@@ -12,21 +12,90 @@
   <title>Omar Houmz - Personal website </title>
   
   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2d2a63">
+  <link rel="icon" sizes="192x192" href="./images/icons/icon-192x192.png">
+  
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin: 0 auto;
+      max-width: 600px;
+      padding: 0 20px;
+    }
+  </style>
   <link rel="stylesheet" href="./styles/styles.css">
 
 </head>
 
 <body>
-  <section role="main">
-    <ul class="info">
-      <li>
-        <strong class="bold">Full Name </strong>Omar Houmz</li>
-      <li>
-        <strong class="bold">Message & Follow me </strong>
-        <a class="twitter-social" href="https://twitter.com/omarhoumz" rel="noopener" target="_blank">@omarhoumz</a>
-      </li>
-    </ul>
-  </section>
+  <div class="container">
+    <header class="header">
+      <h1 class="title"><a href="/">omarhoumz</a></h1>
+      <nav class="navigation">
+        <ul>
+          <!-- <li><a href="#!"></a></li>
+          <li><a href="#!"></a></li> -->
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="section section-about">
+        <h2 class="section-title">About</h2>
+        <div class="about">
+          <p>
+            Omar Houmz
+          </p>
+          <p>
+            Casablanca, Morocco
+          </p>
+          <p>
+            Software Engineer
+          </p>
+        </div>
+      </section>
+      <section class="section section-projects">
+        <h3 class="section-title">Projects</h3>
+        <div>
+          <ul>
+            <li>
+              <a href="#!">CC Platform</a> (Unpublished)
+              <p>A free source for CC images.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a href="https://github.com/omarhoumz" target="_blank" rel="noopener noreferrer">
+              <img src="./images/github.svg" alt="github.com/omarhoumz">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/omarhoumz/" target="_blank" rel="noopener noreferer">
+              <img src="./images/linkedin.svg" alt="linkedin.com/in/omarhoumz">
+            </a>
+          </li>
+          <li>
+            <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
+              <img src="./images/gmail.svg" alt="omarhoumz@gmail.com">
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <p class="copy">
+        <small>2018 &copy; Omar Houmz</small>
+      </p>
+    </footer>
+  </div>
 </body>
 
 </html>
