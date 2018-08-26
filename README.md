@@ -1,6 +1,6 @@
 # omarhoumz.github.io
 
-F Name: Omar Houmz
+Source code for the site https://omarhoumz.github.io
 
-Message & Follow me:
-@omarhoumz on twitter
+* Name: __Omar Houmz__
+* Message & Follow me: __[@omarhoumz](https://twitter.com/omarhoumz "Omar Houmz's twitter")__
