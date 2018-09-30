@@ -31,6 +31,12 @@
   </style>
   <link rel="stylesheet" href="./styles/styles.css">
 
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+  </script>
+
 </head>
 
 <body>
