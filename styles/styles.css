@@ -1,4 +1,4 @@
-body {
+html {
   --primary-color: #2D2A63;
   --secondary-color: #EC5032;
   --tertiary-color: #ed9f05;
@@ -16,7 +16,8 @@ h1, h2, h3 {
 }
 a {
   text-decoration: none;
-  color: var(--tertiary-color);
+  color: var(--secondary-color);
+  font-weight: bold;
   padding: 0.6rem;
   transition: color var(--transition);
 }
@@ -25,6 +26,7 @@ a:hover {
 }
 .header, .footer {
   text-align: center;
+  padding: 1rem 0;
 }
 .navigation ul {
   list-style: none;
