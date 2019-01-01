@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Omar Houmz's personal website">
@@ -24,111 +25,117 @@
     }
     .container {
       margin: 0 auto;
-      max-width: 600px;
+      max-width: 720px;
       padding: 0 20px;
     }
   </style>
-  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/styles.css" defer />
 
   <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
-  }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
   </script>
 
 </head>
 
 <body>
-  <div class="container">
-    <header class="header">
-      <h1 class="title"><a href="/">omar houmz</a></h1>
-      <nav class="navigation">
-        <ul>
-          <!-- <li><a href="#!"></a></li>
-          <li><a href="#!"></a></li> -->
+  <header class="header">
+    <h1 class="website-title">
+      <div class="container">
+        <a href="/" class="link-logo" aria-label="omar houmz" role="heading" aria-level="1"></a>
+      </div>
+    </h1>
+      <nav class="navigation dark">
+      <div class="container">
+          <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
         </ul>
+      </div>
       </nav>
-    </header>
-    <main class="main">
-      <section class="section section-about">
-        <h2 class="section-title">About</h2>
+    </div>
+  </header>
+  <main class="main">
+    <section class="section section-about">
+      <div class="container">
+        <h2 class="section-title" hidden aria-hidden="false">About</h2>
         <div class="about">
-          <p>
-            Omar Houmz
-          </p>
-          <p>
-            Casablanca, Morocco
-          </p>
-          <p>
-            Software Engineer
-          </p>
-          <br>
-          <p>
-            Looking for a job as a <strong>JS Software Engineer</strong>.
-          </p>
-          <p>
-            I studied a lot of disciplines in computer and data sciences. But I always liked <strong>front-end development</strong> and I still do.
-          </p>
-          <p>
-            I'm actively helping my dev community to get better through events and conferences.
-          </p>
-          <p>
-            If you want to help, or know someone that can support the work we do in our community, drop me a line: 
+          <div class="coordinates">
+            <p>Omar Houmz</p>
+
+            <p>Casablanca, Morocco</p>
+
+            <p>Software Engineer</p>
+          </div>
+
+          <p>I work at Avito.ma as a <strong>front-end engineer</strong>.</p>
+
+          <p>I studied a lot of disciplines in computer and data sciences. But I always liked <strong>front-end
+              development</strong> and I still do.</p>
+
+          <p>I'm actively helping my <strong>dev community</strong> to get better through events and conferences.</p>
+
+          <p>If you want to help, or know someone that can support the work we do in our community, <strong>drop me a line</strong>:
             <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
               omarhoumz@gmail.com
             </a>
           </p>
         </div>
-      </section>
-      <section class="section section-projects">
-        <h3 class="section-title">Projects</h3>
-        <div>
-          <ul>
-            <li>
-              <a href="https://github.com/omarhoumz/ccp" target="_blank" rel="noopener noreferrer">CC Platform</a>
-              <p>
-                Get free and high res photos from around the web.
-                An agregation of APIs for CC images.
-              </p>
-            </li>
-            <li>
-              <a href="http://www.aiesec.ma/AIESEC/p/" target="_blank" rel="noopener noreferrer">Aiesec.ma</a>
-              <p>
-                The official website of the <strong>Mchina</strong> brand of AIESEC in Morocco
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <nav class="navigation">
-        <ul>
+      </div>
+    </section>
+    <section class="section section-projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <ul class="all-projects-list">
           <li>
-            <a href="https://www.linkedin.com/in/omarhoumz/" target="_blank" rel="noopener noreferer">
-              <img src="./images/linkedin.svg" alt="linkedin.com/in/omarhoumz">
-            </a>
+            <a href="https://github.com/omarhoumz/ccp" target="_blank" rel="noopener noreferrer">CC Platform</a>
+            <p>
+              Get free and high res photos from around the web.
+              An agregation of APIs for CC images.
+            </p>
           </li>
           <li>
-            <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
-              <img src="./images/gmail.svg" alt="omarhoumz@gmail.com">
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/omhoumz" target="_blank" rel="noopener noreferrer">
-              <img src="./images/github.svg" alt="github.com/omhoumz">
-            </a>
+            <a href="http://www.aiesec.ma/AIESEC/p/" target="_blank" rel="noopener noreferrer">Aiesec.ma</a>
+            <p>
+              The official website of the <strong>Mchina</strong> brand of AIESEC in Morocco
+            </p>
           </li>
         </ul>
-      </nav>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
       <p class="copy">
-        <small>2018 &copy; 
-          <a href="https://github.com/omarhoumz" target="_blank" rel="noopener noreferrer">
+        <small>
+          2018 &copy;
+          <a class="dark" href="https://github.com/omarhoumz" target="_blank" rel="noopener noreferrer">
             Omar Houmz
           </a>
         </small>
       </p>
-    </footer>
-  </div>
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/omarhoumz/" target="_blank" rel="noopener noreferer">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/omhoumz" target="_blank" rel="noopener noreferrer">
+              Github
+            </a>
+          </li>
+          <li>
+            <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
+              Email
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 </body>
+
 </html>
