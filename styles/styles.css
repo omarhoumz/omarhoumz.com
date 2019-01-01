@@ -51,7 +51,8 @@ a.dark:hover {
 
 .header {
   padding: 1rem 0;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--color-light);
 }
   .header .website-title {
     text-align: center;
@@ -76,10 +77,6 @@ a.dark:hover {
   .link-logo:hover::before,
   .link-logo:focus::before {    
     content: "omar ";
-  }
-  .header .navigation {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--color-light);
   }
 
 .navigation ul {
