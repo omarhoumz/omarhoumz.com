@@ -21,9 +21,11 @@ const RUNTIME = 'runtime';
 const PRECACHE_URLS = [
   'index.html',
   './', // Alias for index.html
+  'about.html',
+  'project.html',
   'styles/styles.css',
-  'assets/fonts/CircularStd-Book.woff',
-  'assets/fonts/CircularStd-Bold.woff',
+  'fonts/CircularStd-Book.woff',
+  'fonts/CircularStd-Bold.woff',
   'images/fav.png',
   'images/icons/icon-192x192.png'
 ];
