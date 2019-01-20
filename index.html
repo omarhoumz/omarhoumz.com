@@ -24,10 +24,17 @@
       padding: 0;
     }
 
-    .container {
+    .container-sm {
       margin: 0 auto;
-      max-width: 720px;
       padding: 0 20px;
+
+      max-width: 54ch;
+    }
+    .container-md {
+      margin: 0 auto;
+      padding: 0 20px;
+
+      max-width: 920px;
     }
   </style>
   <link rel="stylesheet" href="./styles/styles.css" defer />
@@ -42,69 +49,65 @@
 
 <body>
   <header class="header">
-    <h1 class="website-title">
-      <div class="container">
+    <div class="container-md">
+      <h1 class="website-title">
         <a href="/" class="link-logo" aria-label="omar houmz" role="heading" aria-level="1"></a>
-      </div>
-    </h1>
-    <nav class="navigation dark">
-      <div class="container">
+      </h1>
+      <nav class="navigation dark">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li><a href="/" class="active">Home</a></li>
           <li><a href="/about.html">About</a></li>
           <li><a href="/projects.html">Projects</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
   <main class="main">
     <section class="section section-about">
-      <div class="container">
-        <h2 class="section-title" hidden aria-hidden="false">About</h2>
+      <div class="container-sm">
+        <h2 class="section-title" title="About">Hi,</h2>
         <div class="about">
-          <div class="coordinates">
-            <p>Omar Houmz</p>
 
-            <p>Casablanca, Morocco</p>
+          <p>I'm <strong>Omar Houmz</strong>, I'm a software engineer based in Casablanca, Morocco. I work at <a href="https://www.avito.ma/" rel="noopener noreferrer" target="_blank" class="dark p">Avito.ma</a> as a <strong>front-end engineer</strong>.</p>
 
-            <p>Software Engineer</p>
-          </div>
 
-          <p>I work at Avito.ma as a <strong>front-end engineer</strong>.</p>
+          <p>Wanna collaborate? <strong>drop me a
+              line</strong>:
+            <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
+              omarhoumz@gmail.com
+            </a>
+          </p>
 
-          <p>I studied a lot of disciplines in computer and data sciences. But I always liked <strong>front-end
-              development</strong> and I still do.</p>
-
-          <p><a href="/about.html" class="text-sm">More about me ...</a></p>
+          <p><a href="/about.html">More about me ...</a></p>
         </div>
       </div>
     </section>
     <section class="section section-projects">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
+      <div class="container-sm">
+        <h2 class="section-title">Latest Projects</h2>
         <ul class="all-projects-list">
           <li>
-            <a href="https://github.com/omarhoumz/ccp" target="_blank" rel="noopener noreferrer">CC Platform</a>
+            <a href="https://github.com/omarhoumz/ccp" target="_blank" rel="noopener noreferrer" class="dark" >CC Platform</a>
             <p>
               Get free and high res photos from around the web.
               An agregation of APIs for CC images.
             </p>
           </li>
           <li>
-            <a href="http://www.aiesec.ma/AIESEC/p/" target="_blank" rel="noopener noreferrer">Aiesec.ma</a>
+            <a href="http://www.aiesec.ma/AIESEC/p/" target="_blank" rel="noopener noreferrer" class="dark" >Aiesec.ma</a>
             <p>
               The official website of the <strong>Mchina</strong> brand of AIESEC in Morocco
             </p>
           </li>
           <li>
-            <p><a href="/projects.html" class="text-sm">More projects ...</a></p>
+            <p><a href="/projects.html">See all projects</a></p>
           </li>
         </ul>
       </div>
     </section>
   </main>
   <footer class="footer">
-    <div class="container">
+    <div class="container-md">
       <p class="copy">
         <small>
           &copy; <span id="current-year"></span>

@@ -24,10 +24,17 @@
       padding: 0;
     }
 
-    .container {
+    .container-sm {
       margin: 0 auto;
-      max-width: 720px;
       padding: 0 20px;
+
+      max-width: 54ch;
+    }
+    .container-md {
+      margin: 0 auto;
+      padding: 0 20px;
+
+      max-width: 920px;
     }
   </style>
   <link rel="stylesheet" href="./styles/styles.css" defer />
@@ -42,27 +49,25 @@
 
 <body>
   <header class="header">
-    <h1 class="website-title">
-      <div class="container">
+    <div class="container-md">
+      <h1 class="website-title">
         <a href="/" class="link-logo" aria-label="omar houmz" role="heading" aria-level="1"></a>
-      </div>
-    </h1>
-    <nav class="navigation dark">
-      <div class="container">
+      </h1>
+      <nav class="navigation dark">
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about.html" class="active">About</a></li>
           <li><a href="/projects.html">Projects</a></li>
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </header>
   <main class="main">
     <section class="section section-about">
-      <div class="container">
+      <div class="container-sm">
         <h2 class="section-title" hidden aria-hidden="false">About</h2>
         <div class="about">
-          <p>I work at Avito.ma as a <strong>front-end engineer</strong>.</p>
+          <p>I'm <strong>Omar Houmz</strong>, I'm a software engineer based in Casablanca, Morocco. I work at <a href="https://www.avito.ma/" rel="noopener noreferrer" target="_blank" class="dark p">Avito.ma</a> as a <strong>front-end engineer</strong>.</p>
 
           <p>I studied a lot of disciplines in computer and data sciences. But I always liked <strong>front-end
               development</strong> and I still do.</p>
@@ -80,7 +85,7 @@
     </section>
   </main>
   <footer class="footer">
-    <div class="container">
+    <div class="container-md">
       <p class="copy">
         <small>
           &copy; <span id="current-year"></span>

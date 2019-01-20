@@ -12,7 +12,7 @@ body {
   
   --transition: 0.2s ease;
 
-  font-size: 18px;
+  font-size: 16px;
   color: var(--color-dark);
 
   display: flex;
@@ -20,12 +20,12 @@ body {
 }
   @media (min-width: 767px) {
     body {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
   @media (min-width: 1400px) {
     body {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 
@@ -39,6 +39,10 @@ a {
   color: var(--color-secondary);
   padding: 0.6rem;
   transition: color var(--transition);
+}
+a.p {
+  padding: 2px;
+  text-decoration: underline;
 }
 a.dark {
   color: var(--color-dark);
@@ -55,12 +59,17 @@ a.dark:hover {
   margin-bottom: 3rem;
   border-bottom: 1px solid var(--color-light);
 }
+  .header > .container-md {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .header .website-title {
     text-align: center;
     margin: 0;
   }
   .header .website-title a {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     font-family: 'Circular Std Bold';
     color: var(--color-primary);
     display: inline-block;
@@ -87,6 +96,7 @@ a.dark:hover {
 }
   .navigation ul li {
     display: inline-block;
+    margin: 0 0.4em;
   }
   .navigation ul li a {
     display: block;
@@ -116,9 +126,15 @@ a.dark:hover {
   }
   .section p {
     margin-top: 0.5em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .section-about .section-title {
+    margin-top: 0;
+    font-size: 2.4em;
   }
   .section .about .coordinates {
-    margin-bottom: 2rem;
+    margin-bottom: 1em;
   }
   .section .about .coordinates p {
     font-size: 1.1em;
@@ -130,6 +146,9 @@ a.dark:hover {
   }
   .all-projects-list li {
     margin-top: 2rem;
+  }
+  .all-projects-list li p {
+    font-size: smaller;
   }
   .all-projects-list li a {
     font-family: 'Circular Std Bold';
