@@ -27,17 +27,16 @@
     .container-sm {
       margin: 0 auto;
       padding: 0 20px;
-
-      max-width: 54ch;
+      max-width: 55ch;
     }
+
     .container-md {
       margin: 0 auto;
       padding: 0 20px;
-
       max-width: 920px;
     }
   </style>
-  <link rel="stylesheet" href="./styles/styles.css" defer />
+  <link rel="stylesheet" href="../styles/styles.css" defer />
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -56,31 +55,32 @@
       <nav class="navigation dark">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/about.html" class="active">About</a></li>
-          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../projects/" class="active">Projects</a></li>
         </ul>
       </nav>
     </div>
   </header>
   <main class="main">
-    <section class="section section-about">
+    <section class="section section-projects">
       <div class="container-sm">
-        <h2 class="section-title" hidden aria-hidden="false">About</h2>
-        <div class="about">
-          <p>I'm <strong>Omar Houmz</strong>, I'm a software engineer based in Casablanca, Morocco. I work at <a href="https://www.avito.ma/" rel="noopener noreferrer" target="_blank" class="dark p">Avito.ma</a> as a <strong>front-end engineer</strong>.</p>
-
-          <p>I studied a lot of disciplines in computer and data sciences. But I always liked <strong>front-end
-              development</strong> and I still do.</p>
-
-          <p>I'm actively helping my <strong>dev community</strong> to get better through events and conferences.</p>
-
-          <p>If you want to help, or know someone that can support the work we do in our community, <strong>drop me a
-              line</strong>:
-            <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
-              omarhoumz@gmail.com
-            </a>
-          </p>
-        </div>
+        <ul class="all-projects-list">
+          <li>
+            <a href="https://github.com/omarhoumz/ccp" target="_blank" rel="noopener noreferrer" class="dark">CC
+              Platform</a>
+            <p>
+              Get free and high res photos from around the web.
+              An agregation of APIs for CC images.
+            </p>
+          </li>
+          <li>
+            <a href="http://www.aiesec.ma/AIESEC/p/" target="_blank" rel="noopener noreferrer"
+              class="dark">Aiesec.ma</a>
+            <p>
+              The official website of the <strong>Mchina</strong> brand of AIESEC in Morocco
+            </p>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
