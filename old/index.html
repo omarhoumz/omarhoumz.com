@@ -1,149 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Omar Houmz's personal website" />
+    <meta
+      name="keywords"
+      content="Omar,Houmz,omarhoumz,personal,contact omarhoumz"
+    />
+    <meta name="author" content="Omar Houmz" />
+    <meta name="robots" content="index, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Omar Houmz - Personal website</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Omar Houmz's personal website">
-  <meta name="keywords" content="Omar,Houmz,omarhoumz,personal,contact omarhoumz">
-  <meta name="author" content="Omar Houmz">
-  <meta name="robots" content="index, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Omar Houmz - Personal website</title>
+    <link rel="shortcut icon" href="./images/fav.png" type="image/x-icon" />
 
-  <link rel="shortcut icon" href="./images/fav.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2d2a63" />
+    <link rel="icon" sizes="192x192" href="./images/icons/icon-192x192.png" />
 
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2d2a63">
-  <link rel="icon" sizes="192x192" href="./images/icons/icon-192x192.png">
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
+      .container-sm {
+        margin: 0 auto;
+        padding: 0 20px;
+        max-width: 54ch;
+      }
 
-    .container-sm {
-      margin: 0 auto;
-      padding: 0 20px;
-      max-width: 54ch;
-    }
+      .container-md {
+        margin: 0 auto;
+        padding: 0 20px;
+        max-width: 920px;
+      }
+    </style>
+    <link rel="stylesheet" href="./styles/styles.css" defer />
 
-    .container-md {
-      margin: 0 auto;
-      padding: 0 20px;
-      max-width: 920px;
-    }
-  </style>
-  <link rel="stylesheet" href="./styles/styles.css" defer />
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container-md">
+        <h1 class="website-title">
+          <a
+            href="/old"
+            class="link-logo"
+            aria-label="omar houmz"
+            role="heading"
+            aria-level="1"
+            >oh</a
+          >
+        </h1>
+        <nav class="navigation dark">
+          <ul>
+            <li><a href="/old" class="active">Home</a></li>
+            <li><a href="./about">About</a></li>
+            <li><a href="./projects">Projects</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <section class="section section-about">
+        <div class="container-sm">
+          <h2 class="section-title" title="About">Hi,</h2>
+          <div class="about">
+            <p>
+              I'm <strong>Omar Houmz</strong>, I'm a software engineer based in
+              Casablanca, Morocco. I work at
+              <a
+                href="https://www.avito.ma/"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="dark p"
+                >Avito.ma</a
+              >
+              as a <strong>front-end engineer</strong>.
+            </p>
+
+            <p>
+              Wanna collaborate? <strong>drop me a line</strong>:
+              <a
+                href="mailto:omarhoumz@gmail.com"
+                target="_blank"
+                rel="noopener noreferer"
+              >
+                omarhoumz@gmail.com
+              </a>
+            </p>
+            <p><a href="./about/">More about me ...</a></p>
+          </div>
+        </div>
+      </section>
+      <section class="section section-projects">
+        <div class="container-sm">
+          <h2 class="section-title">Latest Projects</h2>
+          <ul class="all-projects-list">
+            <li>
+              <a
+                href="https://github.com/omarhoumz/ccp"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="dark"
+                >CC Platform</a
+              >
+              <p>
+                Get free and high res photos from around the web. An agregation
+                of APIs for CC images.
+              </p>
+            </li>
+            <li>
+              <a
+                href="http://www.aiesec.ma/AIESEC/p/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="dark"
+                >Aiesec.ma</a
+              >
+              <p>
+                The official website of the <strong>Mchina</strong> brand of
+                AIESEC in Morocco
+              </p>
+            </li>
+            <li>
+              <p><a href="./projects/">See all projects</a></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container-md">
+        <p class="copy">
+          <small>
+            &copy; <span id="current-year"></span>
+            <a
+              class="dark"
+              href="https://github.com/omarhoumz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Omar Houmz
+            </a>
+          </small>
+        </p>
+        <nav class="navigation">
+          <ul>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/omarhoumz/"
+                target="_blank"
+                rel="noopener noreferer"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/omhoumz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:omarhoumz@gmail.com"
+                target="_blank"
+                rel="noopener noreferer"
+              >
+                Email
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
 
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
-    }
+    let yearSpanDom = document.getElementById('current-year')
+    const currentYear = new Date().getFullYear()
+
+    yearSpanDom.innerText = currentYear
   </script>
-
-</head>
-
-<body>
-  <header class="header">
-    <div class="container-md">
-      <h1 class="website-title">
-        <a href="/" class="link-logo" aria-label="omar houmz" role="heading" aria-level="1">oh</a>
-      </h1>
-      <nav class="navigation dark">
-        <ul>
-          <li><a href="/" class="active">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/projects">Projects</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main class="main">
-    <section class="section section-about">
-      <div class="container-sm">
-        <h2 class="section-title" title="About">Hi,</h2>
-        <div class="about">
-          <p>I'm <strong>Omar Houmz</strong>, I'm a software engineer based in Casablanca, Morocco. I work at <a
-              href="https://www.avito.ma/" rel="noopener noreferrer" target="_blank" class="dark p">Avito.ma</a> as a
-            <strong>front-end engineer</strong>.</p>
-
-          <p>Wanna collaborate? <strong>drop me a
-              line</strong>:
-            <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
-              omarhoumz@gmail.com
-            </a>
-          </p>
-          <p><a href="./about/">More about me ...</a></p>
-        </div>
-      </div>
-    </section>
-    <section class="section section-projects">
-      <div class="container-sm">
-        <h2 class="section-title">Latest Projects</h2>
-        <ul class="all-projects-list">
-          <li>
-            <a href="https://github.com/omarhoumz/ccp" target="_blank" rel="noopener noreferrer" class="dark">CC
-              Platform</a>
-            <p>
-              Get free and high res photos from around the web.
-              An agregation of APIs for CC images.
-            </p>
-          </li>
-          <li>
-            <a href="http://www.aiesec.ma/AIESEC/p/" target="_blank" rel="noopener noreferrer"
-              class="dark">Aiesec.ma</a>
-            <p>
-              The official website of the <strong>Mchina</strong> brand of AIESEC in Morocco
-            </p>
-          </li>
-          <li>
-            <p><a href="./projects/">See all projects</a></p>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="container-md">
-      <p class="copy">
-        <small>
-          &copy; <span id="current-year"></span>
-          <a class="dark" href="https://github.com/omarhoumz" target="_blank" rel="noopener noreferrer">
-            Omar Houmz
-          </a>
-        </small>
-      </p>
-      <nav class="navigation">
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/omarhoumz/" target="_blank" rel="noopener noreferer">
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/omhoumz" target="_blank" rel="noopener noreferrer">
-              Github
-            </a>
-          </li>
-          <li>
-            <a href="mailto:omarhoumz@gmail.com" target="_blank" rel="noopener noreferer">
-              Email
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
-</body>
-
-<script>
-  let yearSpanDom = document.getElementById('current-year');
-  const currentYear = new Date().getFullYear();
-
-  yearSpanDom.innerText = currentYear;
-</script>
-
 </html>
