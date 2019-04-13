@@ -17,20 +17,24 @@ body {
     sans-serif;
 }
 
-body {
+body,
+#___gatsby > div {
   font-size: 16px;
   color: var(--color-dark);
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
 }
 @media (min-width: 767px) {
-  body {
+  body,
+  #___gatsby > div {
     font-size: 18px;
   }
 }
 @media (min-width: 1400px) {
-  body {
+  body,
+  #___gatsby > div {
     font-size: 20px;
   }
 }
