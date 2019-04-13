@@ -4,13 +4,13 @@ import './footer.css'
 
 export const Footer = () => {
   return (
-    <footer class="footer">
-      <div class="container-md">
-        <p class="copy">
+    <footer className="footer">
+      <div className="container-md">
+        <p className="copy">
           <small>
             &copy; <span id="current-year" />
             <a
-              class="dark"
+              className="dark"
               href="https://github.com/omarhoumz"
               target="_blank"
               rel="noopener noreferrer"
@@ -19,13 +19,13 @@ export const Footer = () => {
             </a>
           </small>
         </p>
-        <nav class="navigation">
+        <nav className="navigation">
           <ul>
             <li>
               <a
                 href="https://www.linkedin.com/in/omarhoumz/"
                 target="_blank"
-                rel="noopener noreferer"
+                rel="noopener noreferrer"
               >
                 LinkedIn
               </a>
@@ -43,7 +43,7 @@ export const Footer = () => {
               <a
                 href="mailto:omarhoumz@gmail.com"
                 target="_blank"
-                rel="noopener noreferer"
+                rel="noopener noreferrer"
               >
                 Email
               </a>
