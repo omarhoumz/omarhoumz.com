@@ -7,7 +7,10 @@ export default class Home extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Home"
+          keywords={[`Omar Houmz`, `Omar Houmz website`, `Home`]}
+        />
         <section className="section section-about">
           <div className="container-sm">
             <h2 className="section-title" title="About">

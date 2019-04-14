@@ -7,7 +7,10 @@ export default class Projects extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Projects"
+          keywords={[`Omar Houmz`, `Omar Houmz website`, `Projects`]}
+        />
         <section className="section section-projects">
           <div className="container-sm">
             <ul className="all-projects-list">
