@@ -3,6 +3,22 @@ module.exports = {
     title: `Omar Houmz`,
     description: ``,
     author: `@omarhoumz`,
+    projects: [
+      {
+        title: 'CC Platform',
+        link: 'https://github.com/omarhoumz/ccp',
+        external: true,
+        shortDesc:
+          'Get free and high res photos from around the web. An agregation of APIs for CC images.',
+      },
+      {
+        title: 'Aiesec.ma',
+        link: 'http://www.aiesec.ma/AIESEC/p/',
+        external: true,
+        shortDesc:
+          'The official website of the Mchina brand of AIESEC in Morocco.',
+      },
+    ],
     menuLinks: [
       {
         name: 'Home',
