@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import { Link } from '../link/link'
 
-export const ProjectsList = ({}) => {
+export const ProjectsList = () => {
   return (
     <StaticQuery
       query={graphql`
