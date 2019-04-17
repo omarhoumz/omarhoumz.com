@@ -5,7 +5,7 @@
 .header > .container-md {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
 }
 .header .website-title {
   text-align: center;
@@ -14,9 +14,27 @@
 .header .website-title .link-logo {
   font-size: 2.2rem;
   font-family: 'Circular Std Bold';
-  color: var(--color-primary);
+  color: var(--color-dark);
   display: inline-block;
 }
 .header .website-title .link-logo:hover {
   color: var(--color-secondary);
+}
+
+.header .navigation ul li a,
+.header .navigation ul li,
+.header .navigation ul {
+  height: 100%;
+}
+.header .navigation ul li a {
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 0;
+  margin: 0 0.6rem;
+}
+.header .navigation ul li a.active {
+  border-bottom: 3px solid var(--color-secondary);
 }
