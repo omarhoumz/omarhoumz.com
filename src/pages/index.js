@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import { ProjectsList } from '../components/projects-list/projects-list'
+import { ShortDescription } from '../components/short-description/short-description'
 
 export default class Home extends React.Component {
   render() {
@@ -19,32 +20,9 @@ export default class Home extends React.Component {
               Hi,
             </h2>
             <div className="about">
+              <ShortDescription />
               <p>
-                I'm <strong>Omar Houmz</strong>, I'm a software engineer based
-                in Casablanca, Morocco. I work at{' '}
-                <a
-                  href="https://www.avito.ma/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="dark p"
-                >
-                  Avito.ma
-                </a>{' '}
-                as a <strong>front-end engineer</strong>.
-              </p>
-
-              <p>
-                Wanna collaborate? <strong>drop me a line</strong>:
-                <a
-                  href="mailto:omarhoumz@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  omarhoumz@gmail.com
-                </a>
-              </p>
-              <p>
-                <a href="./about/">More about me ...</a>
+                <Link to="/about">More about me ...</Link>
               </p>
             </div>
           </div>
@@ -52,6 +30,7 @@ export default class Home extends React.Component {
         <section className="section section-projects">
           <div className="container-sm">
             <h2 className="section-title">Latest Projects</h2>
+
             <ProjectsList />
 
             <Link to="/projects">See all projects</Link>
