@@ -1,6 +1,7 @@
 .footer {
   margin-top: 2rem;
-  padding: 1rem 0 2rem 0;
+  padding: 1rem 0;
+  background-color: var(--color-light);
 }
 .footer > div {
   display: flex;
@@ -10,7 +11,7 @@
 }
 .footer .copy,
 .footer .navigation {
-  margin: 0 -0.6rem 0 -0.6rem;
+  margin: 0 -0.6rem;
 }
 .copy {
   padding: 0 0.6rem;

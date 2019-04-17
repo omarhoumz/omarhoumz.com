@@ -36,5 +36,16 @@
   margin: 0 0.6rem;
 }
 .header .navigation ul li a.active {
-  border-bottom: 3px solid var(--color-secondary);
+  position: relative;
+}
+.header .navigation ul li a.active:after {
+  --height: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: var(--height);
+  background-color: var(--color-secondary);
+  border-radius: calc(var(--height) * 2) calc(var(--height) * 2) 0 0;
 }
