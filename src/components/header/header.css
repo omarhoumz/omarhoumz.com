@@ -29,11 +29,34 @@
 .header .navigation ul li a {
   display: flex;
   align-items: center;
-
+  position: relative;
   box-sizing: border-box;
 
   padding: 0;
   margin: 0 0.6rem;
+}
+.header .navigation ul li a:before {
+  content: '';
+
+  --size: 4px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: var(--color-primary);
+
+  opacity: 0;
+  transition: opacity 210ms ease;
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header .navigation ul li a:hover:before {
+  opacity: 1;
+}
+.header .navigation ul li a.active:hover:before {
+  display: none;
 }
 .header .navigation ul li a.active {
   position: relative;
@@ -44,6 +67,7 @@
   display: block;
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: var(--height);
   background-color: var(--color-secondary);
