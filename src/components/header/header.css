@@ -34,42 +34,41 @@
 
   padding: 0;
   margin: 0 0.6rem;
-}
-.header .navigation ul li a:before {
-  content: '';
 
-  --size: 4px;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  background-color: var(--color-primary);
-
-  opacity: 0;
-  transition: opacity 210ms ease;
-
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  --header-nav-color: var(--color-dark);
 }
-.header .navigation ul li a:hover:before {
-  opacity: 1;
-}
-.header .navigation ul li a.active:hover:before {
-  display: none;
+.header .navigation ul li a:hover {
+  --header-nav-color: var(--color-primary);
 }
 .header .navigation ul li a.active {
-  position: relative;
+  --header-nav-color: var(--color-secondary);
 }
-.header .navigation ul li a.active:after {
-  --height: 3px;
+.header .navigation ul li a:after {
+  --height: 4px;
+
   content: '';
   display: block;
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0;
   height: var(--height);
-  background-color: var(--color-secondary);
+  width: var(--height);
+
+  border-radius: 50%;
+  background-color: var(--header-nav-color);
+
+  transition: 250ms ease;
+  transition-property: opacity, width, border-radius;
+}
+.header .navigation ul li a:hover:after {
+  opacity: 1;
+}
+.header .navigation ul li a.active:after {
+  --height: 3px;
   border-radius: calc(var(--height) * 2) calc(var(--height) * 2) 0 0;
+  width: 100%;
+  opacity: 1;
 }
