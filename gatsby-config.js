@@ -5,14 +5,14 @@ module.exports = {
     author: `@omarhoumz`,
     projects: [
       {
-        title: 'CC Platform',
+        title: 'CC Platform.',
         link: 'https://github.com/omarhoumz/ccp',
         external: true,
         shortDesc:
           'Get free and high res photos from around the web. An agregation of APIs for CC images.',
       },
       {
-        title: 'Aiesec.ma',
+        title: 'Aiesec.ma.',
         link: 'http://www.aiesec.ma/AIESEC/p/',
         external: true,
         shortDesc:
