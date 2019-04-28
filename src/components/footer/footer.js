@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Link } from '../link/link'
 import './footer.css'
 
 export const Footer = () => {
@@ -10,44 +11,23 @@ export const Footer = () => {
         <p className="copy">
           <small>
             &copy; <span id="current-year">{currentYear}</span>
-            <a
-              className="dark"
-              href="https://github.com/omarhoumz"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="https://github.com/omarhoumz" className="dark">
               Omar Houmz
-            </a>
+            </Link>
           </small>
         </p>
         <nav className="navigation">
           <ul>
             <li>
-              <a
-                href="https://www.linkedin.com/in/omarhoumz/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="https://www.linkedin.com/in/omarhoumz/">
                 LinkedIn
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="https://github.com/omhoumz"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Github
-              </a>
+              <Link href="https://github.com/omhoumz">Github</Link>
             </li>
             <li>
-              <a
-                href="mailto:omarhoumz@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Email
-              </a>
+              <Link href="mailto:omarhoumz@gmail.com">Email</Link>
             </li>
           </ul>
         </nav>

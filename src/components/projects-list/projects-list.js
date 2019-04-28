@@ -28,7 +28,7 @@ export const ProjectsList = () => {
           <ul className="all-projects-list">
             {allProjectsData.map(project => (
               <li key={project.title}>
-                <Link href={project.link} target="_blank" className="dark">
+                <Link href={project.link} className="dark">
                   {project.title}
                 </Link>
                 <p>{project.shortDesc}</p>
