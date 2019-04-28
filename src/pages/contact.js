@@ -10,7 +10,7 @@ export default class Contact extends React.Component {
       <Layout>
         <SEO
           title="Contact"
-          keywords={[`Omar Houmz`, `Omar Houmz website`, `About`]}
+          keywords={[`Omar Houmz`, `Contact`, `Contact Omar Houmz`]}
         />
         <section className="section section-contact">
           <div className="container-md">
