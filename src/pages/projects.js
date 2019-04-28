@@ -13,7 +13,7 @@ export default class Projects extends React.Component {
           keywords={[`Omar Houmz`, `Omar Houmz website`, `Projects`]}
         />
         <section className="section section-projects">
-          <div className="container-sm">
+          <div className="container-md">
             <ProjectsList />
           </div>
         </section>

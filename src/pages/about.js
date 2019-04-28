@@ -12,12 +12,10 @@ export default class About extends React.Component {
           title="About"
           keywords={[`Omar Houmz`, `Omar Houmz website`, `About`]}
         />
-        <section class="section section-about">
-          <div class="container-sm">
-            <h2 class="section-title" hidden aria-hidden="false">
-              About
-            </h2>
-            <div class="about">
+        <section className="section section-about">
+          <div className="container-md">
+            <h2 className="section-title">About me</h2>
+            <div className="about">
               <Description />
             </div>
           </div>

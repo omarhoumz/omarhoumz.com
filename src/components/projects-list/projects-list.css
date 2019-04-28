@@ -2,7 +2,7 @@
   list-style: none;
   padding-left: 0;
 }
-.all-projects-list li {
+.all-projects-list li:not(:first-child) {
   margin-top: 2rem;
 }
 .all-projects-list li p {

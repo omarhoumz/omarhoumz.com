@@ -14,11 +14,9 @@ export default class Home extends React.Component {
           title="Home"
           keywords={[`Omar Houmz`, `Omar Houmz website`, `Home`]}
         />
-        <section className="section section-about">
-          <div className="container-sm">
-            <h2 className="section-title" title="About">
-              Hi,
-            </h2>
+        <section className="section section-home-about">
+          <div className="container-md">
+            <h2 className="section-title">Hi,</h2>
             <div className="about">
               <ShortDescription />
               <p>
@@ -27,8 +25,8 @@ export default class Home extends React.Component {
             </div>
           </div>
         </section>
-        <section className="section section-projects">
-          <div className="container-sm">
+        <section className="section section-home-projects">
+          <div className="container-md">
             <h2 className="section-title">Latest Projects</h2>
 
             <ProjectsList />
