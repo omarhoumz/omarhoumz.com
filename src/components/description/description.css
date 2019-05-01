@@ -1,7 +1,7 @@
 .p {
   max-width: 54ch;
 }
-.about {
+.short-about {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1rem;
@@ -9,19 +9,19 @@
   align-items: center;
   margin: 24px 0 32px;
 }
-.about p {
+.short-about p {
   margin: 0 0 24px 0;
 }
-.about img {
+.short-about img {
   height: 70px;
 }
 
 @media (min-width: 767px) {
-  .about {
+  .short-about {
     grid-template-columns: 90px 54ch;
     grid-gap: 2rem 1rem;
   }
-  .about p {
+  .short-about p {
     margin: 0;
   }
 }

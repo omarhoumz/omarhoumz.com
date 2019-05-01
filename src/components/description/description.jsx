@@ -9,7 +9,7 @@ import './description.css'
 
 export const Description = () => {
   return (
-    <div className="about">
+    <div className="short-about">
       <img src={jobIcon} alt="Omar Houmz's job" />
       <p className="p">
         I'm <strong>Omar Houmz</strong>, I'm a software engineer based in
