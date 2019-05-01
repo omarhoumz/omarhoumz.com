@@ -15,9 +15,7 @@ export default class About extends React.Component {
         <section className="section section-about">
           <div className="container-md">
             <h2 className="section-title">About me</h2>
-            <div className="about">
-              <Description />
-            </div>
+            <Description />
           </div>
         </section>
       </Layout>
