@@ -31,7 +31,7 @@ export const ProjectsList = () => {
                 <Link href={project.link} className="dark">
                   {project.title}
                 </Link>
-                <p>{project.shortDesc}</p>
+                <p className="p">{project.shortDesc}</p>
               </li>
             ))}
           </ul>

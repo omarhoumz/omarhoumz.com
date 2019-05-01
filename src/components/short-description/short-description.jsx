@@ -1,23 +1,20 @@
 import React from 'react'
 
+import { Link } from '../link/link'
+
 export const ShortDescription = () => {
   return (
     <React.Fragment>
-      <p>
+      <p className="p">
         I'm <strong>Omar Houmz</strong>, I'm a software engineer based in
         Casablanca, Morocco. I work at{' '}
-        <a
-          href="https://www.avito.ma/"
-          rel="noopener noreferrer"
-          target="_blank"
-          className="dark p"
-        >
+        <Link href="https://www.avito.ma/" className="dark inline">
           Avito.ma
-        </a>{' '}
+        </Link>{' '}
         as a <strong>front-end engineer</strong>.
       </p>
 
-      <p>
+      <p className="p">
         Wanna collaborate? <strong>drop me a line</strong>:{' '}
         <a
           href="mailto:omarhoumz@gmail.com"
