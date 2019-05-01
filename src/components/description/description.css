@@ -13,6 +13,9 @@
   .about {
     grid-template-columns: 90px 54ch;
   }
+  .about p {
+    margin: 0;
+  }
 }
 .about p {
   margin: 0 0 24px 0;
