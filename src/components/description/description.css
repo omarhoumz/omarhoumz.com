@@ -7,16 +7,21 @@
   grid-gap: 1rem;
   justify-items: start;
   align-items: center;
-  margin: 32px 0 24px;
-}
-@media (min-width: 767px) {
-  .about {
-    grid-template-columns: 90px 54ch;
-  }
+  margin: 24px 0 32px;
 }
 .about p {
   margin: 0 0 24px 0;
 }
 .about img {
   height: 70px;
+}
+
+@media (min-width: 767px) {
+  .about {
+    grid-template-columns: 90px 54ch;
+    grid-gap: 2rem 1rem;
+  }
+  .about p {
+    margin: 0;
+  }
 }
