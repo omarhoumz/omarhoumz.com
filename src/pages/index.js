@@ -29,7 +29,7 @@ export default class Home extends React.Component {
           <div className="container-md">
             <h2 className="section-title">Latest Projects</h2>
 
-            <ProjectsList />
+            <ProjectsList latest />
 
             <Link to="/projects">See all projects</Link>
           </div>

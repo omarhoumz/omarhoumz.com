@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Link } from '../link/link'
 import './projects-list.css'
 
-export const ProjectsList = () => {
+export const ProjectsList = ({ latest }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -22,11 +22,14 @@ export const ProjectsList = () => {
         }
       `}
       render={data => {
-        const allProjectsData = data.site.siteMetadata.projects
+        const allProjectsData = [...data.site.siteMetadata.projects]
+        const latestProjectsData = [...allProjectsData].splice(0, 2)
+
+        const projectsToRender = latest ? latestProjectsData : allProjectsData
 
         return (
           <ul className="all-projects-list">
-            {allProjectsData.map(project => (
+            {projectsToRender.map(project => (
               <li key={project.title}>
                 <Link href={project.link} className="dark">
                   {project.title}
