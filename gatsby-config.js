@@ -5,6 +5,12 @@ module.exports = {
     author: `@omarhoumz`,
     projects: [
       {
+        title: 'LineApp.',
+        link: 'https://github.com/omhoumz/lineapp',
+        external: true,
+        shortDesc: 'Yet another to do app that uses Firebase Auth.',
+      },
+      {
         title: 'CC Platform.',
         link: 'https://github.com/omarhoumz/ccp',
         external: true,
