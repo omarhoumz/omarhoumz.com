@@ -18,19 +18,8 @@ body {
   font-family: 'Circular Std Book', Roboto, 'Helvetica Neue', Arial, Helvetica,
     sans-serif;
 }
-#___gatsby {
-  --border-width: 10px;
-  min-height: calc(100vh - calc(var(--border-width) * 2));
-  background-image: linear-gradient(
-    to bottom right,
-    var(--color-primary),
-    var(--color-secondary)
-  );
-  padding: var(--border-width);
-}
 #___gatsby > div {
-  min-height: calc(100vh - calc(var(--border-width) * 2));
-  overflow-x: scroll;
+  min-height: 100vh;
   background-color: white;
 }
 
@@ -120,6 +109,7 @@ a.dark:hover {
 
 .main {
   flex-grow: 1;
+  padding: 3rem 0;
 }
 .section a {
   padding-left: 0;
@@ -131,7 +121,7 @@ a.dark:hover {
   margin-top: 0;
 }
 
-.section {
+.section:not(:first-child) {
   margin-top: 3rem;
 }
 
