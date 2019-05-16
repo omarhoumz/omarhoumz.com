@@ -26,7 +26,7 @@
 }
 .header .website-title .link-logo {
   font-size: 2.2rem;
-  font-family: 'Circular Std Bold';
+  font-weight: bold;
   color: var(--color-dark);
   display: inline-block;
 }
