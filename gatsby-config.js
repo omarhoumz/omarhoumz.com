@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Omar Houmz`,
-    description: ``,
-    author: `@omarhoumz`,
+    title: 'Omar Houmz',
+    description: '',
+    author: '@omarhoumz',
     projects: [
       {
         title: 'LineApp.',
@@ -45,36 +45,37 @@ module.exports = {
     ],
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Omar Houmz on the web`,
-        short_name: `Omar Houmz`,
-        start_url: `/`,
-        background_color: `#0f0a84`,
-        theme_color: `#0f0a84`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        name: 'Omar Houmz on the web',
+        short_name: 'Omar Houmz',
+        start_url: '/',
+        background_color: '#0f0a84',
+        theme_color: '#0f0a84',
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-35979647-3',
       },
     },
+    'gatsby-plugin-eslint',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    'gatsby-plugin-offline',
   ],
 }

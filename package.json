@@ -20,6 +20,15 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "gatsby-plugin-eslint": "^2.0.5",
     "prettier": "^1.16.4"
   },
   "keywords": [
@@ -34,7 +43,9 @@
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "lint": "eslint --ext .js,.jsx src/components/** src/pages/**",
+    "lint:fix": "eslint --ext .js,.jsx src/components/** src/pages/** --fix"
   },
   "repository": {
     "type": "git",
