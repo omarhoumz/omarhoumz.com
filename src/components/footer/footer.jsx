@@ -1,16 +1,17 @@
 import React from 'react'
 
-import { Link } from '../link/link'
+import Link from '../link/link'
 import './footer.css'
 
-export const Footer = () => {
+const Footer = () => {
   const currentYear = new Date().getFullYear()
   return (
     <footer className="footer">
       <div className="container-md">
         <p className="copy">
           <small>
-            &copy; <span id="current-year">{currentYear}</span>
+            &copy;
+            <span id="current-year">{currentYear}</span>
             <Link href="https://github.com/omarhoumz" className="dark">
               Omar Houmz
             </Link>
@@ -35,3 +36,5 @@ export const Footer = () => {
     </footer>
   )
 }
+
+export default Footer

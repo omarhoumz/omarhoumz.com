@@ -3,16 +3,16 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
-import { ProjectsList } from '../components/projects-list/projects-list'
-import { ShortDescription } from '../components/short-description/short-description'
+import ProjectsList from '../components/projects-list/projects-list'
+import ShortDescription from '../components/short-description/short-description'
 
-export default class Home extends React.Component {
+export default class Home extends React.PureComponent {
   render() {
     return (
       <Layout>
         <SEO
           title="Home"
-          keywords={[`Omar Houmz`, `Omar Houmz website`, `Home`]}
+          keywords={['Omar Houmz', 'Omar Houmz website', 'Home']}
         />
         <section className="section section-home-about">
           <div className="container-md">
@@ -29,7 +29,7 @@ export default class Home extends React.Component {
           <div className="container-md">
             <h2 className="section-title">Latest Projects</h2>
 
-            <ProjectsList latest />
+            <ProjectsList latestOnly />
 
             <Link to="/projects">See all projects</Link>
           </div>
