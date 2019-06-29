@@ -6,22 +6,35 @@
   grid-template-columns: 1fr;
   grid-gap: 1rem;
   justify-items: start;
-  align-items: center;
+  align-items: flex-start;
   margin: 24px 0 32px;
 }
 .short-about p {
   margin: 0 0 24px 0;
+  color: #666666;
+  max-width: 54ch;
+}
+.short-about h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
 }
 .short-about img {
-  height: 70px;
+  height: 45px;
+  margin-top: 0.2rem;
+}
+
+@media (min-width: 576px) {
+  .short-about {
+    grid-template-columns: max-content 1fr;
+    grid-gap: 3rem 2rem;
+  }
+  .short-about p {
+    margin: 0;
+  }
 }
 
 @media (min-width: 767px) {
   .short-about {
-    grid-template-columns: 90px 54ch;
-    grid-gap: 2rem 1rem;
-  }
-  .short-about p {
-    margin: 0;
+    grid-template-columns: repeat(2, max-content 1fr);
   }
 }
