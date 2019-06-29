@@ -51,8 +51,9 @@ a {
   transition: color var(--transition);
 }
 a.inline {
-  padding: 2px;
+  padding: 0px;
   text-decoration: underline;
+  color: inherit;
 }
 a.dark {
   color: var(--color-dark);
