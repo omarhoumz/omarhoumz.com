@@ -1,15 +1,19 @@
 {
   "extends": "airbnb",
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": [
-      "error"
-    ],
-    "semi": [
+    "semi": ["error", "never"],
+    "object-property-newlin": {
+      "allowAllPropertiesOnSameLine": false
+    },
+    "object-curly-newline": [
       "error",
-      "never"
+      {
+        "ObjectExpression": "always",
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }
     ]
   }
 }
