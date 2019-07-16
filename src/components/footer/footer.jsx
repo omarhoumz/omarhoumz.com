@@ -10,10 +10,10 @@ const Footer = () => {
       <div className="container-md">
         <p className="copy">
           <small>
-            &copy;
+            &copy; (not really)&nbsp;
             <span id="current-year">{currentYear}</span>
-            <Link href="https://github.com/omarhoumz" className="dark">
-              Omar Houmz
+            <Link href="https://github.com/omarhoumz/omarhoumz.github.io" className="dark">
+              by Omar Houmz
             </Link>
           </small>
         </p>
