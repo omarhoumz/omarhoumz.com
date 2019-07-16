@@ -1,6 +1,9 @@
-# omarhoumz.github.io
+# omarhoumz.com
 
-Source code for the site https://omarhoumz.github.io
+https://omarhoumz.com
+
+Source code for the site moved to https://github.com/omhoumz/omarhoumz.github.io
+
 
 - Name: **Omar Houmz**
 - Message & Follow me: **[@omarhoumz](https://twitter.com/omarhoumz "Omar Houmz's twitter")**
