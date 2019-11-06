@@ -80,19 +80,19 @@ a.dark:hover {
   display: block;
   color: var(--color-secondary);
 }
-.navigation.dark ul li a {
+.navigation.dark a , .navigation.dark ul li a {
   color: var(--color-dark);
 }
 .navigation ul li a.active,
 .navigation ul li a.active:hover {
   color: var(--color-dark);
 }
-.navigation.dark ul li a.active,
-.navigation.dark ul li a.active:hover {
+.navigation.dark a.active, .navigation.dark ul li a.active,
+.navigation.dark a.active:hover , .navigation.dark ul li a.active:hover {
   color: var(--color-secondary);
 }
 .navigation ul li a:hover,
-.navigation.dark ul li a:hover {
+.navigation.dark a:hover , .navigation.dark ul li a:hover {
   color: var(--color-primary);
 }
 

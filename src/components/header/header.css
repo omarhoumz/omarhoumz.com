@@ -38,36 +38,35 @@
 .header .website-title .link-logo:hover {
   color: var(--color-secondary);
 }
-.header .navigation ul li a,
-.header .navigation ul li,
-.header .navigation ul {
-  height: 100%;
+.header .navigation {
+  display: flex;
+  justify-content: center;
 }
-.header .navigation ul li a {
+.header .navigation a {
   display: flex;
   align-items: center;
   position: relative;
   box-sizing: border-box;
 
   padding: 0;
-  margin: 0 0.6rem;
+  margin: 0 1rem;
 
   font-size: 16px;
 
   --header-nav-color: var(--color-dark);
 }
 @media (max-width: 576px) {
-  .header .navigation ul li a {
-    margin: 0 0.2rem;
+  .header .navigation a {
+    margin: 0 0.6rem;
   }
 }
-.header .navigation ul li a:hover {
+.header .navigation a:hover {
   --header-nav-color: var(--color-primary);
 }
-.header .navigation ul li a.active {
+.header .navigation a.active {
   --header-nav-color: var(--color-secondary);
 }
-.header .navigation ul li a:after {
+.header .navigation a:after {
   --height: 3px;
 
   content: '';
@@ -87,8 +86,8 @@
   transition: 250ms ease;
   transition-property: opacity, width, border-radius;
 }
-.header .navigation ul li a:hover:after,
-.header .navigation ul li a.active:after {
+.header .navigation a:hover:after,
+.header .navigation a.active:after {
   opacity: 1;
   width: 100%;
 }

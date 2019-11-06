@@ -32,15 +32,11 @@ const Header = () => (
             </Link>
           </h1>
           <nav className="navigation dark">
-            <ul>
-              {data.site.siteMetadata.menuLinks.map((menuLink, index) => (
-                <li key={index.toString()}>
-                  <Link to={menuLink.link} activeClassName="active">
-                    {menuLink.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {data.site.siteMetadata.menuLinks.map((menuLink, index) => (
+              <Link to={menuLink.link} activeClassName="active" key={index.toString()}>
+                {menuLink.name}
+              </Link>
+            ))}
           </nav>
         </div>
       </header>
