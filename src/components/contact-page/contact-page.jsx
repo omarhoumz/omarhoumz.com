@@ -4,7 +4,7 @@ import Link from '../link/link'
 import './contact-page.css'
 
 const ContactPage = () => (
-  <React.Fragment>
+  <>
     <h2 className="section-title">Contact</h2>
     <ul className="contact-info">
       <li>
@@ -29,7 +29,7 @@ const ContactPage = () => (
         <Link href="https://www.linkedin.com/in/omarhoumz/">@omarhoumz</Link>
       </li>
     </ul>
-  </React.Fragment>
+  </>
 )
 
 export default ContactPage

@@ -14,6 +14,7 @@ const Link = ({
     children,
     ...otherProps,
   }
+  // eslint-disable-next-line react/jsx-props-no-spreading
   return <a {...anchorProps}>{children}</a>
 }
 

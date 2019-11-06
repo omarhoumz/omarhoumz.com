@@ -3,7 +3,7 @@ import React from 'react'
 import Link from '../link/link'
 
 const ShortDescription = () => (
-  <React.Fragment>
+  <>
     <p className="p">
       <span>I&apos;m</span>
       {' '}
@@ -35,7 +35,7 @@ const ShortDescription = () => (
         omarhoumz@gmail.com
       </a>
     </p>
-  </React.Fragment>
+  </>
 )
 
 export default ShortDescription
