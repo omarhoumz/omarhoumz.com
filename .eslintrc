@@ -3,9 +3,7 @@
   "plugins": ["prettier"],
   "rules": {
     "semi": ["error", "never"],
-    "object-property-newlin": {
-      "allowAllPropertiesOnSameLine": false
-    },
+    "object-property-newline": 2,
     "object-curly-newline": [
       "error",
       {

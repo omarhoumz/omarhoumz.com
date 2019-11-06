@@ -71,18 +71,19 @@ const sections = [
 
 const Description = () => (
   <div className="short-about">
+    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     {sections.map((section, index) => <Section {...section} key={index.toString()} />)}
   </div>
 )
 
 const Section = ({ icon, title, altText, desc }) => (
-  <React.Fragment>
+  <>
     <img src={icon} alt={altText} />
     <div>
       <h3>{title}</h3>
       <p className="p">{desc}</p>
     </div>
-  </React.Fragment>
+  </>
 )
 
 Section.propTypes = {

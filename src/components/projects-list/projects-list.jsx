@@ -29,7 +29,7 @@ const ProjectsList = ({ latestOnly }) => (
 
       return (
         <ul className="all-projects-list">
-          {projectsToRender.map(project => (
+          {projectsToRender.map((project) => (
             <li key={project.title}>
               <Link href={project.link} className="dark">
                 {project.title}

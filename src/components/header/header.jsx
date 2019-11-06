@@ -17,7 +17,7 @@ const Header = () => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <header className="header">
         <div className="container-md">
           <h1 className="website-title">
