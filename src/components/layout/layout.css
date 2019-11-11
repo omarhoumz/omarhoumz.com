@@ -44,24 +44,6 @@ h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
 }
-a {
-  text-decoration: none;
-  color: var(--color-secondary);
-  padding: 0.6rem;
-  transition: color var(--transition);
-}
-a.inline {
-  padding: 0px;
-  text-decoration: underline;
-  color: inherit;
-}
-a.dark {
-  color: var(--color-dark);
-}
-a:hover,
-a.dark:hover {
-  color: var(--color-primary);
-}
 
 .text-sm {
   font-size: smaller;
@@ -80,19 +62,23 @@ a.dark:hover {
   display: block;
   color: var(--color-secondary);
 }
-.navigation.dark a , .navigation.dark ul li a {
+.navigation.dark a,
+.navigation.dark ul li a {
   color: var(--color-dark);
 }
 .navigation ul li a.active,
 .navigation ul li a.active:hover {
   color: var(--color-dark);
 }
-.navigation.dark a.active, .navigation.dark ul li a.active,
-.navigation.dark a.active:hover , .navigation.dark ul li a.active:hover {
+.navigation.dark a.active,
+.navigation.dark ul li a.active,
+.navigation.dark a.active:hover,
+.navigation.dark ul li a.active:hover {
   color: var(--color-secondary);
 }
 .navigation ul li a:hover,
-.navigation.dark a:hover , .navigation.dark ul li a:hover {
+.navigation.dark a:hover,
+.navigation.dark ul li a:hover {
   color: var(--color-primary);
 }
 

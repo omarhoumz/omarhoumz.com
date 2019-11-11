@@ -1,0 +1,20 @@
+.link {
+  text-decoration: none;
+  color: var(--color-secondary);
+  padding: 0.6rem;
+  transition: color var(--transition);
+}
+
+.link.inline {
+  padding: 0px;
+  text-decoration: underline;
+  color: inherit;
+}
+
+.link.dark {
+  color: var(--color-dark);
+}
+.link:hover,
+.link.dark:hover {
+  color: var(--color-primary);
+}
