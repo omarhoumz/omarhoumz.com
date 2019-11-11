@@ -6,18 +6,18 @@ const ShortDescription = () => (
   <>
     <p className="p">
       <span>I&apos;m</span>
-      {' '}
+      &nbsp;
       <strong>Omar Houmz</strong>
       <span>
         , I&apos;m a software engineer based in Casablanca, Morocco. I work at
       </span>
-      {' '}
-      <Link href="https://www.avito.ma/" className="dark inline">
+      &nbsp;
+      <Link href="https://www.avito.ma/" variant="dark" inline>
         Avito.ma
       </Link>
-      {' '}
+      &nbsp;
       <span>as a</span>
-      {' '}
+      &nbsp;
       <strong>front-end engineer</strong>
       <span>.</span>
     </p>
@@ -26,14 +26,10 @@ const ShortDescription = () => (
       Wanna collaborate?
       <strong> drop me a line</strong>
       <span>:</span>
-      {' '}
-      <a
-        href="mailto:omarhoumz@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      &nbsp;
+      <Link href="mailto:omarhoumz@gmail.com" target="_blank">
         omarhoumz@gmail.com
-      </a>
+      </Link>
     </p>
   </>
 )
