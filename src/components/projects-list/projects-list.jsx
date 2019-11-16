@@ -1,25 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 
+import projectsList from './projects.queries'
 import Link from '../link/link'
 import './projects-list.css'
 
 const ProjectsList = ({ latestOnly }) => {
-  const data = useStaticQuery(graphql`
-    query ProjectList {
-      site {
-        siteMetadata {
-          projects {
-            title
-            link
-            external
-            shortDesc
-          }
-        }
-      }
-    }
-  `)
+  const data = projectsList()
 
   const allProjectsData = [...data.site.siteMetadata.projects]
   const latestProjectsData = [...allProjectsData].splice(0, 2)

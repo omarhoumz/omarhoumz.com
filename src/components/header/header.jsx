@@ -1,13 +1,11 @@
 import React from 'react'
 
-import { useStaticQuery } from 'gatsby'
-
-import MENU_LINKS_QUERY from './header.queries'
+import menuLinks from './header.queries'
 import Link from '../link/link'
 import './header.css'
 
 const Header = () => {
-  const { site } = useStaticQuery(MENU_LINKS_QUERY)
+  const { site } = menuLinks()
 
   return (
     <header className="header">
