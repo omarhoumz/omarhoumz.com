@@ -27,7 +27,7 @@ const ShortDescription = () => (
       <strong> drop me a line</strong>
       <span>:</span>
       &nbsp;
-      <Link href="mailto:omarhoumz@gmail.com" target="_blank">
+      <Link href="mailto:omarhoumz@gmail.com" target="_blank" inline>
         omarhoumz@gmail.com
       </Link>
     </p>

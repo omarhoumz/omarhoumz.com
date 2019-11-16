@@ -13,6 +13,7 @@ const Link = ({
   className,
   variant,
   inline,
+  btnStyle,
   ...otherProps
 }) => {
   const anchorProps = {
@@ -21,6 +22,7 @@ const Link = ({
       {
         [styles.dark]: variant === 'dark',
         [styles.inline]: inline,
+        [styles.btnStyle]: btnStyle,
       },
       className,
     ),
@@ -53,6 +55,7 @@ Link.defaultProps = {
   className: '',
   variant: 'default',
   inline: false,
+  btnStyle: false,
 }
 
 Link.propTypes = {
@@ -63,6 +66,7 @@ Link.propTypes = {
   className: PropTypes.string,
   variant: PropTypes.oneOf(['default', 'dark']),
   inline: PropTypes.bool,
+  btnStyle: PropTypes.bool,
 }
 
 export default Link
