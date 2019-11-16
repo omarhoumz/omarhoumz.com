@@ -1,26 +1,30 @@
 module.exports = {
   siteMetadata: {
     title: 'Omar Houmz',
-    description: 'This is the personal website of Omar Houmz, a Software Engineer.',
+    description:
+      'This is the personal website of Omar Houmz, a Software Engineer.',
     author: '@omarhoumz',
     projects: [
       {
         title: 'devfest.gdgcasablanca.com',
         link: 'https://devfest.gdgcasablanca.com/',
         external: true,
-        shortDesc: 'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the site with gatsby, reactjs and meetup API.',
+        shortDesc:
+          'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the site with gatsby, reactjs and meetup API.',
       },
       {
         title: 'wtm.gdgcasablanca.com',
         link: 'https://wtm.gdgcasablanca.com/',
         external: true,
-        shortDesc: 'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. I created the site with HTML, CSS and a bit of JS.',
+        shortDesc:
+          'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. I created the site with HTML, CSS and a bit of JS.',
       },
       {
         title: 'gdgcasablanca.com',
         link: 'https://gdgcasablanca.com/',
         external: true,
-        shortDesc: 'GDG Casablanca is a local dev community. I created the site with gatsby, reactjs and meetup API.',
+        shortDesc:
+          'GDG Casablanca is a local dev community. I created the site with gatsby, reactjs and meetup API.',
       },
       {
         title: 'LineApp.',
@@ -49,12 +53,12 @@ module.exports = {
         link: '/',
       },
       {
-        name: 'About',
-        link: '/about',
-      },
-      {
         name: 'Projects',
         link: '/projects',
+      },
+      {
+        name: 'About',
+        link: '/about',
       },
       {
         name: 'Contact',
