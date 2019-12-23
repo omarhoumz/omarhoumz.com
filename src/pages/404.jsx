@@ -19,7 +19,7 @@ const NotFoundPage = () => (
       <p
         style={{
           fontSize: '1.5rem',
-          color: 'color: var(--color-primary, #0f0a84);',
+          color: 'color: var(--color-primary, #0f0a84)',
         }}
       >
         You just found a page that doesn&#39;t exist...
