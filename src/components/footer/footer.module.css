@@ -8,8 +8,7 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.footer .copy,
-.footer .navigation {
+.footer .copy {
   margin: 0 -0.6rem;
 }
 .copy {
