@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Link from '../link/link'
-import './contact-page.css'
+import styles from './contact-page.module.css'
+import Section from '../_ui/section/section'
 
 const ContactPage = () => (
-  <>
-    <h2 className="section-title">Contact</h2>
-    <ul className="contact-info">
+  <Section title="Contact">
+    <ul className={styles.contactInfo}>
       <li>
         <span>Through email:</span>
         <ul>
@@ -29,7 +29,7 @@ const ContactPage = () => (
         <Link href="https://www.linkedin.com/in/omarhoumz/">@omarhoumz</Link>
       </li>
     </ul>
-  </>
+  </Section>
 )
 
 export default ContactPage
