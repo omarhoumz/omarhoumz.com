@@ -18,6 +18,7 @@ const Header = () => {
             aria-label='Omar Houmz'
             role='heading'
             aria-level='1'
+            internal
           >
             oh
           </Link>
