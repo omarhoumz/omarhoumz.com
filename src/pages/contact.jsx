@@ -3,6 +3,7 @@ import React from 'react'
 import Layout from '../components/layout/layout'
 import ContactPage from '../components/contact-page/contact-page'
 import SEO from '../components/seo'
+import Section from '../components/_ui/section/section'
 
 export default React.memo(() => (
   <Layout>
@@ -10,10 +11,13 @@ export default React.memo(() => (
       title="Contact"
       keywords={['Omar Houmz', 'Contact', 'Contact Omar Houmz']}
     />
-    <section className="section section-contact">
-      <div className="container-md">
-        <ContactPage />
-      </div>
-    </section>
+    <Section
+      title="Contact"
+      classes={{
+        inner: 'container-md',
+      }}
+    >
+      <ContactPage />
+    </Section>
   </Layout>
 ))
