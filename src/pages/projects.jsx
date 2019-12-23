@@ -8,11 +8,11 @@ import Section from '../components/_ui/section/section'
 export default React.memo(() => (
   <Layout>
     <SEO
-      title="Projects"
+      title='Projects'
       keywords={['Omar Houmz', 'Omar Houmz website', 'Projects']}
     />
     <Section
-      title="All Projects"
+      title='All Projects'
       classes={{
         inner: 'container-md',
       }}

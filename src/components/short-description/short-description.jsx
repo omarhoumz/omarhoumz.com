@@ -4,7 +4,7 @@ import Link from '../link/link'
 
 const ShortDescription = () => (
   <>
-    <p className="p">
+    <p className='p'>
       <span>I&apos;m</span>
       &nbsp;
       <strong>Omar Houmz</strong>
@@ -12,7 +12,7 @@ const ShortDescription = () => (
         , I&apos;m a software engineer based in Casablanca, Morocco. I work at
       </span>
       &nbsp;
-      <Link href="https://www.avito.ma/" variant="dark" inline>
+      <Link href='https://www.avito.ma/' variant='dark' inline>
         Avito.ma
       </Link>
       &nbsp;
@@ -22,12 +22,12 @@ const ShortDescription = () => (
       <span>.</span>
     </p>
 
-    <p className="p">
+    <p className='p'>
       Wanna collaborate?
       <strong> drop me a line</strong>
       <span>:</span>
       &nbsp;
-      <Link href="mailto:omarhoumz@gmail.com" target="_blank" inline>
+      <Link href='mailto:omarhoumz@gmail.com' target='_blank' inline>
         omarhoumz@gmail.com
       </Link>
     </p>

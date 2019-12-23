@@ -6,8 +6,8 @@ import Link from '../components/link/link'
 
 const NotFoundPage = () => (
   <Layout>
-    <div className="container-md">
-      <SEO title="404: Not found" />
+    <div className='container-md'>
+      <SEO title='404: Not found' />
       <h1
         style={{
           fontSize: '1rem',
@@ -28,13 +28,13 @@ const NotFoundPage = () => (
       </p>
       <p>
         If you think this page should exist,&nbsp;
-        <Link href="/contact" internal btnStyle>
+        <Link href='/contact' internal btnStyle>
           Contact me
         </Link>
       </p>
       <p>
         Or, just go&nbsp;
-        <Link href="/" internal btnStyle>
+        <Link href='/' internal btnStyle>
           Home
         </Link>
       </p>

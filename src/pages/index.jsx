@@ -9,28 +9,28 @@ import Section from '../components/_ui/section/section'
 
 const Home = () => (
   <Layout>
-    <SEO title="Home" keywords={['Omar Houmz', 'Omar Houmz website', 'Home']} />
+    <SEO title='Home' keywords={['Omar Houmz', 'Omar Houmz website', 'Home']} />
     <Section
-      title="Hi,"
+      title='Hi,'
       classes={{
         inner: 'container-md',
       }}
     >
       <ShortDescription />
 
-      <Link href="/about" internal btnStyle>
+      <Link href='/about' internal btnStyle>
         More about me ...
       </Link>
     </Section>
     <Section
-      title="Latest Projects"
+      title='Latest Projects'
       classes={{
         inner: 'container-md',
       }}
     >
       <ProjectsList latestOnly />
 
-      <Link href="/projects" internal btnStyle>
+      <Link href='/projects' internal btnStyle>
         See all projects
       </Link>
     </Section>

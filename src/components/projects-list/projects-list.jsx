@@ -14,13 +14,13 @@ const ProjectsList = ({ latestOnly }) => {
   const projectsToRender = latestOnly ? latestProjectsData : allProjectsData
 
   return (
-    <ul className="all-projects-list">
+    <ul className='all-projects-list'>
       {projectsToRender.map(({ title, link, shortDesc }) => (
         <li key={title}>
-          <Link href={link} target="_blank" variant="dark" inline>
+          <Link href={link} target='_blank' variant='dark' inline>
             {title}
           </Link>
-          <p className="p">{shortDesc}</p>
+          <p className='p'>{shortDesc}</p>
         </li>
       ))}
     </ul>

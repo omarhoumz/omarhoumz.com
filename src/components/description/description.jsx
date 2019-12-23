@@ -17,7 +17,7 @@ const sections = [
       <>
         I&apos;m Omar Houmz, I&apos;m a software engineer based in Casablanca,
         Morocco. I work at&nbsp;
-        <Link href="https://www.avito.ma/" target="_blank" inline>
+        <Link href='https://www.avito.ma/' target='_blank' inline>
           Avito.ma
         </Link>
         &nbsp;as a front-end engineer.
@@ -40,8 +40,8 @@ const sections = [
         I&apos;m actively helping my dev community to get better through events
         and conferences at &nbsp;
         <Link
-          href="https://www.meetup.com/GDGCasablanca/"
-          target="_blank"
+          href='https://www.meetup.com/GDGCasablanca/'
+          target='_blank'
           inline
         >
           GDG Casablanca
@@ -58,7 +58,7 @@ const sections = [
       <>
         If you want to help, or know someone that can support the work we do in
         our community, drop me a line:&nbsp;
-        <Link href="mailto:omarhoumz@gmail.com" target="_blank" inline>
+        <Link href='mailto:omarhoumz@gmail.com' target='_blank' inline>
           omarhoumz@gmail.com
         </Link>
       </>
@@ -67,7 +67,7 @@ const sections = [
 ]
 
 const Description = () => (
-  <div className="short-about">
+  <div className='short-about'>
     {sections.map(({ icon, title, altText, desc }, index) => (
       <Section
         icon={icon}
@@ -85,7 +85,7 @@ const Section = ({ icon, title, altText, desc }) => (
     <img src={icon} alt={altText} />
     <div>
       <h3>{title}</h3>
-      <p className="p">{desc}</p>
+      <p className='p'>{desc}</p>
     </div>
   </>
 )
