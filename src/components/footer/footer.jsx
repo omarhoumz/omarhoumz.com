@@ -12,25 +12,18 @@ const Footer = () => {
           <small>
             &copy; (not really)&nbsp;
             <span id="current-year">{currentYear}</span>
-            <Link href="https://github.com/omarhoumz/omarhoumz.github.io" className="dark">
+            <Link
+              href="https://github.com/omarhoumz/omarhoumz.github.io"
+              variant="dark"
+            >
               by Omar Houmz
             </Link>
           </small>
         </p>
         <nav className="navigation">
-          <ul>
-            <li>
-              <Link href="https://www.linkedin.com/in/omarhoumz/">
-                LinkedIn
-              </Link>
-            </li>
-            <li>
-              <Link href="https://github.com/omhoumz">Github</Link>
-            </li>
-            <li>
-              <Link href="mailto:omarhoumz@gmail.com">Email</Link>
-            </li>
-          </ul>
+          <Link href="https://www.linkedin.com/in/omarhoumz/">LinkedIn</Link>
+          <Link href="https://github.com/omhoumz">Github</Link>
+          <Link href="mailto:omarhoumz@gmail.com">Email</Link>
         </nav>
       </div>
     </footer>

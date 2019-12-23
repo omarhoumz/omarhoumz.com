@@ -17,7 +17,7 @@ const ProjectsList = ({ latestOnly }) => {
     <ul className="all-projects-list">
       {projectsToRender.map(({ title, link, shortDesc }) => (
         <li key={title}>
-          <Link href={link} target="_blank" variant="dark">
+          <Link href={link} target="_blank" variant="dark" inline>
             {title}
           </Link>
           <p className="p">{shortDesc}</p>

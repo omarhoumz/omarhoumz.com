@@ -15,14 +15,12 @@ const sections = [
     altText: "Omar Houmz's job",
     desc: (
       <>
-        I&apos;m Omar Houmz, I&apos;m a software engineer based in
-        Casablanca, Morocco. I work at
-        {' '}
-        <Link href="https://www.avito.ma/" className="inline">
+        I&apos;m Omar Houmz, I&apos;m a software engineer based in Casablanca,
+        Morocco. I work at&nbsp;
+        <Link href="https://www.avito.ma/" target="_blank" inline>
           Avito.ma
         </Link>
-        {' '}
-        as a front-end engineer.
+        &nbsp;as a front-end engineer.
       </>
     ),
   },
@@ -30,12 +28,8 @@ const sections = [
     icon: eduIcon,
     title: 'Education',
     altText: "Omar Houmz's Education",
-    desc: (
-      <>
-        I studied a lot of disciplines in computer and data sciences. But I always
-        liked front-end development and I still do.
-      </>
-    ),
+    desc:
+      'I studied a lot of disciplines in computer and data sciences. But I always liked front-end development and I still do.',
   },
   {
     icon: communityIcon,
@@ -44,12 +38,14 @@ const sections = [
     desc: (
       <>
         I&apos;m actively helping my dev community to get better through events
-        and conferences at
-        {' '}
-        <Link href="https://www.meetup.com/GDGCasablanca/" className="inline">
+        and conferences at &nbsp;
+        <Link
+          href="https://www.meetup.com/GDGCasablanca/"
+          target="_blank"
+          inline
+        >
           GDG Casablanca
         </Link>
-        {' '}
         .
       </>
     ),
@@ -61,9 +57,10 @@ const sections = [
     desc: (
       <>
         If you want to help, or know someone that can support the work we do in
-        our community, drop me a line:
-        {' '}
-        <Link href="mailto:omarhoumz@gmail.com">omarhoumz@gmail.com</Link>
+        our community, drop me a line:&nbsp;
+        <Link href="mailto:omarhoumz@gmail.com" target="_blank" inline>
+          omarhoumz@gmail.com
+        </Link>
       </>
     ),
   },
@@ -71,8 +68,15 @@ const sections = [
 
 const Description = () => (
   <div className="short-about">
-    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-    {sections.map((section, index) => <Section {...section} key={index.toString()} />)}
+    {sections.map(({ icon, title, altText, desc }, index) => (
+      <Section
+        icon={icon}
+        title={title}
+        altText={altText}
+        desc={desc}
+        key={index.toString()}
+      />
+    ))}
   </div>
 )
 

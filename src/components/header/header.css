@@ -4,33 +4,28 @@
 .header > .container-md {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: baseline;
+  line-height: 60px;
+  padding-top: 8px;
 }
+
 @media (max-width: 576px) {
-  .header > .container-md {
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .header > .container-md > * {
-    height: 60px;
-  }
   .header > .container-md > .navigation {
-    height: 60px;
     text-align: center;
   }
 }
 .header .website-title {
   text-align: center;
   margin: 0;
+  line-height: 1;
 }
 .header .website-title .link-logo {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   display: inline-block;
 }
 @media (min-width: 577px) {
   .header .website-title .link-logo {
-    padding-left: 0;
+    font-size: 2.2rem;
   }
 }
 .header .navigation {
@@ -52,7 +47,7 @@
 }
 @media (max-width: 576px) {
   .header .navigation a {
-    margin: 0 0.6rem;
+    margin: 0 0.26rem;
   }
 }
 .header .navigation a:hover {

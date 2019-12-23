@@ -39,6 +39,12 @@ body,
   max-width: 920px;
 }
 
+@media (max-width: 576px) {
+  .container-md {
+    padding: 0 1rem;
+  }
+}
+
 h1,
 h2 {
   color: var(--color-dark);

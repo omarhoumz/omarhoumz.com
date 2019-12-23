@@ -26,8 +26,8 @@ const Header = () => {
             <Link
               href={menuLink.link}
               internal
-              activeClassName="active"
               key={index.toString()}
+              activeClassName="active"
             >
               {menuLink.name}
             </Link>
