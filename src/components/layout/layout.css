@@ -56,39 +56,6 @@ h2 {
   font-size: smaller;
 }
 
-.navigation ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.navigation ul li {
-  display: inline-block;
-  margin: 0 0.4em;
-}
-.navigation ul li a {
-  display: block;
-  color: var(--color-secondary);
-}
-.navigation.dark a,
-.navigation.dark ul li a {
-  color: var(--color-dark);
-}
-.navigation ul li a.active,
-.navigation ul li a.active:hover {
-  color: var(--color-dark);
-}
-.navigation.dark a.active,
-.navigation.dark ul li a.active,
-.navigation.dark a.active:hover,
-.navigation.dark ul li a.active:hover {
-  color: var(--color-secondary);
-}
-.navigation ul li a:hover,
-.navigation.dark a:hover,
-.navigation.dark ul li a:hover {
-  color: var(--color-primary);
-}
-
 .main {
   flex-grow: 1;
   padding: 3rem 0;

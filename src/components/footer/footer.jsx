@@ -20,7 +20,7 @@ const Footer = () => (
           </Link>
         </small>
       </p>
-      <nav className={styles.navigation}>
+      <nav>
         <Link href='https://www.linkedin.com/in/omarhoumz/'>LinkedIn</Link>
         <Link href='https://github.com/omhoumz'>Github</Link>
         <Link href='mailto:omarhoumz@gmail.com'>Email</Link>
