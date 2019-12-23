@@ -6,12 +6,10 @@ import styles from './section.module.css'
 
 const Section = ({ title, classes, rootId, children }) => (
   <section className={cx(styles.section, classes.root)} id={rootId}>
-    <div className={classes.inner}>
+    <div className={classes.inner || null}>
       {title && <h2 className={styles.title}>{title}</h2>}
 
-      {children && (
-        <div className={cx(styles.children, classes.children)}>{children}</div>
-      )}
+      {children && <div className={cx(classes.children)}>{children}</div>}
     </div>
   </section>
 )
