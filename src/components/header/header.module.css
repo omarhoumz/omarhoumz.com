@@ -15,12 +15,14 @@
   margin: 0;
   line-height: 1;
 }
-.websiteTitle .linkLogo {
+.linkLogo {
   font-size: 1.8rem;
   display: inline-block;
+  margin-left: -0.4rem;
+  color: var(--color-dark);
 }
 @media (min-width: 577px) {
-  .websiteTitle .linkLogo {
+  .linkLogo {
     font-size: 2.2rem;
   }
 }
