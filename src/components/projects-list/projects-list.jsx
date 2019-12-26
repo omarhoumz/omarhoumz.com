@@ -3,21 +3,29 @@ import PropTypes from 'prop-types'
 
 import projectsList from './projects.queries'
 import Link from '../link/link'
-import './projects-list.css'
+import styles from './projects-list.module.css'
 
 const ProjectsList = ({ latestOnly }) => {
-  const data = projectsList()
+  const { site } = React.useMemo(() => projectsList(), [])
 
-  const allProjectsData = [...data.site.siteMetadata.projects]
-  const latestProjectsData = [...allProjectsData].splice(0, 2)
+  const projectsToRender = React.useMemo(() => {
+    const allProjectsData = [...site.siteMetadata.projects]
+    const latestProjectsData = [...allProjectsData].splice(0, 2)
 
-  const projectsToRender = latestOnly ? latestProjectsData : allProjectsData
+    return latestOnly ? latestProjectsData : allProjectsData
+  }, [latestOnly, site])
 
   return (
-    <ul className='all-projects-list'>
+    <ul className={styles.allProjectsList}>
       {projectsToRender.map(({ title, link, shortDesc }) => (
-        <li key={title}>
-          <Link href={link} target='_blank' variant='dark' inline>
+        <li key={title} className={styles.projectItem}>
+          <Link
+            href={link}
+            target='_blank'
+            className={styles.projectLink}
+            variant='dark'
+            inline
+          >
             {title}
           </Link>
           <p className='p'>{shortDesc}</p>

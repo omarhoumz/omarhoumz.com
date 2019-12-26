@@ -1,0 +1,12 @@
+.allProjectsList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.projectItem:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.projectLink {
+  font-weight: bold;
+}
