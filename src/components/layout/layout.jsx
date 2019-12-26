@@ -8,7 +8,7 @@ import './layout.css'
 const Layout = ({ children }) => (
   <>
     <Header />
-    <main className="main">{children}</main>
+    <main className='main'>{children}</main>
     <Footer />
   </>
 )

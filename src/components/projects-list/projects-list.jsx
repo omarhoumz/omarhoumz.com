@@ -1,47 +1,39 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 
+import projectsList from './projects.queries'
 import Link from '../link/link'
-import './projects-list.css'
+import styles from './projects-list.module.css'
 
-const ProjectsList = ({ latestOnly }) => (
-  <StaticQuery
-    query={graphql`
-      query ProjectList {
-        site {
-          siteMetadata {
-            projects {
-              title
-              link
-              external
-              shortDesc
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => {
-      const allProjectsData = [...data.site.siteMetadata.projects]
-      const latestProjectsData = [...allProjectsData].splice(0, 2)
+const ProjectsList = ({ latestOnly }) => {
+  const { site } = projectsList()
 
-      const projectsToRender = latestOnly ? latestProjectsData : allProjectsData
+  const projectsToRender = React.useMemo(() => {
+    const allProjectsData = [...site.siteMetadata.projects]
+    const latestProjectsData = [...allProjectsData].splice(0, 2)
 
-      return (
-        <ul className="all-projects-list">
-          {projectsToRender.map((project) => (
-            <li key={project.title}>
-              <Link href={project.link} className="dark">
-                {project.title}
-              </Link>
-              <p className="p">{project.shortDesc}</p>
-            </li>
-          ))}
-        </ul>
-      )
-    }}
-  />
-)
+    return latestOnly ? latestProjectsData : allProjectsData
+  }, [latestOnly, site])
+
+  return (
+    <ul className={styles.allProjectsList}>
+      {projectsToRender.map(({ title, link, shortDesc }) => (
+        <li key={title} className={styles.projectItem}>
+          <Link
+            href={link}
+            target='_blank'
+            className={styles.projectLink}
+            variant='dark'
+            inline
+          >
+            {title}
+          </Link>
+          <p className='p'>{shortDesc}</p>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 ProjectsList.defaultProps = {
   latestOnly: false,

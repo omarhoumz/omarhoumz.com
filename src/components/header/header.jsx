@@ -1,47 +1,44 @@
 import React from 'react'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import cx from 'classnames'
 
-import './header.css'
+import menuLinks from './header.queries'
+import Link from '../link/link'
+import styles from './header.module.css'
 
-const Header = () => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            menuLinks {
-              name
-              link
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => (
-      <header className="header">
-        <div className="container-md">
-          <h1 className="website-title">
+const Header = () => {
+  const { site } = menuLinks()
+
+  return (
+    <header className={styles.header}>
+      <div className={cx('container-md', styles.innerHeader)}>
+        <h1 className={styles.websiteTitle}>
+          <Link
+            href='/'
+            className={styles.linkLogo}
+            aria-label='Omar Houmz'
+            role='heading'
+            aria-level='1'
+            internal
+          >
+            oh
+          </Link>
+        </h1>
+        <nav className={cx(styles.navigation, styles.dark)}>
+          {site.siteMetadata.menuLinks.map((menuLink, index) => (
             <Link
-              to="/"
-              className="link-logo"
-              aria-label="omar houmz"
-              role="heading"
-              aria-level="1"
+              href={menuLink.link}
+              internal
+              key={index.toString()}
+              activeClassName={styles.active}
+              className={styles.navAnchor}
             >
-              oh
+              {menuLink.name}
             </Link>
-          </h1>
-          <nav className="navigation dark">
-            {data.site.siteMetadata.menuLinks.map((menuLink, index) => (
-              <Link to={menuLink.link} activeClassName="active" key={index.toString()}>
-                {menuLink.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
-    )}
-  />
-)
+          ))}
+        </nav>
+      </div>
+    </header>
+  )
+}
 
 export default Header

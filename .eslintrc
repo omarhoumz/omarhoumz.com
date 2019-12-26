@@ -4,6 +4,7 @@
   "rules": {
     "semi": ["error", "never"],
     "object-property-newline": 2,
+    "jsx-quotes": ["error", "prefer-single"],
     "object-curly-newline": [
       "error",
       {
