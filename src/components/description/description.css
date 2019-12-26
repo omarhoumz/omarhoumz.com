@@ -11,7 +11,7 @@
 }
 .short-about p {
   margin: 0 0 24px 0;
-  color: #666666;
+  color: var(--grey-400);
   max-width: 54ch;
 }
 .short-about h3 {
