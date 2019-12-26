@@ -20,6 +20,16 @@
 .link.btnStyle {
   border-radius: 4px;
   transition-property: color, background-color;
+
+  border: 1px solid;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 .link.btnStyle:hover {
   background-color: var(--secondary-200);
