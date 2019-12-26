@@ -6,7 +6,7 @@ import Link from '../link/link'
 import styles from './projects-list.module.css'
 
 const ProjectsList = ({ latestOnly }) => {
-  const { site } = React.useMemo(() => projectsList(), [])
+  const { site } = projectsList()
 
   const projectsToRender = React.useMemo(() => {
     const allProjectsData = [...site.siteMetadata.projects]
