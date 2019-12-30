@@ -29,7 +29,18 @@
 
 .navigation {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 16px;
+  max-width: 333px;
+}
+
+@media (min-width: 767px) {
+  .navigation {
+    max-width: unset;
+    justify-content: center;
+    flex-grow: 0;
+  }
 }
 
 .navAnchor.navAnchor {
@@ -39,7 +50,6 @@
   box-sizing: border-box;
 
   padding: 0;
-  margin: 0 1rem;
 
   font-size: 16px;
 
@@ -83,11 +93,8 @@
   width: 100%;
 }
 
-@media (max-width: 576px) {
-  .navigation {
-    text-align: center;
-  }
+@media (min-width: 576px) {
   .navAnchor.navAnchor {
-    margin: 0 0.26rem;
+    margin: 0 1rem;
   }
 }
