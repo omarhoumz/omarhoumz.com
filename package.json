@@ -52,7 +52,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "start": "yarn run develop",
     "serve": "gatsby serve",
     "lint": "eslint --ext .js,.jsx src/components/** src/pages/**",
     "lint:fix": "eslint --ext .js,.jsx src/components/** src/pages/** --fix"
