@@ -19,18 +19,22 @@ const BlogIndex = ({ data }) => {
         }}
       >
         {posts.map(({ node }) => (
-          <div>
-            <Link href={node.fields.slug} internal>
-              <h3>{node.frontmatter.title}</h3>
-              <p>{node.frontmatter.date}</p>
-              <p
-                style={{
-                  maxWidth: '65ch',
-                }}
-              >
-                {node.excerpt}
-              </p>
-              Read More
+          <div
+            style={{
+              marginBlockEnd: '2.3rem',
+            }}
+          >
+            <h3>{node.frontmatter.title}</h3>
+            <p>{node.frontmatter.date}</p>
+            <p
+              style={{
+                maxWidth: '65ch',
+              }}
+            >
+              {node.excerpt}
+            </p>
+            <Link href={`/blog${node.fields.slug}`} internal>
+              Read More →
             </Link>
           </div>
         ))}
