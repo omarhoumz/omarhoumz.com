@@ -33,7 +33,7 @@ const BlogIndex = ({ data }) => {
             >
               {node.excerpt}
             </p>
-            <Link href={`/blog${node.fields.slug}`} internal>
+            <Link href={node.fields.slug} internal>
               Read More →
             </Link>
           </div>
