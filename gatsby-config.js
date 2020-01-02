@@ -61,6 +61,10 @@ module.exports = {
         link: '/about',
       },
       {
+        name: 'Blog',
+        link: '/blog',
+      },
+      {
         name: 'Contact',
         link: '/contact',
       },
@@ -96,8 +100,43 @@ module.exports = {
       },
     },
     'gatsby-plugin-eslint',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
+      },
+    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/assets`,
+    //     name: 'assets',
+    //   },
+    // },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        plugins: ['gatsby-remark-images'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+          },
+
+          {
+            resolve: 'gatsby-remark-smartypants',
+          },
+        ],
+      },
+    },
   ],
 }
