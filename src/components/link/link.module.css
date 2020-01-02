@@ -2,6 +2,7 @@
   text-decoration: none;
   color: var(--color-secondary);
   padding: 0.4rem;
+  margin-left: -0.4rem;
   transition: color var(--transition);
 }
 
