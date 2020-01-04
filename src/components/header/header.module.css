@@ -36,7 +36,7 @@
   justify-content: space-between;
   flex-grow: 1;
   margin-left: 16px;
-  max-width: 333px;
+  max-width: 396.5px;
 }
 
 @media (min-width: 767px) {
@@ -54,6 +54,7 @@
   box-sizing: border-box;
 
   padding: 0;
+  margin: 0;
 
   font-size: 16px;
 
