@@ -4,6 +4,7 @@ module.exports = {
     description:
       'This is the personal website of Omar Houmz, a Software Engineer.',
     author: '@omarhoumz',
+    siteUrl: 'https://omarhoumz.com',
     projects: [
       {
         title: 'devfest.gdgcasablanca.com',
@@ -72,6 +73,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
