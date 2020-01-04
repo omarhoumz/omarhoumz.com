@@ -6,10 +6,6 @@
   transition: color var(--transition);
 }
 
-.link.inline {
-  padding: 0.1rem 0;
-}
-
 .link.dark {
   color: var(--color-dark);
 }
@@ -26,6 +22,7 @@
   height: 32px;
   box-sizing: border-box;
   padding: 0 12px;
+  margin: 0;
   display: inline-flex;
   align-items: center;
   font-size: 14px;

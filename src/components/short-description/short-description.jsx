@@ -12,10 +12,9 @@ const ShortDescription = () => (
         , I&apos;m a software engineer based in Casablanca, Morocco. I work at
       </span>
       &nbsp;
-      <Link href='https://www.avito.ma/' variant='dark' inline>
+      <Link href='https://www.avito.ma/' variant='dark'>
         Avito.ma
       </Link>
-      &nbsp;
       <span>as a</span>
       &nbsp;
       <strong>front-end engineer</strong>
@@ -27,7 +26,7 @@ const ShortDescription = () => (
       <strong> drop me a line</strong>
       <span>:</span>
       &nbsp;
-      <Link href='mailto:omarhoumz@gmail.com' target='_blank' inline>
+      <Link href='mailto:omarhoumz@gmail.com' target='_blank'>
         omarhoumz@gmail.com
       </Link>
     </p>

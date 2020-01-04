@@ -12,6 +12,7 @@ const Footer = () => (
         <small>
           &copy; (not really)&nbsp;
           {currentYear}
+          &nbsp;&nbsp;
           <Link
             href='https://github.com/omarhoumz/omarhoumz.github.io'
             variant='dark'

@@ -21,7 +21,6 @@ const Link = ({
       styles.link,
       {
         [styles.dark]: variant === 'dark',
-        [styles.inline]: inline,
         [styles.btnStyle]: btnStyle,
       },
       className,

@@ -24,7 +24,6 @@ const ProjectsList = ({ latestOnly }) => {
             target='_blank'
             className={styles.projectLink}
             variant='dark'
-            inline
           >
             {title}
           </Link>
