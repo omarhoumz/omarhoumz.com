@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-
 import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout/layout'
+import SEO from '../components/seo'
 import Section from '../components/_ui/section/section'
 import Link from '../components/link/link'
 
@@ -12,8 +12,9 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title='Blog' />
       <Section
-        title='All Posts (latest)'
+        title='All Posts'
         classes={{
           inner: 'container-md',
         }}

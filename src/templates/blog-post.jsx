@@ -6,6 +6,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/layout/layout'
 import Section from '../components/_ui/section/section'
 import Link from '../components/link/link'
+import SEO from '../components/seo'
 
 const BlogPost = ({ data, pageContext }) => {
   const post = data.mdx
@@ -13,6 +14,7 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <Section
         classes={{
           inner: 'container-md',
