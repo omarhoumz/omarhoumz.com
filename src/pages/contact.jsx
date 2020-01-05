@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Layout from '../components/layout/layout'
-import ContactPage from '../components/contact-page/contact-page'
+import ContactPage from '../components/page-content/contact-page/contact-page'
 import SEO from '../components/seo'
 import Section from '../components/_ui/section/section'
 

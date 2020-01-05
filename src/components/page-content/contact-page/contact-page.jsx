@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Link from '../link/link'
+import Link from '../../link/link'
 import styles from './contact-page.module.css'
 
 const contactLinks = [
