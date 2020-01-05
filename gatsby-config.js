@@ -81,6 +81,20 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
+      },
+    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/assets`,
+    //     name: 'assets',
+    //   },
+    // },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -104,20 +118,6 @@ module.exports = {
     'gatsby-plugin-eslint',
     // To learn more, visit: https://gatsby.dev/offline
     'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: 'blog',
-      },
-    },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/content/assets`,
-    //     name: 'assets',
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
