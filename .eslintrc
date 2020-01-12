@@ -6,12 +6,13 @@
     "object-property-newline": 2,
     "jsx-quotes": ["error", "prefer-single"],
     "arrow-parens": ["error", "as-needed"],
+    "implicit-arrow-linebreak": ["error", "beside"],
     "object-curly-newline": [
       "error",
       {
         "ObjectExpression": "always",
         "ObjectPattern": { "multiline": true },
-        "ImportDeclaration": "never",
+        "ImportDeclaration": { "consistent": true },
         "ExportDeclaration": { "multiline": true, "minProperties": 3 }
       }
     ]
