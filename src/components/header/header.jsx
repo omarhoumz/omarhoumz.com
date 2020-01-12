@@ -24,17 +24,20 @@ const Header = () => {
           </Link>
         </h1>
         <nav className={cx(styles.navigation, styles.dark)}>
-          {site.siteMetadata.menuLinks.map((menuLink, index) => (
-            <Link
-              href={menuLink.link}
-              internal
-              key={index.toString()}
-              activeClassName={styles.active}
-              className={styles.navAnchor}
-            >
-              {menuLink.name}
-            </Link>
-          ))}
+          {site.siteMetadata.menuLinks.map(
+            ({ link, label, partiallyActive }, index) => (
+              <Link
+                href={link}
+                internal
+                key={index.toString()}
+                activeClassName={styles.active}
+                className={styles.navAnchor}
+                partiallyActive={partiallyActive}
+              >
+                {label}
+              </Link>
+            ),
+          )}
         </nav>
       </div>
     </header>

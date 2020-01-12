@@ -50,23 +50,24 @@ module.exports = {
     ],
     menuLinks: [
       {
-        name: 'Home',
+        label: 'Home',
         link: '/',
       },
       {
-        name: 'Projects',
+        label: 'Projects',
         link: '/projects',
       },
       {
-        name: 'About',
+        label: 'About',
         link: '/about',
       },
       {
-        name: 'Blog',
+        label: 'Blog',
         link: '/blog',
+        partiallyActive: true,
       },
       {
-        name: 'Contact',
+        label: 'Contact',
         link: '/contact',
       },
     ],

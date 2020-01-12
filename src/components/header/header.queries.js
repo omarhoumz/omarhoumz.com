@@ -1,12 +1,15 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-export default () => useStaticQuery(graphql`
+export default () =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
           menuLinks {
-            name
+            label
             link
+            partiallyActive
           }
         }
       }
