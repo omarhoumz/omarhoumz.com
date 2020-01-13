@@ -22,6 +22,7 @@ const Link = ({
       {
         [styles.dark]: variant === 'dark',
         [styles.btnStyle]: btnStyle,
+        [styles.inline]: inline,
       },
       className,
     ),

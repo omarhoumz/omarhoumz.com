@@ -14,6 +14,11 @@
   color: var(--color-primary);
 }
 
+.link.inline {
+  padding: 0;
+  margin-left: 0;
+}
+
 .link.btnStyle {
   border-radius: 4px;
   transition-property: color, background-color;
