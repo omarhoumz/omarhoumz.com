@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
-import Description from '../components/description/description'
+import AboutPage from '../components/page-content/about-page/about-page'
 import Section from '../components/_ui/section/section'
 
 export default React.memo(() => (
@@ -17,7 +17,7 @@ export default React.memo(() => (
         inner: 'container-md',
       }}
     >
-      <Description />
+      <AboutPage />
     </Section>
   </Layout>
 ))

@@ -1,6 +1,3 @@
-.p {
-  max-width: 54ch;
-}
 .short-about {
   display: grid;
   grid-template-columns: 1fr;
