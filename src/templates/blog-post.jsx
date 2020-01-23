@@ -3,6 +3,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
+import styles from './blog-post.module.css'
 import Layout from '../components/layout/layout'
 import Section from '../components/_ui/section/section'
 import Link from '../components/link/link'
@@ -13,7 +14,7 @@ const BlogPost = ({ data, pageContext }) => {
   const { previous, next } = pageContext
 
   return (
-    <Layout>
+    <Layout className={styles.mainBlog}>
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <Section
         classes={{
@@ -21,14 +22,7 @@ const BlogPost = ({ data, pageContext }) => {
         }}
       >
         <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-      </Section>
-
-      <Section
-        classes={{
-          inner: 'container-md',
-        }}
-      >
+        <p className={styles.metaData}>{post.frontmatter.date}</p>
         <MDXRenderer>{post.body}</MDXRenderer>
       </Section>
 

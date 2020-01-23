@@ -1,10 +1,29 @@
 .allProjectsList {
   list-style: none;
   padding-left: 0;
+  --space: 1.4em;
+}
+
+.projectItem {
+  box-sizing: border-box;
+  padding: var(--space);
+  width: 60ch;
+  border-radius: 0.38em;
+  transition: 190ms ease;
+  transition-property: box-shadow;
+}
+
+.projectItem:hover {
+  box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.06),
+    0 1px 16px -4px rgba(0, 0, 0, 0.12);
 }
 
 .projectItem:not(:first-child) {
-  margin-top: 2rem;
+  margin-top: 0.2em;
+}
+
+.projectItem > p {
+  margin-bottom: 0;
 }
 
 .projectLink {
