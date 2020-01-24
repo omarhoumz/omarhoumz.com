@@ -27,7 +27,7 @@ jobs:
       uses: treosh/lighthouse-ci-action@v2
       with:
         # List of URL(s) to analyze
-        urls: https://deploy-preview-8--omarhoumz.netlify.com/
+        urls: https://deploy-preview-$PR_NUMBER--omarhoumz.netlify.com/
         # Number of runs to do per URL
         runs: 1
         # Path to a Lighthouse budgets.json file
@@ -39,5 +39,7 @@ jobs:
         # optional upload.serverBaseUrl: 
         # API token to push to LHCI server
         # optional upload.token:
-        staticDistDir: 'public/'
+        # staticDistDir: 'public/'
+      env:
+        PR_NUMBER: ${{ github.event.pull_request.number }}
 
