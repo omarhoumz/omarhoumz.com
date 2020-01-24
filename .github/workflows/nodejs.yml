@@ -1,6 +1,6 @@
-name: Node CI
+name: Lighthouse CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -30,16 +30,6 @@ jobs:
         urls: https://deploy-preview-$PR_NUMBER--omarhoumz.netlify.com/
         # Number of runs to do per URL
         runs: 1
-        # Path to a Lighthouse budgets.json file
-        # optional budgetPath: 
-        # Path to a LHCI lighthouserc.json file
-        # optional configPath:
-        # temporaryPublicStorage: # optional
-        # Address of a LHCI server
-        # optional upload.serverBaseUrl: 
-        # API token to push to LHCI server
-        # optional upload.token:
-        # staticDistDir: 'public/'
       env:
         PR_NUMBER: ${{ github.event.pull_request.number }}
 
