@@ -30,6 +30,7 @@ jobs:
         urls: https://deploy-preview-$PR_NUMBER--omarhoumz.netlify.com/
         # Number of runs to do per URL
         runs: 1
+        temporaryPublicStorage: true
       env:
         PR_NUMBER: ${{ github.event.pull_request.number }}
 
