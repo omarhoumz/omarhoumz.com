@@ -38,5 +38,6 @@ jobs:
         # Address of a LHCI server
         # optional upload.serverBaseUrl: 
         # API token to push to LHCI server
-         # optional upload.token:
+        # optional upload.token:
+        staticDistDir: 'public/'
 
