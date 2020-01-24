@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -17,18 +17,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: yarn install, build, and test
       run: |
-        npm ci
-        npm run build --if-present
-        npm test
+        yarn
+        yarn build
       env:
         CI: true
     - name: Lighthouse CI Action
       uses: treosh/lighthouse-ci-action@v2
       with:
         # List of URL(s) to analyze
-        urls: https://omarhoumz.com
+        urls: http://localhost
         # Number of runs to do per URL
         runs: 1
         # Path to a Lighthouse budgets.json file
