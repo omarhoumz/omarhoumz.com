@@ -1,0 +1,43 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install, build, and test
+      run: |
+        npm ci
+        npm run build --if-present
+        npm test
+      env:
+        CI: true
+    - name: Lighthouse CI Action
+      uses: treosh/lighthouse-ci-action@v2
+      with:
+        # List of URL(s) to analyze
+        urls: https://omarhoumz.com
+        # Number of runs to do per URL
+        runs: 1
+        # Path to a Lighthouse budgets.json file
+        # optional budgetPath: 
+        # Path to a LHCI lighthouserc.json file
+        # optional configPath:
+        # temporaryPublicStorage: # optional
+        # Address of a LHCI server
+        # optional upload.serverBaseUrl: 
+        # API token to push to LHCI server
+         # optional upload.token:
+
