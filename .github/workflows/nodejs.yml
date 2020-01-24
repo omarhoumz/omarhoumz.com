@@ -1,6 +1,6 @@
 name: Node CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
       uses: treosh/lighthouse-ci-action@v2
       with:
         # List of URL(s) to analyze
-        urls: https://deploy-preview-$PR_NUMBER--omarhoumz.netlify.com/
+        urls: https://deploy-preview-8--omarhoumz.netlify.com/
         # Number of runs to do per URL
         runs: 1
         # Path to a Lighthouse budgets.json file
