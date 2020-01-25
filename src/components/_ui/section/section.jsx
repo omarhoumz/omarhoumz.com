@@ -4,19 +4,30 @@ import cx from 'classnames'
 
 import styles from './section.module.css'
 
-const Section = ({ title, classes, rootId, children }) => (
-  <section className={cx(styles.section, classes.root)} id={rootId}>
-    <div className={classes.inner || null}>
-      {title && <h2 className={styles.title}>{title}</h2>}
+const Section = ({ title, classes, rootId, Component, children }) => {
+  const ChildrenAs = Component || 'div'
 
-      {children && <div className={cx(classes.children)}>{children}</div>}
-    </div>
-  </section>
-)
+  return (
+    <section className={cx(styles.section, classes.root)} id={rootId}>
+      <div className={classes.inner || null}>
+        {title && <h2 className={styles.title}>{title}</h2>}
+
+        {children && (
+          <ChildrenAs className={cx(classes.children)}>{children}</ChildrenAs>
+        )}
+      </div>
+    </section>
+  )
+}
 
 Section.propTypes = {
   title: PropTypes.string,
   children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.string,
+  ]),
+  Component: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
     PropTypes.string,
@@ -33,6 +44,7 @@ Section.propTypes = {
 Section.defaultProps = {
   title: '',
   children: null,
+  Component: null,
   classes: {
     root: '',
     title: '',
