@@ -19,11 +19,12 @@ const BlogIndex = ({ data }) => {
           inner: 'container-md',
         }}
       >
-        {posts.map(({ node }) => (
+        {posts.map(({ node }, index) => (
           <div
             style={{
               marginBlockEnd: '2.3rem',
             }}
+            key={index.toString()}
           >
             <h3>{node.frontmatter.title}</h3>
             <p>{node.frontmatter.date}</p>

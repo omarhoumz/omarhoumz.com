@@ -44,8 +44,8 @@ const contactLinks = [
 
 const ContactPage = () => (
   <ul className={styles.contactInfo}>
-    {contactLinks.map(({ label, links }) => (
-      <ContactItem label={label} links={links} />
+    {contactLinks.map(({ label, links }, index) => (
+      <ContactItem label={label} links={links} key={index.toString()} />
     ))}
   </ul>
 )
@@ -60,8 +60,13 @@ const ContactItem = ({ label: title, links }) => (
   <li className={styles.contactItem}>
     <h3 className={styles.linksTitle}>{title}</h3>
     <ul className={styles.linksList}>
-      {links.map(({ label, link, external }) => (
-        <ContactLink link={link} label={label} external={external} />
+      {links.map(({ label, link, external }, index) => (
+        <ContactLink
+          link={link}
+          label={label}
+          external={external}
+          key={index.toString()}
+        />
       ))}
     </ul>
   </li>
@@ -69,7 +74,7 @@ const ContactItem = ({ label: title, links }) => (
 
 ContactItem.propTypes = {
   label: PropTypes.string.isRequired,
-  links: PropTypes.arrayOf(linkType).isRequired,
+  links: PropTypes.arrayOf(PropTypes.shape(linkType)).isRequired,
 }
 
 const ContactLink = ({ label, link, external }) => (
