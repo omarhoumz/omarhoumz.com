@@ -1,6 +1,7 @@
 .footer {
   padding: 1rem 0;
   background-color: var(--color-light);
+  color: #616161;
 }
 .footer > div {
   display: flex;
@@ -18,4 +19,7 @@
 .copy a {
   padding-left: 0.2rem;
   display: inline;
+}
+.navLink {
+  color: inherit;
 }
