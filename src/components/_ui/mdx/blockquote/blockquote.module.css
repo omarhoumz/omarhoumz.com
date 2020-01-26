@@ -1,0 +1,7 @@
+.blockquote {
+  margin-inline-start: 0 !important;
+  border-left: 3px solid #0f0a84;
+  padding: 1em 2em;
+  background-color: #f6f6fd;
+  margin-inline-end: 0;
+}
