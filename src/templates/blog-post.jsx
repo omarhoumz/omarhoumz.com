@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
 
 import styles from './blog-post.module.css'
 import Layout from '../components/layout/layout'
@@ -10,51 +10,72 @@ import Link from '../components/link/link'
 import SEO from '../components/seo'
 
 const BlogPost = ({ data, pageContext }) => {
-  const post = data.mdx
   const { previous, next } = pageContext
+  const post = data.mdx
+
+  const previousSlug = previous && previous.fields.slug
+  const previousTitle = previous && previous.frontmatter.title
+
+  const nextSlug = next && next.fields.slug
+  const nextTitle = next && next.frontmatter.title
+
+  const postTitle = post.frontmatter.title
+  const postExcerpt = post.excerpt
+  const postDate = post.frontmatter.date
 
   return (
     <Layout className={styles.mainBlog}>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <SEO title={postTitle} description={postExcerpt} />
       <Section
         classes={{
           inner: 'container-md',
+          root: styles.blogContentSection,
         }}
       >
-        <h1>{post.frontmatter.title}</h1>
-        <p className={styles.metaData}>{post.frontmatter.date}</p>
+        <Link href='/blog' internal>
+          ← Back
+        </Link>
+        <div
+          style={{
+            paddingBlockStart: '1em',
+          }}
+        />
+        <h1>{postTitle}</h1>
+        <p className={styles.metaData}>{postDate}</p>
         <MDXRenderer>{post.body}</MDXRenderer>
       </Section>
 
       <Section
         classes={{
           inner: 'container-md',
+          children: styles.navigation,
         }}
+        Component='nav'
       >
-        <ul
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link href={previous.fields.slug} rel='prev' internal>
-                {`← ${previous.frontmatter.title}`}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link href={next.fields.slug} rel='next' internal>
-                {`${next.frontmatter.title} →`}
-              </Link>
-            )}
-          </li>
-        </ul>
+        {previous ? (
+          <Link
+            rel='prev'
+            internal
+            inline
+            href={previousSlug}
+            className={styles.navLinks}
+          >
+            {`← ${previousTitle}`}
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next && (
+          <Link
+            rel='next'
+            internal
+            inline
+            href={nextSlug}
+            className={styles.navLinks}
+          >
+            {`${nextTitle} →`}
+          </Link>
+        )}
       </Section>
     </Layout>
   )
@@ -64,12 +85,6 @@ export default BlogPost
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
     mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
