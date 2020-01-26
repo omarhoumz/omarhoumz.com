@@ -36,7 +36,7 @@ const BlogPost = ({ data, pageContext }) => {
           root: styles.blogContentSection,
         }}
       >
-        <Link href='/blog' internal>
+        <Link href='/thoughts' internal>
           ← Back
         </Link>
         <div

@@ -5,47 +5,35 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import Section from '../components/_ui/section/section'
-import Link from '../components/link/link'
+import ThoughtLink from '../components/_ui/thought-link/thought-link'
 
-const BlogIndex = ({ data }) => {
+const ThoughtsIndex = ({ data }) => {
   const posts = data.allMdx.edges
 
   return (
     <Layout>
-      <SEO title='Blog' />
+      <SEO title='Thoughts' />
       <Section
-        title='All Posts'
+        title='All Thoughts'
         classes={{
           inner: 'container-md',
         }}
       >
         {posts.map(({ node }, index) => (
-          <div
-            style={{
-              marginBlockEnd: '2.3rem',
-            }}
+          <ThoughtLink
             key={index.toString()}
-          >
-            <h3>{node.frontmatter.title}</h3>
-            <p>{node.frontmatter.date}</p>
-            <p
-              style={{
-                maxWidth: '65ch',
-              }}
-            >
-              {node.excerpt}
-            </p>
-            <Link href={node.fields.slug} internal>
-              Read →
-            </Link>
-          </div>
+            title={node.frontmatter.title}
+            date={node.frontmatter.date}
+            excerpt={node.excerpt}
+            link={node.fields.slug}
+          />
         ))}
       </Section>
     </Layout>
   )
 }
 
-export default BlogIndex
+export default ThoughtsIndex
 
 export const pageQuery = graphql`
   query {
