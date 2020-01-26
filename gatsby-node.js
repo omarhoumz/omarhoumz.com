@@ -28,7 +28,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       `,
     )
 
-    const posts = data.allMdx.edges
+    const posts = data && data.allMdx && data.allMdx.edges
+    if (!posts) {
+      return
+    }
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node

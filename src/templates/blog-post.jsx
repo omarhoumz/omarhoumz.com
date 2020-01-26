@@ -13,6 +13,10 @@ const BlogPost = ({ data, pageContext }) => {
   const { previous, next } = pageContext
   const post = data.mdx
 
+  if (!post) {
+    return null
+  }
+
   const previousSlug = previous && previous.fields.slug
   const previousTitle = previous && previous.frontmatter.title
 
