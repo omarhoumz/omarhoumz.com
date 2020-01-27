@@ -1,0 +1,36 @@
+name: Lighthouse CI
+
+on: [pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: yarn install, build, and test
+      run: |
+        yarn
+        yarn build
+      env:
+        CI: true
+    - name: Lighthouse CI Action
+      uses: treosh/lighthouse-ci-action@v2
+      with:
+        # List of URL(s) to analyze
+        urls: https://deploy-preview-$PR_NUMBER--omarhoumz.netlify.com/
+        # Number of runs to do per URL
+        runs: 3
+        temporaryPublicStorage: true
+      env:
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+
