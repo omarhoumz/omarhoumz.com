@@ -5,7 +5,11 @@ import styles from './hamburger.module.css'
 import BaseButton from '../_ui/base-button/base-button'
 
 const Hamburger = ({ onClick }) => (
-  <BaseButton onClick={onClick} classes={styles.ham}>
+  <BaseButton
+    onClick={onClick}
+    classes={styles.ham}
+    aria-label='Toggle the navigation links'
+  >
     <div className={styles.bar} />
     <div className={styles.bar} />
     <div className={styles.bar} />

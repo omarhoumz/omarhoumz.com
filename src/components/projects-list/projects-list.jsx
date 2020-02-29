@@ -18,8 +18,8 @@ const ProjectsList = ({ latestOnly }) => {
   }, [latestOnly, site])
 
   return (
-    <ul className={styles.allProjectsList}>
-      <div className={styles.innerProjects}>
+    <div className={styles.allProjectsList}>
+      <ul className={styles.innerProjects}>
         {projectsToRender.map(({ title, link, shortDesc }) => (
           <li key={title} className={styles.projectItem}>
             <Link
@@ -35,8 +35,8 @@ const ProjectsList = ({ latestOnly }) => {
             </Link>
           </li>
         ))}
-      </div>
-    </ul>
+      </ul>
+    </div>
   )
 }
 

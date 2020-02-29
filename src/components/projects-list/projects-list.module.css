@@ -1,8 +1,6 @@
 .allProjectsList {
   --space: 1.4em;
   --radius: 0.38em;
-  list-style: none;
-  padding-inline-start: 0;
   margin-block-start: 1em;
   margin-block-end: 1.8em;
 }
@@ -12,6 +10,9 @@
   display: inline-block;
   border-radius: var(--radius);
   max-width: 100%;
+  list-style: none;
+  padding-inline-start: 0;
+  margin: 0;
 }
 
 .projectLink {
