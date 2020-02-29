@@ -32,12 +32,9 @@
 }
 
 .navigation {
-  /* display: flex; */
   display: none;
   justify-content: space-between;
   flex-grow: 1;
-  /* margin-left: 16px;
-  max-width: 445px; */
 
   position: absolute;
   top: 100%;
