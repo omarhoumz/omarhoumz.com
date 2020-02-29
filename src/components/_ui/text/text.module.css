@@ -1,0 +1,52 @@
+.text {
+  width: 55ch;
+  max-width: 100%;
+  line-height: 1.4;
+}
+
+.text.normal {
+  font-weight: normal;
+}
+.text.bold {
+  font-weight: bold;
+}
+
+.text.color-inherit {
+  color: inherit;
+}
+.text.color-default,
+.text.color-dark {
+  color: var(--color-dark);
+}
+.text.color-light {
+  color: var(--color-light);
+}
+.text.color-grey {
+  color: #6c757d;
+}
+.text.color-primary {
+  color: var(--color-primary);
+}
+.text.color-secondary {
+  color: var(--color-secondary);
+}
+
+.text.inherit {
+  font-size: inherit;
+}
+.text.md {
+  font-size: 1rem;
+}
+.text.sm {
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .text.md {
+    font-size: 1.1rem;
+  }
+
+  .text.sm {
+    font-size: 1rem;
+  }
+}

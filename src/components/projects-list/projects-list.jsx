@@ -1,9 +1,11 @@
+import cx from 'classnames'
 import React from 'react'
 import PropTypes from 'prop-types'
 
 import projectsList from './projects.queries'
 import Link from '../link/link'
 import styles from './projects-list.module.css'
+import Text from '../_ui/text/text'
 
 const ProjectsList = ({ latestOnly }) => {
   const { site } = projectsList()
@@ -16,21 +18,25 @@ const ProjectsList = ({ latestOnly }) => {
   }, [latestOnly, site])
 
   return (
-    <ul className={styles.allProjectsList}>
-      {projectsToRender.map(({ title, link, shortDesc }) => (
-        <li key={title} className={styles.projectItem}>
-          <Link
-            href={link}
-            target='_blank'
-            className={styles.projectLink}
-            variant='dark'
-          >
-            {title}
-          </Link>
-          <p className='p'>{shortDesc}</p>
-        </li>
-      ))}
-    </ul>
+    <div className={styles.allProjectsList}>
+      <ul className={styles.innerProjects}>
+        {projectsToRender.map(({ title, link, shortDesc }) => (
+          <li key={title} className={styles.projectItem}>
+            <Link
+              href={link}
+              target='_blank'
+              className={styles.projectLink}
+              variant='dark'
+            >
+              <span>{title}</span>
+              <Text classnames={cx(styles.linkDesc)} size='sm'>
+                {shortDesc}
+              </Text>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 

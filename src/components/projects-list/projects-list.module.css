@@ -1,31 +1,46 @@
 .allProjectsList {
-  list-style: none;
-  padding-left: 0;
   --space: 1.4em;
+  --radius: 0.38em;
+  margin-block-start: 1em;
+  margin-block-end: 1.8em;
 }
 
-.projectItem {
+.innerProjects {
+  border: 1px solid #dadada;
+  display: inline-block;
+  border-radius: var(--radius);
+  max-width: 100%;
+  list-style: none;
+  padding-inline-start: 0;
+  margin: 0;
+}
+
+.projectLink {
+  display: block;
+  margin: 0;
   box-sizing: border-box;
   padding: var(--space);
   width: 60ch;
-  border-radius: 0.38em;
+  max-width: 100%;
+
+  font-weight: bold;
+  border-radius: var(--radius);
+
   transition: 190ms ease;
   transition-property: box-shadow;
 }
 
-.projectItem:hover {
-  box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.06),
-    0 1px 16px -4px rgba(0, 0, 0, 0.12);
+.projectLink:hover {
+  box-shadow: 0 0 2px 0px rgb(37, 27, 249),
+    0 1px 16px -4px rgba(37, 27, 249, 0.33);
+  color: inherit !important;
 }
 
 .projectItem:not(:first-child) {
   margin-top: 0.2em;
 }
 
-.projectItem > p {
+.linkDesc {
+  margin-top: 0.6em;
   margin-bottom: 0;
-}
-
-.projectLink {
-  font-weight: bold;
 }

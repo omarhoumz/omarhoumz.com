@@ -32,18 +32,33 @@
 }
 
 .navigation {
-  display: flex;
+  display: none;
   justify-content: space-between;
   flex-grow: 1;
-  margin-left: 16px;
-  max-width: 396.5px;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--secondary-200);
+  width: 100%;
+  padding: 0 1em;
+  box-sizing: border-box;
+}
+
+.navigation.show {
+  display: flex;
 }
 
 @media (min-width: 767px) {
   .navigation {
+    display: flex;
     max-width: unset;
-    justify-content: center;
+    justify-content: flex-end;
+    padding: 0;
     flex-grow: 0;
+    position: static;
+    background-color: transparent;
   }
 }
 
@@ -56,7 +71,7 @@
   padding: 0;
   margin: 0;
 
-  font-size: 16px;
+  font-size: 0.9em;
 
   --header-nav-color: var(--color-dark);
   color: var(--header-nav-color);
@@ -100,6 +115,9 @@
 
 @media (min-width: 576px) {
   .navAnchor.navAnchor {
-    margin: 0 1rem;
+    font-size: 1em;
+  }
+  .navAnchor.navAnchor:not(:last-child) {
+    margin-inline-end: 1.2em;
   }
 }
