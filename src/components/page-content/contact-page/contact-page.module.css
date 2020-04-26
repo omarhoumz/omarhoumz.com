@@ -12,6 +12,7 @@
   padding: 1.4rem;
   max-width: 320px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .contactItem:not(:last-child) {
