@@ -37,6 +37,8 @@ const Footer = () => {
               href='https://github.com/omarhoumz/omarhoumz.github.io'
               inline
               className={styles.navLink}
+              target='_blank'
+              nofollow
             >
               by Omar Houmz
             </Link>
@@ -49,6 +51,8 @@ const Footer = () => {
               className={styles.navLink}
               internal={internal}
               key={index.toString()}
+              target='_blank'
+              nofollow
             >
               {label}
             </Link>

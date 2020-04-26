@@ -8,7 +8,7 @@ import Link from '../link/link'
 const P = (props) => <p className='p' {...props} />
 const Anchor = (props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <Link variant='dark' target='_blank' {...props} />
+  <Link variant='dark' target='_blank' nofollow {...props} />
 )
 
 const ShortDescription = () => (

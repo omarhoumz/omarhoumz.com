@@ -8,6 +8,7 @@ import styles from './link.module.css'
 const Link = ({
   href,
   target,
+  nofollow,
   children,
   internal,
   className,
@@ -36,6 +37,9 @@ const Link = ({
   if (target === '_blank') {
     anchorProps.target = '_blank'
     anchorProps.rel = 'noopener noreferrer'
+    if (nofollow) {
+      anchorProps.rel += ' nofollow'
+    }
   }
 
   if (internal) {
@@ -50,6 +54,7 @@ const Link = ({
 Link.defaultProps = {
   href: '#!',
   target: null,
+  nofollow: false,
   children: null,
   internal: false,
   className: '',
@@ -61,6 +66,7 @@ Link.defaultProps = {
 Link.propTypes = {
   href: PropTypes.string,
   target: PropTypes.string,
+  nofollow: PropTypes.bool,
   children: PropTypes.node,
   internal: PropTypes.bool,
   className: PropTypes.string,
