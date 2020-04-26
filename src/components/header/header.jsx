@@ -22,7 +22,8 @@ const Header = () => {
             aria-level='1'
             internal
           >
-            oh
+            omar{` `}
+            <strong>houmz</strong>
           </Link>
         </h1>
         <Hamburger onClick={() => setShowNav(prev => !prev)} />

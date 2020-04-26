@@ -24,15 +24,13 @@ const footerNavLinks = [
 ]
 
 const Footer = () => {
-  const copyText = `(not really) ${currentYear} `
-
   return (
     <footer className={styles.footer}>
       <div className='container-md'>
         <p className={styles.copy}>
           <small>
             &copy;&nbsp;
-            {copyText}
+            {currentYear}&nbsp;
             <Link
               href='https://github.com/omarhoumz/omarhoumz.github.io'
               inline
