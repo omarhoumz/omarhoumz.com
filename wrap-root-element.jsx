@@ -1,21 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
+
 import Blockquote from './src/components/_ui/mdx/blockquote/blockquote'
 // import { Code } from './src/components/code'
 // import { preToCodeBlock } from 'mdx-utils'
 
 // components is its own object outside of render so that the references to
 // components are stable
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Pre = (preProps) => <pre {...preProps} />
+
 const components = {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  pre: preProps => <pre {...preProps} />,
-  blockquote: props => (
-    <Blockquote
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...props}
-    />
-  ),
+  pre: Pre,
+  blockquote: Blockquote,
   // const props = preToCodeBlock(preProps)
   // // if there's a codeString and some props, we passed the test
   // if (props) {

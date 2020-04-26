@@ -1,6 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default () => useStaticQuery(graphql`
+export default () =>
+  useStaticQuery(graphql`
     query ProjectList {
       site {
         siteMetadata {

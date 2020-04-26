@@ -1,20 +1,7 @@
 {
-  "extends": "airbnb",
   "plugins": ["prettier"],
+  "extends": ["airbnb", "gatsby-standard", "plugin:prettier/recommended"],
   "rules": {
-    "semi": ["error", "never"],
-    "object-property-newline": 2,
-    "jsx-quotes": ["error", "prefer-single"],
-    "arrow-parens": ["error", "as-needed"],
-    "implicit-arrow-linebreak": ["error", "beside"],
-    "object-curly-newline": [
-      "error",
-      {
-        "ObjectExpression": "always",
-        "ObjectPattern": { "multiline": true },
-        "ImportDeclaration": { "consistent": true },
-        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
-      }
-    ]
+    "react/jsx-fragments": 0
   }
 }

@@ -4,7 +4,7 @@ import React from 'react'
 
 import styles from './text.module.css'
 
-const capitalize = str => str.charAt(0).toUpperCase() + str.substring(1)
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.substring(1)
 
 export const colorTypes = ['default', 'inherit', 'grey', 'primary']
 export const sizeTypes = ['md', 'sm', 'inherit']

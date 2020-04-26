@@ -43,15 +43,17 @@ const AboutPage = () => (
   </div>
 )
 
-const Section = ({ icon, title, altText, desc }) => (
-  <>
-    <img src={icon} alt={altText} />
-    <div>
-      <h3>{title}</h3>
-      {desc}
-    </div>
-  </>
-)
+const Section = ({ icon, title, altText, desc }) => {
+  return (
+    <>
+      <img src={icon} alt={altText} />
+      <div>
+        <h3>{title}</h3>
+        {desc}
+      </div>
+    </>
+  )
+}
 
 Section.propTypes = {
   icon: PropTypes.string.isRequired,

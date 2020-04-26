@@ -5,8 +5,8 @@ import ShortDesc from './short-description.mdx'
 import Link from '../link/link'
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const P = props => <p className='p' {...props} />
-const Anchor = props => (
+const P = (props) => <p className='p' {...props} />
+const Anchor = (props) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <Link variant='dark' target='_blank' {...props} />
 )
