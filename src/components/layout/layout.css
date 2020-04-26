@@ -27,7 +27,7 @@ body {
 
 body,
 #___gatsby > div {
-  font-size: 16px;
+  font-size: calc(15px + 0.25vw);
   color: var(--color-dark);
 
   display: flex;
@@ -36,20 +36,20 @@ body,
 
 .container-md {
   margin: 0 auto;
-  padding: 0 20px;
-  max-width: 780px;
+  padding: 0 1rem;
+  max-width: 960px;
 }
 
-@media (max-width: 576px) {
+@media (min-width: 576px) {
   .container-md {
-    padding: 0 1rem;
+    padding: 0 1.2rem;
   }
 }
 
 h1,
 h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 1.2rem;
 }
 
 .text-sm {

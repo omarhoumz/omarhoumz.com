@@ -30,7 +30,7 @@
   margin: 0;
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 0.9rem;
   text-transform: uppercase;
   font-weight: 600;
 }

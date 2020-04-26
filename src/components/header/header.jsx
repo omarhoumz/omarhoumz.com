@@ -4,10 +4,8 @@ import cx from 'classnames'
 import menuLinks from './header.queries'
 import Link from '../link/link'
 import styles from './header.module.css'
-import Hamburger from './hamburger'
 
 const Header = () => {
-  const [showNav, setShowNav] = React.useState(false)
   const { site } = menuLinks()
 
   return (
@@ -26,12 +24,7 @@ const Header = () => {
             <strong>houmz</strong>
           </Link>
         </h1>
-        <Hamburger onClick={() => setShowNav(prev => !prev)} />
-        <nav
-          className={cx(styles.navigation, styles.dark, {
-            [styles.show]: showNav,
-          })}
-        >
+        <nav className={cx(styles.navigation, styles.dark)}>
           {site.siteMetadata.menuLinks.map(
             ({ link, label, partiallyActive }, index) => (
               <Link
