@@ -62,8 +62,8 @@ module.exports = {
         link: '/about',
       },
       {
-        label: 'Thoughts',
-        link: '/thoughts',
+        label: 'Writing',
+        link: '/writing',
         partiallyActive: true,
       },
       {
@@ -85,8 +85,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/thoughts`,
-        name: 'thoughts',
+        path: `${__dirname}/content/writing`,
+        name: 'writing',
       },
     },
     // {

@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Link from '../../link/link'
-import styles from './thought-link.module.css'
+import styles from './writing-link.module.css'
 
-const ThoughtLink = ({ key, title, date, excerpt, link }) => (
+const WritingLink = ({ key, title, date, excerpt, link }) => (
   <div className={styles.container} key={key}>
     <h3 className={styles.title}>{title}</h3>
     <span className={styles.date}>{date}</span>
@@ -15,7 +15,7 @@ const ThoughtLink = ({ key, title, date, excerpt, link }) => (
   </div>
 )
 
-ThoughtLink.propTypes = {
+WritingLink.propTypes = {
   key: PropTypes.string,
   title: PropTypes.string,
   date: PropTypes.string,
@@ -23,7 +23,7 @@ ThoughtLink.propTypes = {
   link: PropTypes.string,
 }
 
-ThoughtLink.defaultProps = {
+WritingLink.defaultProps = {
   key: null,
   title: null,
   date: null,
@@ -31,4 +31,4 @@ ThoughtLink.defaultProps = {
   link: null,
 }
 
-export default ThoughtLink
+export default WritingLink
