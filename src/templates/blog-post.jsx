@@ -26,6 +26,7 @@ const BlogPost = ({ data, pageContext }) => {
   const postTitle = post.frontmatter.title
   const postExcerpt = post.excerpt
   const postDate = post.frontmatter.date
+  const postAuthor = post.frontmatter.author
 
   return (
     <Layout className={styles.mainBlog}>
@@ -44,8 +45,18 @@ const BlogPost = ({ data, pageContext }) => {
             paddingBlockStart: '1em',
           }}
         />
-        <h1>{postTitle}</h1>
-        <p className={styles.metaData}>{postDate}</p>
+        <h1 className={styles.postTitle}>{postTitle}</h1>
+        <p className={styles.metaData}>
+          {postAuthor && (
+            <span className={styles.metaAuthor}>
+              <span role='img' aria-label='icon image'>
+                ✍🏻
+              </span>
+              &nbsp; by {postAuthor}
+            </span>
+          )}
+          <span className={styles.metaDate}>{postDate}</span>
+        </p>
         <MDXRenderer>{post.body}</MDXRenderer>
       </Section>
 
@@ -60,7 +71,6 @@ const BlogPost = ({ data, pageContext }) => {
           <Link
             rel='prev'
             internal
-            inline
             href={previousSlug}
             className={styles.navLinks}
           >
@@ -70,13 +80,7 @@ const BlogPost = ({ data, pageContext }) => {
           <span />
         )}
         {next && (
-          <Link
-            rel='next'
-            internal
-            inline
-            href={nextSlug}
-            className={styles.navLinks}
-          >
+          <Link rel='next' internal href={nextSlug} className={styles.navLinks}>
             {`${nextTitle} →`}
           </Link>
         )}
@@ -95,6 +99,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        author
       }
       body
     }

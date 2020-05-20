@@ -4,7 +4,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
 
 import Blockquote from './src/components/_ui/mdx/blockquote/blockquote'
-import Code from './src/components/code/code'
+import Code from './src/components/_ui/mdx/code/code'
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const Pre = (preProps) => <pre {...preProps} />
