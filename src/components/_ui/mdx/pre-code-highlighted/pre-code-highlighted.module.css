@@ -1,0 +1,31 @@
+.preWrapper {
+  --inline-space: 1em;
+  display: flex;
+  overflow: auto;
+  margin: 1em calc(-1 * var(--inline-space));
+  border: 1px solid var(--secondary-200);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preStyles {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5em;
+
+  text-align: left;
+  width: 100%;
+  overflow: auto;
+}
+
+.line {
+  display: table-row;
+}
+
+.lineNo {
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+}
