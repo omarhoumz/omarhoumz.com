@@ -1,0 +1,256 @@
+---
+title: Create your first Firebase Cloud function
+date: '2020-05-26T21:10:00.000Z'
+author: omar houmz
+---
+
+If you're still not in the world of serverless you are missing out on a lot.
+
+In this post, we're going to:
+
+1. Create & set up a Firebase project
+2. Setup a firebase cloud function
+3. Deploy our first function
+4. Setup a local dev environment
+
+I assume that you have node & npm installed on your machine.
+
+Before we start, let's set up a basic project to work with. I created some files and boilerplate code in [this repo](https://github.com/omarhoumz/wr-firebase-clound-function/tree/master/001-create-a-firebase-function-start) in the `001-create-a-firebase-function-start` folder.
+
+// TODO explain about the project
+
+### 1. Create & set up a Firebase project
+
+#### Create a firebase project
+
+To create a firebase project:
+
+- Go to the [Firebase Console](https://console.firebase.google.com/)
+- Log in or create your account
+- Once in the home page, click the big "Add project" button
+- Enter your project name
+- Click "Continue" and follow the steps
+
+And voila, we have a firebase project.
+
+#### Setup our firebase project locally
+
+First, we have to install the firebase cli tools:
+
+```bash
+npm install -g firebase-cli
+```
+
+Then, we login to Firebase from the terminal:
+
+```bash
+firebase login
+```
+
+This will open a browser tab for us to authenticate to Firebase console. Once authenticated successfully, we should have our terminal prompt back.
+
+Next is to initialize a Firebase project locally:
+
+```bash
+firebase init
+```
+
+// TRY firebase init functions
+
+The first _and important_ thing is to select the option for _Functions: Configure and deploy Cloud Functions_.
+
+After choosing the _Functions_ option, the command will guide us through the rest of the setup. It will ask about 3 things: the Firebase project (which we already created), Cloud Functions language (I chose JavaScript, you can also choose TypeScript), and wether or not to use ESLint (which I replied with a "yes, please" to).
+
+If all goes well, we should see these files created.
+
+```diff
+-
++ .firebaserc
++ .gitignore
++ firebase.json
++ functions/.eslintrc.json
++ functions/.gitignore
++ functions/index.js
++ functions/package-lock.json
++ functions/package.json
+```
+
+In addition to some other files that you see, these are the important ones:
+
+- `.firebaserc` file that stores your project aliases.
+- `firebase.json` configuration file that lists your project configuration.
+- `functions/package.json` node dependencies for our firebase cloud function.
+
+The file that we should take a look at now is `functions/index.js`. This is where we write our code for the cloud function.
+
+Let's use this "helloWorld" example. Notice that I disabled the [`CORS` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) since we are in developement.
+
+```js
+const functions = require('firebase-functions')
+
+exports.helloWorld = functions.https.onRequest((request, response) => {
+  // disable CORS header
+  response.setHeader('Access-Control-Allow-Origin', '*')
+
+  response.status(200).json({ message: 'And, hello from serverless!' })
+})
+```
+
+### 3. Deploy our first cloud function
+
+#### Test the firebase function locally
+
+Before we deploy, we want to test the function locally. To do so, let's `cd` into the `Functions` directory:
+
+```bash
+cd functions
+```
+
+And start a local emulator (this is provided by the firebase-cli tools):
+
+```bash
+npm run serve
+```
+
+After this runs, the function will be watched for changes, and the local url should be logged in the console. Look for something like this:
+
+```bash
+✔  functions[helloWorld]: http function initialized (http://localhost:5001/YOUR_PROJECT_ID/us-central1/helloWorld).
+```
+
+In the link above, `YOUR_PROJECT_ID` and `us-central1` are the project id and the data center region for your firebase project respectively. And `helloWorld` is the function name.
+
+Let's visit the Url. And if all goes well, we see a message:
+
+```json
+{ "message": "And, hello from serverless land!" }
+```
+
+#### Deploy the firebase cloud function
+
+Now, let's deploy our function. While still being in the functions directory, execute this command:
+
+```bash
+npm run deploy
+```
+
+The result of command should have a public URL to trigger our function. It looks something like this:
+
+```
+https://${DATA_CENTER_REGION}-${YOUR_PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME}
+```
+
+Next, let's use it in our project. To do that, let's add a `div` in the `index.html` file to show our message:
+
+```diff
+/* index.html */
+  <h1>Hello Firebase Functions</h1>
++ <h2 id="function-response"></h2>
++
+```
+
+And in the `index.js` file:
+
+```js
+// get the heading element
+const messageDiv = document.querySelector('#function-response')
+
+// the function trigger endpoint, make sure to replace
+const url =
+  'https://${DATA_CENTER_REGION}-${YOUR_PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME}'
+
+// trigger the function and get the result back
+fetch(url)
+  .then((result) => result.json())
+  // when we have the result, we update the heading with the message
+  .then((data) => updateMessage(data.message))
+
+// heading updater function
+function updateMessage(message) {
+  messageDiv.innerText = message
+}
+```
+
+After we made these changes, let's check the result. Run the dev server:
+
+```bash
+# TODO add command
+```
+
+If everything went well, we should see:
+
+```text
+Hello Firebase Functions
+And, hello from serverless land!
+```
+
+### 4. Setup a local dev environment
+
+When we are in developement, we don't want to constant deploy our function to see the result. So, we will laverage the local emulator provided by the Firebase cli tools to set our local dev environment.
+
+We know how to start the function emulator:
+
+```bash
+cd functions && npm run serve
+```
+
+We know how to start our dev server:
+
+```bash
+parcel ./index.html
+```
+
+Now, we need a way to start both of them with one command. Here is the easiest way I could find:
+
+```bash
+(cd functions && npm run serve) & parcel ./index.html
+```
+
+And to keep this setup, we're gonna edit the scripts in our `package.json` file:
+
+```json
+"scripts": {
+  "start:frontend": "parcel ./index.html",
+  "start": "(cd functions && npm run serve) & npm run start:frontend"
+},
+```
+
+And now we can use one command to start them both:
+
+```bash
+npm run start
+```
+
+Let's replace our function endpoint url to use the local url:
+
+```js
+const url =
+  process.env.NODE_ENV === 'production'
+    ? `https://${DATA_CENTER_REGION}-${YOUR_PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME}`
+    : `http://localhost:5001/${YOUR_PROJECT_ID}/${DATA_CENTER_REGION}/${FUNCTION_NAME}`
+```
+
+And now that use the local url of the function, we can remove the `CORS` header in the function:
+
+```diff
+- // disable CORS header
+- response.setHeader('Access-Control-Allow-Origin', '*')
++ // disable CORS header for developement
++ if (process.env.NODE_ENV !== 'production') {
++   response.setHeader('Access-Control-Allow-Origin', '*')
++ }
+```
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+- TODOs
+- external links
+- porper heading sizes & margins
