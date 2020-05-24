@@ -38,6 +38,7 @@
 
 .blogContentSection p {
   max-width: 65ch;
+  line-height: 1.8;
 }
 
 .mainBlog {

@@ -33,7 +33,7 @@ const BlogPost = ({ data, pageContext }) => {
       <SEO title={postTitle} description={postExcerpt} />
       <Section
         classes={{
-          inner: 'container-md',
+          inner: 'container-sm',
           root: styles.blogContentSection,
         }}
       >

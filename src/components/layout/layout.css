@@ -22,6 +22,12 @@ body {
   font-family: 'Circular Std', Roboto, 'Helvetica Neue', Arial, Helvetica,
     sans-serif;
 }
+
+::selection {
+  color: rgb(255, 255, 255);
+  background-color: var(--color-secondary);
+}
+
 #___gatsby > div {
   min-height: 100vh;
   background-color: white;
@@ -36,14 +42,23 @@ body,
   flex-direction: column;
 }
 
-.container-md {
+.container-md,
+.container-sm {
   margin: 0 auto;
   padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.container-md {
   max-width: 960px;
+}
+.container-sm {
+  max-width: 760px;
 }
 
 @media (min-width: 576px) {
-  .container-md {
+  .container-md,
+  .container-sm {
     padding: 0 1.2rem;
   }
 }

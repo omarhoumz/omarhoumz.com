@@ -8,6 +8,12 @@
   overflow: hidden;
 }
 
+@media (min-width: 860px) {
+  .preWrapper {
+    --inline-space: 2em;
+  }
+}
+
 .preStyles {
   display: inline-block;
   margin: 0;
