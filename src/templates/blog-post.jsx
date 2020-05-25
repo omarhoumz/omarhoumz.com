@@ -8,6 +8,7 @@ import Layout from '../components/layout/layout'
 import Section from '../components/_ui/section/section'
 import Link from '../components/link/link'
 import SEO from '../components/seo'
+// import Sharer from '../components/sharer/sharer'
 
 const BlogPost = ({ data, pageContext }) => {
   const { previous, next } = pageContext
@@ -27,6 +28,7 @@ const BlogPost = ({ data, pageContext }) => {
   const postExcerpt = post.excerpt
   const postDate = post.frontmatter.date
   const postAuthor = post.frontmatter.author
+  const postStatus = post.frontmatter.status
 
   return (
     <Layout className={styles.mainBlog}>
@@ -47,6 +49,9 @@ const BlogPost = ({ data, pageContext }) => {
         />
         <h1 className={styles.postTitle}>{postTitle}</h1>
         <p className={styles.metaData}>
+          {postStatus === 'draft' && (
+            <span className={styles.postStatus}>{postStatus}</span>
+          )}
           {postAuthor && (
             <span className={styles.metaAuthor}>
               <span role='img' aria-label='icon image'>
@@ -60,6 +65,8 @@ const BlogPost = ({ data, pageContext }) => {
         <MDXRenderer>{post.body}</MDXRenderer>
       </Section>
 
+      {/* <Sharer /> */}
+
       <Section
         classes={{
           inner: 'container-md',
@@ -67,7 +74,7 @@ const BlogPost = ({ data, pageContext }) => {
         }}
         Component='nav'
       >
-        {previous ? (
+        {previous && (
           <Link
             rel='prev'
             internal
@@ -76,8 +83,6 @@ const BlogPost = ({ data, pageContext }) => {
           >
             {`← ${previousTitle}`}
           </Link>
-        ) : (
-          <span />
         )}
         {next && (
           <Link rel='next' internal href={nextSlug} className={styles.navLinks}>
@@ -100,6 +105,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         author
+        status
       }
       body
     }

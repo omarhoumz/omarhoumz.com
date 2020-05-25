@@ -1,0 +1,21 @@
+.sharer {
+  display: flex;
+  align-items: baseline;
+}
+
+.label {
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-size: 0.7em;
+  margin-inline-end: 1em;
+}
+
+.shareBtn {
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.shareBtn:not(:last-child) {
+  margin-inline-end: 0.5em;
+}
