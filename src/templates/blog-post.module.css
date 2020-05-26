@@ -10,12 +10,14 @@
 }
 
 .metaDate {
-  padding: 0.2em 0.4em;
+  padding: 0.4em 0.8em;
+  line-height: 1;
+  font-size: 0.75em;
+  font-weight: bold;
+
+  border-radius: 1em;
   color: #423f84;
   background-color: #f0efff;
-  font-size: 0.9em;
-  line-height: 1;
-  border-radius: 0.3em;
 }
 
 .metaAuthor {
@@ -101,29 +103,14 @@
 }
 
 .postStatus {
-  --inline-negative-indent: 0.6rem;
   position: relative;
   line-height: 1;
-  padding: 0.175em 0.4rem 0.175em var(--inline-negative-indent);
-  margin-inline-start: calc(-1 * var(--inline-negative-indent));
+  padding: 0.4em 0.8em;
+  font-size: 0.7em;
+  font-weight: bold;
 
-  background-color: #ffda97;
-  color: #a8340a;
-  border-radius: 0 0.25em 0.25em 0;
-}
-
-.postStatus:before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 0;
-  height: 0;
-
-  border: calc(var(--inline-negative-indent) / 2) solid transparent;
-  border-block-start-color: inherit;
-  border-inline-end-color: inherit;
-
-  transform: scale3d(1, 0.5, 1);
-  transform-origin: top left;
+  border-radius: 1em;
+  text-transform: uppercase;
+  background-color: #423f84;
+  color: #f0efff;
 }
