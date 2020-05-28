@@ -1,5 +1,5 @@
 ---
-title: Create your first Firebase Cloud function
+title: How to create your first Firebase Cloud function
 date: '2020-05-26T21:10:00.000Z'
 author: omar houmz
 description: Create your first Firebase Cloud function
@@ -8,26 +8,30 @@ status: draft
 
 If you're still not in the world of <a href='https://en.wikipedia.org/wiki/Serverless_computing' target='_blank' rel='nofollow noopener noreferrer'>serverless</a> you are missing out on a lot.
 
+From a frontend engineer perspective, your skillset is limited when you need some backend developement and/or server operations. Serverless techlonoligies opens that field for you.
+
+Check <a href='https://serverless.css-tricks.com/' target='_blank' rel='nofollow noopener noreferrer'>this site</a> to know all the awesome things you can do with serverless.
+
 In this post we will cover one small part, but very much hyped, of serverless; cloud functions. One of the solutions available is firebase's <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>"Firebase Cloud Functions"</a>.
 
-We're going to:
+We are going to:
 
-1. Create & set up a Firebase project
+1. Create and set up a Firebase project
 2. Setup a firebase cloud function
 3. Deploy our first function
 4. Setup a local dev environment
 
 #### Requirements
 
-I assume that you have node & npm installed on your machine.
+I assume that you have node and npm installed on your machine.
 
 #### Starter project
 
-Before we start, let's set up a basic project to work with. I created some files and boilerplate code in <a href='https://github.com/omarhoumz/wr-firebase-clound-function/tree/master/001-create-a-firebase-function-start' target='_blank' rel='nofollow noopener noreferrer'>this repo</a> in the `001-create-a-firebase-function-start` folder.
+Before we start, let us set up a basic project to work with. I created some files and boilerplate code in <a href='https://github.com/omarhoumz/wr-firebase-clound-function/tree/master/001-create-a-firebase-function-start' target='_blank' rel='nofollow noopener noreferrer'>this repo</a> in the `001-create-a-firebase-function-start` folder.
 
 Check the <a href='https://github.com/omarhoumz/wr-firebase-clound-function/blob/master/001-create-a-firebase-function-start/README.md' target='_blank' rel='nofollow noopener noreferrer'>readme file</a> on how to get started with the code.
 
-### 1. Create & set up a Firebase project
+### 1. Create and set up a Firebase project
 
 #### Create a firebase project
 
@@ -43,7 +47,7 @@ And voila, we have a firebase project.
 
 #### Setup our firebase project locally
 
-First, we have to install the firebase cli tools:
+First, we have to install the firebase CLI tools:
 
 ```bash
 npm install -g firebase-cli
@@ -87,7 +91,7 @@ In addition to some other files you see, these are the important ones:
 
 The file that we should take a look at now is `functions/index.js`. This is where we write our code for the cloud function.
 
-Let's use this "helloWorld" example. Notice that I disabled the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank' rel='nofollow noopener noreferrer'>`CORS` header</a> since we are in developement.
+Let us use this "helloWorld" example. Notice that I disabled the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank' rel='nofollow noopener noreferrer'>`CORS` header</a> since we are in developement.
 
 ```js
 const functions = require('firebase-functions')
@@ -104,7 +108,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 #### Test the firebase function locally
 
-Before we deploy, we want to test the function locally. To do so, let's `cd` into the `Functions` directory:
+Before we deploy, we want to test the function locally. To do so, let us `cd` into the `Functions` directory:
 
 ```bash
 cd functions
@@ -116,7 +120,7 @@ And start a local emulator (this is provided by the firebase-cli tools):
 npm run serve
 ```
 
-After this runs, the function will be watched for changes, and the local url should be logged in the console. Look for something like this:
+After this runs, the function will be watched for changes, and the local URL should be logged in the console. Look for something like this:
 
 ```bash
 ✔  functions[helloWorld]: http function initialized (http://localhost:5001/YOUR_PROJECT_ID/us-central1/helloWorld).
@@ -124,7 +128,7 @@ After this runs, the function will be watched for changes, and the local url sho
 
 In the link above, `YOUR_PROJECT_ID` and `us-central1` are the project id and the data center region for your firebase project respectively. And `helloWorld` is the function name.
 
-Let's visit the Url. And if all goes well, we see a message:
+If we visit the URL and all goes well, we see this message:
 
 ```json
 { "message": "And, hello from serverless land!" }
@@ -132,7 +136,7 @@ Let's visit the Url. And if all goes well, we see a message:
 
 #### Deploy the firebase cloud function
 
-Now, let's deploy our function. While still being in the functions directory, execute this command:
+Now, let us deploy our function. While still being in the functions directory, execute this command:
 
 ```bash
 npm run deploy
@@ -146,7 +150,7 @@ https://${DATA_CENTER_REGION}-${YOUR_PROJECT_ID}.cloudfunctions.net/${FUNCTION_N
 
 #### Trigger the cloud function
 
-Next, let's use the function in our project. To do that, let's add a `div` in the `index.html` file to show a message:
+Next, let us use the function in our project. To do that, we add a `div` in the `index.html` file to show a message:
 
 ```diff
 /* index.html */
@@ -181,7 +185,7 @@ fetch(url)
   .then((data) => updateMessage(data.message))
 ```
 
-After we made these changes, let's check the result. Run the dev server:
+After we made these changes, let us check the result. Run the dev server:
 
 ```bash
 npm run start
@@ -196,7 +200,7 @@ And, hello from serverless land!
 
 ### 4. A better local developement setup
 
-When we are in developement, we don't want to constantly deploy our function to see the result. So, we will laverage the local emulator provided by the Firebase cli tools to have a better local developement setup.
+When we are in developement, we don't want to constantly deploy our function to see the result. So, we will laverage the local emulator provided by the Firebase CLI tools to have a better local developement setup.
 
 We know how to start the function emulator:
 
@@ -232,7 +236,7 @@ And now we can use one command to start them both:
 npm run start
 ```
 
-Let's replace our function endpoint url to use the local url:
+For the `url` variable, we should modify it to accomodate for the environment (developement vs production):
 
 ```js
 const url =
@@ -262,4 +266,4 @@ cd functions && npm run deploy
 
 Until this point, we created a firebase project using the firebase console. In our local machine, we initialized our project a firebase function and deployed it. We also configured a better setup for local developement.
 
-There is still much we can do here. We'll explore other thing in the next posts. But, if you are in a hurry, you can check the <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>the Firebase Functions docs</a>.
+There is still much we can do here. We will explore other thing in the next posts. But, if you are in a hurry, you can check the <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>the Firebase Functions docs</a>.
