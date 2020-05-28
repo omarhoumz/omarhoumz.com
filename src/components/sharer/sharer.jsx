@@ -8,26 +8,35 @@ import styles from './sharer.module.css'
 const Sharer = memo(function Sharer({ url, title, twitterHandle }) {
   return (
     <Section
-      classes={{ inner: 'container-sm', children: styles.sharer }}
+      classes={{ inner: 'container-sm', children: styles.sharerWrapper }}
       ChildrenAs={React.Fragment}
     >
-      <p className={styles.label}>Share post</p>
-      <TwitterShareButton
-        url={url}
-        quote={title}
-        via={twitterHandle.split('@').join('')}
-        className={styles.shareBtn}
-      >
-        Twitter
-      </TwitterShareButton>
-      <FacebookShareButton
-        url={url}
-        quote={title}
-        via={twitterHandle.split('@').join('')}
-        className={styles.shareBtn}
-      >
-        Facebook
-      </FacebookShareButton>
+      <p>
+        <strong>Thank you</strong> for reading.
+      </p>
+      <p>
+        If you think that someone else could benifit from this post also, take a
+        moment to <strong>share it</strong>. Or even bookmark it for later.
+      </p>
+      <div className={styles.sharer}>
+        <span className={styles.label}>Share post</span>
+        <TwitterShareButton
+          url={url}
+          quote={title}
+          via={twitterHandle.split('@').join('')}
+          className={styles.shareBtn}
+        >
+          Twitter
+        </TwitterShareButton>
+        <FacebookShareButton
+          url={url}
+          quote={title}
+          via={twitterHandle.split('@').join('')}
+          className={styles.shareBtn}
+        >
+          Facebook
+        </FacebookShareButton>
+      </div>
     </Section>
   )
 })
