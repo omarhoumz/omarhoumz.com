@@ -1,6 +1,9 @@
 .metaData {
-  margin-block-start: 0.2em;
+  margin-block-start: 0.1em;
   margin-block-end: 2em;
+  padding-block-start: 0.6em;
+  border-block-start: 1px solid #dedede;
+
   display: flex;
   align-items: baseline;
 }
@@ -113,4 +116,15 @@
   text-transform: uppercase;
   background-color: #423f84;
   color: #f0efff;
+}
+
+:global(h1),
+:global(h2),
+:global(h3),
+:global(h4),
+:global(h5),
+:global(h6) {
+  margin-block-start: 1.2em;
+  margin-block-end: 1em;
+  line-height: 1;
 }
