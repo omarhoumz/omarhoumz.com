@@ -1,21 +1,33 @@
 import React, { memo } from 'react'
 
+import { TwitterShareButton, FacebookShareButton } from 'react-share'
+
 import Section from '../_ui/section/section'
 import styles from './sharer.module.css'
 
-const Sharer = memo(function Sharer() {
+const Sharer = memo(function Sharer({ url, title, twitterHandle }) {
   return (
     <Section
-      classes={{ inner: 'container-md', children: styles.sharer }}
+      classes={{ inner: 'container-sm', children: styles.sharer }}
       ChildrenAs={React.Fragment}
     >
       <p className={styles.label}>Share post</p>
-      <button className={styles.shareBtn} type='button'>
+      <TwitterShareButton
+        url={url}
+        quote={title}
+        via={twitterHandle.split('@').join('')}
+        className={styles.shareBtn}
+      >
         Twitter
-      </button>
-      <button className={styles.shareBtn} type='button'>
-        Copy Link
-      </button>
+      </TwitterShareButton>
+      <FacebookShareButton
+        url={url}
+        quote={title}
+        via={twitterHandle.split('@').join('')}
+        className={styles.shareBtn}
+      >
+        Facebook
+      </FacebookShareButton>
     </Section>
   )
 })

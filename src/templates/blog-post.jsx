@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 import { graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
@@ -8,7 +7,7 @@ import Layout from '../components/layout/layout'
 import Section from '../components/_ui/section/section'
 import Link from '../components/link/link'
 import SEO from '../components/seo'
-// import Sharer from '../components/sharer/sharer'
+import Sharer from '../components/sharer/sharer'
 
 const BlogPost = ({ data, pageContext }) => {
   const { previous, next } = pageContext
@@ -29,6 +28,11 @@ const BlogPost = ({ data, pageContext }) => {
   const postDate = post.frontmatter.date
   const postAuthor = post.frontmatter.author
   const postStatus = post.frontmatter.status
+
+  const currentUrl =
+    process.env.NODE_ENV === 'development'
+      ? `https://omarhoumz.com${document.location.pathname}`
+      : window.location.href
 
   return (
     <Layout className={styles.mainBlog}>
@@ -62,10 +66,12 @@ const BlogPost = ({ data, pageContext }) => {
           )}
           <span className={styles.metaDate}>{postDate}</span>
         </p>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <div className={styles.mdxContentWrapper}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </div>
       </Section>
 
-      {/* <Sharer /> */}
+      <Sharer url={currentUrl} title={postTitle} twitterHandle='@omarhoumz' />
 
       <Section
         classes={{

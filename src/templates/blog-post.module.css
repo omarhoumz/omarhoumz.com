@@ -1,8 +1,6 @@
 .metaData {
-  margin-block-start: 0.1em;
+  margin-block-start: 0.2em;
   margin-block-end: 2em;
-  padding-block-start: 0.6em;
-  border-block-start: 1px solid #dedede;
 
   display: flex;
   align-items: baseline;
@@ -118,13 +116,31 @@
   color: #f0efff;
 }
 
-:global(h1),
-:global(h2),
-:global(h3),
-:global(h4),
-:global(h5),
-:global(h6) {
-  margin-block-start: 1.2em;
-  margin-block-end: 1em;
+.mdxContentWrapper :global(h1),
+.mdxContentWrapper :global(h2),
+.mdxContentWrapper :global(h3),
+.mdxContentWrapper :global(h4),
+.mdxContentWrapper :global(h5),
+.mdxContentWrapper :global(h6) {
+  margin-block-start: 1.8em;
+  margin-block-end: 0.8em;
   line-height: 1;
+}
+
+.mdxContentWrapper :global(a) {
+  text-decoration: none;
+  padding: 0.1em 0;
+  border-block-end: 2px solid transparent;
+  color: var(--color-primary);
+}
+.mdxContentWrapper :global(a):hover {
+  border-block-end-color: inherit;
+}
+.mdxContentWrapper :global(a):focus,
+.mdxContentWrapper :global(a):active {
+  background-color: var(--color-light);
+}
+
+.mdxContentWrapper :global(p) {
+  margin-block-start: 0;
 }
