@@ -32,7 +32,7 @@ const BlogPost = ({ data, pageContext }) => {
   const currentUrl =
     process.env.NODE_ENV === 'development'
       ? `https://omarhoumz.com${document.location.pathname}`
-      : window.location.href
+      : typeof window !== 'undefined' && window.location.href
 
   return (
     <Layout className={styles.mainBlog}>
