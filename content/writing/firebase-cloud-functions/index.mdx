@@ -4,11 +4,12 @@ date: '2020-05-26T21:10:00.000Z'
 author: omar houmz
 description: Create your first Firebase Cloud function
 status: draft
+tags: firebase, cloud functions, serverless
 ---
 
 If you're still not in the world of <a href='https://en.wikipedia.org/wiki/Serverless_computing' target='_blank' rel='nofollow noopener noreferrer'>serverless</a> you are missing out on a lot.
 
-From a frontend engineer perspective, your skillset is limited when you need some backend developement and/or server operations. Serverless techlonoligies opens that field for you.
+From a frontend engineer perspective, your skillset is limited when you need some backend development and/or server operations. Serverless technologies open that field for you.
 
 Check <a href='https://serverless.css-tricks.com/' target='_blank' rel='nofollow noopener noreferrer'>this site</a> to know all the awesome things you can do with serverless.
 
@@ -39,7 +40,7 @@ To create a firebase project:
 
 - Go to the <a href='https://console.firebase.google.com/' target='_blank' rel='nofollow noopener noreferrer'>Firebase Console</a>
 - Log in or create your account
-- Once in the home page, click the big "Add project" button
+- Once on the home page, click the big "Add project" button
 - Enter a name for your project
 - Click "Continue" and follow the steps
 
@@ -67,7 +68,7 @@ Next is to initialize a Firebase project locally:
 firebase init functions
 ```
 
-The command will guide us through the setup. It will ask about 3 things: the Firebase project (which we already created), Cloud Functions language (I chose JavaScript, you can also choose TypeScript), and wether or not to use ESLint (which I replied with a "yes, please" to).
+The command will guide us through the setup. It will ask about 3 things: the Firebase project (which we already created), Cloud Functions language (I chose JavaScript, you can also choose TypeScript), and whether or not to use ESLint (which I replied with a "yes, please" to).
 
 If all goes well, we should see these files created.
 
@@ -91,7 +92,7 @@ In addition to some other files you see, these are the important ones:
 
 The file that we should take a look at now is `functions/index.js`. This is where we write our code for the cloud function.
 
-Let us use this "helloWorld" example. Notice that I disabled the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank' rel='nofollow noopener noreferrer'>`CORS` header</a> since we are in developement.
+Let us use this "helloWorld" example. Notice that I disabled the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank' rel='nofollow noopener noreferrer'>`CORS` header</a> since we are in development.
 
 ```js
 const functions = require('firebase-functions')
@@ -142,7 +143,7 @@ Now, let us deploy our function. While still being in the functions directory, e
 npm run deploy
 ```
 
-The result of command should have a public URL to trigger our function. It looks something like this:
+The result of the command should have a public URL to trigger our function. It looks something like this:
 
 ```
 https://${DATA_CENTER_REGION}-${YOUR_PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME}
@@ -198,9 +199,9 @@ Hello Firebase Functions
 And, hello from serverless land!
 ```
 
-### 4. A better local developement setup
+### 4. A better local development setup
 
-When we are in developement, we don't want to constantly deploy our function to see the result. So, we will laverage the local emulator provided by the Firebase CLI tools to have a better local developement setup.
+When we are in development, we don't want to constantly deploy our function to see the result. So, we will leverage the local emulator provided by the Firebase CLI tools to have a better local development setup.
 
 We know how to start the function emulator:
 
@@ -236,7 +237,7 @@ And now we can use one command to start them both:
 npm run start
 ```
 
-For the `url` variable, we should modify it to accomodate for the environment (developement vs production):
+For the `url` variable, we should modify it to accomodate for the environment (development vs production):
 
 ```js
 const url =
@@ -250,7 +251,7 @@ And now that we use the local url of the function, we can remove the `CORS` head
 ```diff
 - // disable CORS header
 - response.setHeader('Access-Control-Allow-Origin', '*')
-+ // disable CORS header for developement
++ // disable CORS header for development
 + if (process.env.NODE_ENV !== 'production') {
 +   response.setHeader('Access-Control-Allow-Origin', '*')
 + }
@@ -264,6 +265,6 @@ cd functions && npm run deploy
 
 ### Summary
 
-Until this point, we created a firebase project using the firebase console. In our local machine, we initialized our project a firebase function and deployed it. We also configured a better setup for local developement.
+Until this point, we created a firebase project using the firebase console. In our local machine, we initialized our project a firebase function and deployed it. We also configured a better setup for local development.
 
-There is still much we can do here. We will explore other thing in the next posts. But, if you are in a hurry, you can check the <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>the Firebase Functions docs</a>.
+There is still much we can do here. We will explore other things in the next posts. But, if you are in a hurry, you can check the <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>the Firebase Functions docs</a>.
