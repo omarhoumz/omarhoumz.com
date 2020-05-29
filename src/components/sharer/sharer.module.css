@@ -5,6 +5,7 @@
   border-style: solid;
   border-color: var(--secondary-200);
   color: var(--grey-500);
+  background-color: #fbfbff;
 }
 
 .sharerWrapper :global(p) {
