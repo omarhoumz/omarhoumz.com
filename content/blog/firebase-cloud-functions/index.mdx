@@ -3,20 +3,15 @@ title: How to create your first Firebase Cloud function
 date: '2020-05-26T21:10:00.000Z'
 author: omar houmz
 description: Create your first Firebase Cloud function
-status: draft
 tags: firebase, cloud functions, serverless
 ---
 
-Let us talk about **Serverless**. From a frontend engineer's perspective, your skillset is limited when you need some backend development and/or server operations. Serverless technologies open that field for you.
-
-Check <a href='https://serverless.css-tricks.com/' target='_blank' rel='nofollow noopener noreferrer'>this site</a> to know all the awesome things you can do with serverless.
-
-In this post we will cover one small part, but very much hyped, of serverless; cloud functions. One of the solutions available is firebase's <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>"Firebase Cloud Functions"</a>.
+In this post we will cover one small, but very much hyped, part of serverless; **cloud functions**. One of the solutions available is firebase's <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>"Firebase Cloud Functions"</a>.
 
 We are going to:
 
 1. Create and set up a Firebase project
-2. Setup a firebase cloud function
+2. Setup a Firebase cloud function
 3. Deploy our first function
 4. Setup a local dev environment
 
@@ -32,7 +27,7 @@ Check the <a href='https://github.com/omarhoumz/wr-firebase-clound-function/blob
 
 ### 1. Create and set up a Firebase project
 
-#### Create a firebase project
+#### Create a Firebase project
 
 To create a firebase project:
 
@@ -42,11 +37,11 @@ To create a firebase project:
 - Enter a name for your project
 - Click "Continue" and follow the steps
 
-And voila, we have a firebase project.
+And voila, we have a Firebase project.
 
 #### Setup our firebase project locally
 
-First, we have to install the firebase CLI tools:
+First, we have to install the Firebase CLI tools:
 
 ```bash
 npm install -g firebase-cli
@@ -86,7 +81,7 @@ In addition to some other files you see, these are the important ones:
 
 - `.firebaserc`: stores your project aliases.
 - `firebase.json`: lists your project configuration.
-- `functions/package.json` node dependencies for our firebase cloud function.
+- `functions/package.json` node dependencies for our Firebase cloud function.
 
 The file that we should take a look at now is `functions/index.js`. This is where we write our code for the cloud function.
 
@@ -105,7 +100,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 ### 3. Deploy our first cloud function
 
-#### Test the firebase function locally
+#### Test the Firebase function locally
 
 Before we deploy, we want to test the function locally. To do so, let us `cd` into the `Functions` directory:
 
@@ -125,7 +120,7 @@ After this runs, the function will be watched for changes, and the local URL sho
 ✔  functions[helloWorld]: http function initialized (http://localhost:5001/YOUR_PROJECT_ID/us-central1/helloWorld).
 ```
 
-In the link above, `YOUR_PROJECT_ID` and `us-central1` are the project id and the data center region for your firebase project respectively. And `helloWorld` is the function name.
+In the link above, `YOUR_PROJECT_ID` and `us-central1` are the project id and the data center region for your Firebase project respectively. And `helloWorld` is the function name.
 
 If we visit the URL and all goes well, we see this message:
 
@@ -133,7 +128,7 @@ If we visit the URL and all goes well, we see this message:
 { "message": "And, hello from serverless land!" }
 ```
 
-#### Deploy the firebase cloud function
+#### Deploy the Firebase cloud function
 
 Now, let us deploy our function. While still being in the functions directory, execute this command:
 
@@ -263,6 +258,6 @@ cd functions && npm run deploy
 
 ### Summary
 
-Until this point, we created a firebase project using the firebase console. In our local machine, we initialized our project a firebase function and deployed it. We also configured a better setup for local development.
+Until this point, we created a Firebase project using the Firebase console. In our local machine, we initialized our project a Firebase function and deployed it. We also configured a better setup for local development.
 
 There is still much we can do here. We will explore other things in the next posts. But, if you are in a hurry, you can check the <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>the Firebase Functions docs</a>.

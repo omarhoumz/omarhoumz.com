@@ -15,7 +15,7 @@ const Sharer = memo(function Sharer({ url, title, twitterHandle }) {
         <strong>Thank you</strong> for reading.
       </p>
       <p>
-        If you think that someone else could benifit from this post also, take a
+        If you think that someone else could benefit from this post also, take a
         moment to <strong>share it</strong>. Or even bookmark it for later.
       </p>
       <div className={styles.sharer}>
