@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({ description, lang, meta, keywords, title }) {
-  const { site, file } = useStaticQuery(
+  const { site } = useStaticQuery(
     graphql`
       query {
         site {
@@ -12,7 +12,6 @@ function SEO({ description, lang, meta, keywords, title }) {
             title
             description
             author
-            siteUrl
           }
         }
         file(relativePath: { eq: "og-image-generic.png" }) {
@@ -24,8 +23,8 @@ function SEO({ description, lang, meta, keywords, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
-  const baseUrl = document.location.origin
-  const genericOgImage = `${baseUrl}${file.publicURL}`
+  const genericOgImage =
+    'https://res.cloudinary.com/omarhoumz-com/image/upload/v1590848619/og-image-generic.png'
 
   return (
     <Helmet
