@@ -12,6 +12,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             title
             description
             author
+            siteUrl
           }
         }
         file(relativePath: { eq: "og-image-generic.png" }) {
@@ -23,11 +24,21 @@ function SEO({ description, lang, meta, keywords, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+  let baseUrl = site.siteMetadata.siteUrl
+
+  if (process.env.PULL_REQUEST === true) {
+    baseUrl = process.env.DEPLOY_PRIME_URL
+  }
+
   // eslint-disable-next-line no-console
   console.log({
+    baseUrl,
     URL: process.env.URL,
     DEPLOY_PRIME_URL: process.env.DEPLOY_PRIME_URL,
+    REVIEW_ID: process.env.REVIEW_ID,
+    PULL_REQUEST: process.env.PULL_REQUEST,
   })
+
   const genericOgImage = file.publicURL
 
   return (
