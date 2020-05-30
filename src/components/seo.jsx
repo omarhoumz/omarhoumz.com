@@ -24,7 +24,7 @@ function SEO({ description, lang, meta, keywords, title }) {
   const metaDescription = description || site.siteMetadata.description
 
   const genericOgImage =
-    'https://res.cloudinary.com/omarhoumz-com/image/upload/c_scale,h_157,q_100,w_300/v1590848619/og-image-generic.png'
+    'https://res.cloudinary.com/omarhoumz-com/image/upload/v1590848619/og-image-generic.png'
 
   return (
     <Helmet
