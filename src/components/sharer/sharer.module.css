@@ -1,0 +1,48 @@
+.sharerWrapper {
+  padding: 2em 1em 1.9em 1em;
+  margin: 0 -1em;
+  border-width: 2px 0 2px 0;
+  border-style: solid;
+  border-color: var(--secondary-200);
+  color: var(--grey-500);
+  background-color: #fbfbff;
+}
+
+.sharerWrapper :global(p) {
+  margin: 0;
+  margin-block-end: 0.6em;
+
+  line-height: 1.4;
+}
+
+.sharer {
+  display: flex;
+  align-items: baseline;
+  margin-block-start: 1.2em;
+  color: #584fff;
+}
+
+.label {
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-size: 0.7em;
+  margin-inline-end: 1em;
+}
+
+.shareBtn {
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.shareBtn:hover {
+  color: var(--color-primary) !important;
+}
+
+.shareBtn:active,
+.shareBtn:focus {
+  background-color: var(--secondary-200) !important;
+}
+
+.shareBtn:not(:last-child) {
+  margin-inline-end: 0.5em;
+}

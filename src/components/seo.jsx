@@ -14,11 +14,17 @@ function SEO({ description, lang, meta, keywords, title }) {
             author
           }
         }
+        file(relativePath: { eq: "og-image-generic.png" }) {
+          publicURL
+        }
       }
     `,
   )
 
   const metaDescription = description || site.siteMetadata.description
+
+  const genericOgImage =
+    'https://res.cloudinary.com/omarhoumz-com/image/upload/v1590848619/og-image-generic.png'
 
   return (
     <Helmet
@@ -34,7 +40,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: 'og:title',
-          content: title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           property: 'og:description',
@@ -54,7 +60,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: 'twitter:title',
-          content: title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           name: 'twitter:description',
@@ -67,6 +73,18 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           name: 'description',
           content: "Omar Houmz's personal website",
+        },
+        {
+          name: 'twitter:image',
+          content: genericOgImage,
+        },
+        {
+          name: 'twitter:image:src',
+          content: genericOgImage,
+        },
+        {
+          property: 'og:image',
+          content: genericOgImage,
         },
       ]
         .concat(

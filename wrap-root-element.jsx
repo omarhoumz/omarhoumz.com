@@ -1,33 +1,33 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { MDXProvider } from '@mdx-js/react'
 import { preToCodeBlock } from 'mdx-utils'
 
 import Blockquote from './src/components/_ui/mdx/blockquote/blockquote'
+import PreCodeHighlighted from './src/components/_ui/mdx/pre-code-highlighted/pre-code-highlighted'
 import Code from './src/components/_ui/mdx/code/code'
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Pre = (preProps) => <pre {...preProps} />
+const Pre = (preProps) => {
+  const props = preToCodeBlock(preProps)
+  // if there's a codeString and some props, we passed the test
+  if (props) {
+    return <PreCodeHighlighted {...props} />
+  }
+  return <pre {...props} />
+}
 
 const components = {
-  // eslint-disable-next-line react/display-name
-  pre: (preProps) => {
-    const props = preToCodeBlock(preProps)
-    // if there's a codeString and some props, we passed the test
-    if (props) {
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      return <Code {...props} />
-    }
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <Pre {...props} />
-  },
+  pre: Pre,
+  code: Code,
   blockquote: Blockquote,
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export const wrapRootElement = ({ element }) => (
+const wrapRootElement = ({ element }) => (
   <MDXProvider components={components}>{element}</MDXProvider>
 )
 wrapRootElement.propTypes = {
   element: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 }
+
+export default wrapRootElement

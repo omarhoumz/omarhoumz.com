@@ -1,21 +1,27 @@
 .footer {
-  padding: 1rem 0;
-  background-color: var(--color-light);
-  color: #616161;
+  padding: 4em 0;
+  font-size: 0.9em;
+  color: var(--color-dark);
 }
-.footer > div {
+
+.innerFooter {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
+
+.innerFooter > :not(:last-child) {
+  margin-block-end: 1em;
+}
+
 .copy {
-  margin: 0 -0.6rem;
-  padding: 0 0.6rem;
-  padding-block-end: 0.4rem;
+  margin: 0 -0.6em;
+  padding: 0 0.6em 0.4em 0.6em;
+  font-weight: bold;
 }
+
 .copy a {
-  padding-left: 0.2rem;
+  padding-inline-start: 0.2em;
   display: inline;
   font-size: inherit;
 }
@@ -27,9 +33,17 @@
 }
 
 .navLink:not(:last-child) {
-  margin-inline-end: 1rem;
+  margin-inline-end: 2.4em;
 }
+
 .navLink {
   color: inherit;
-  font-size: 1rem;
+  font-size: smaller;
+  border-bottom: 2px solid transparent;
+  transition: color, border-color 180ms ease;
+  padding: 0.1em 0;
+}
+
+.navLink:hover {
+  border-bottom-color: inherit;
 }

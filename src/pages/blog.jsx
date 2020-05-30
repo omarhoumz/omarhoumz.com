@@ -5,22 +5,22 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import Section from '../components/_ui/section/section'
-import WritingLink from '../components/_ui/writing-link/writing-link'
+import BlogLink from '../components/_ui/blog-link/blog-link'
 
-const WritingIndex = ({ data }) => {
+const BlogIndex = ({ data }) => {
   const posts = data.allMdx.edges
 
   return (
     <Layout>
-      <SEO title='Writing' />
+      <SEO title='Blog' />
       <Section
-        title='All Writing'
+        title='All Blog posts'
         classes={{
           inner: 'container-md',
         }}
       >
         {posts.map(({ node }, index) => (
-          <WritingLink
+          <BlogLink
             key={index.toString()}
             title={node.frontmatter.title}
             date={node.frontmatter.date}
@@ -33,7 +33,7 @@ const WritingIndex = ({ data }) => {
   )
 }
 
-export default WritingIndex
+export default BlogIndex
 
 export const pageQuery = graphql`
   query {
