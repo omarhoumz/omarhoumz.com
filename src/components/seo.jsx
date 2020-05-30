@@ -23,6 +23,11 @@ function SEO({ description, lang, meta, keywords, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
+  // eslint-disable-next-line no-console
+  console.log({
+    URL: process.env.URL,
+    DEPLOY_PRIME_URL: process.env.DEPLOY_PRIME_URL,
+  })
   const genericOgImage = file.publicURL
 
   return (
@@ -39,7 +44,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: 'og:title',
-          content: title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           property: 'og:description',
@@ -59,7 +64,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: 'twitter:title',
-          content: title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           name: 'twitter:description',
