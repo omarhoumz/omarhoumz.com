@@ -34,9 +34,25 @@ const BlogPost = ({ data, pageContext }) => {
       ? `https://omarhoumz.com${document.location.pathname}`
       : typeof window !== 'undefined' && window.location.href
 
+  const ogImage =
+    'https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png'
+
   return (
     <Layout className={styles.mainBlog}>
-      <SEO title={postTitle} description={postExcerpt} />
+      <SEO
+        title={postTitle}
+        description={postExcerpt}
+        meta={[
+          {
+            name: 'twitter:image:src',
+            content: ogImage,
+          },
+          {
+            property: 'og:image',
+            content: ogImage,
+          },
+        ]}
+      />
       <Section
         classes={{
           inner: 'container-sm',

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({ description, lang, meta, keywords, title }) {
-  const { site } = useStaticQuery(
+  const { site, file } = useStaticQuery(
     graphql`
       query {
         site {
@@ -14,11 +14,16 @@ function SEO({ description, lang, meta, keywords, title }) {
             author
           }
         }
+        file(relativePath: { eq: "og-image-generic.png" }) {
+          publicURL
+        }
       }
     `,
   )
 
   const metaDescription = description || site.siteMetadata.description
+
+  const genericOgImage = file.publicURL
 
   return (
     <Helmet
@@ -67,6 +72,14 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           name: 'description',
           content: "Omar Houmz's personal website",
+        },
+        {
+          name: 'twitter:image:src',
+          content: genericOgImage,
+        },
+        {
+          property: 'og:image',
+          content: genericOgImage,
         },
       ]
         .concat(
