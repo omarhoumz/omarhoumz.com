@@ -86,6 +86,14 @@ function SEO({ description, lang, meta, keywords, title }) {
           property: 'og:image',
           content: genericOgImage,
         },
+        {
+          property: 'og:image:width',
+          content: '1200',
+        },
+        {
+          property: 'og:image:height',
+          content: '339',
+        },
       ]
         .concat(
           keywords.length > 0
