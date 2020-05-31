@@ -74,6 +74,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-source-filesystem',
