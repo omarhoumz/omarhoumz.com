@@ -79,10 +79,6 @@ function SEO({ description, lang, meta, keywords, title }) {
           content: genericOgImage,
         },
         {
-          name: 'twitter:image:src',
-          content: genericOgImage,
-        },
-        {
           property: 'og:image',
           content: genericOgImage,
         },
