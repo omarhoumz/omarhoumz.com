@@ -36,7 +36,17 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout className={styles.mainBlog}>
-      <SEO title={postTitle} description={postExcerpt} />
+      <SEO
+        title={postTitle}
+        description={postExcerpt}
+        meta={[
+          {
+            property: 'og:type',
+            content: 'article',
+            key: 'property-og:type',
+          },
+        ]}
+      />
       <Section
         classes={{
           inner: 'container-sm',
