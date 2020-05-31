@@ -54,17 +54,17 @@ module.exports = {
         link: '/',
       },
       {
+        label: 'Blog',
+        link: '/blog',
+        partiallyActive: true,
+      },
+      {
         label: 'Projects',
         link: '/projects',
       },
       {
         label: 'About',
         link: '/about',
-      },
-      {
-        label: 'Blog',
-        link: '/blog',
-        partiallyActive: true,
       },
       {
         label: 'Contact',
