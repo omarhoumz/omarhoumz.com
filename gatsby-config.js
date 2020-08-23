@@ -1,3 +1,5 @@
+const { projectStatuses } = require('./src/project-statuses')
+
 module.exports = {
   siteMetadata: {
     title: 'Omar Houmz',
@@ -7,43 +9,61 @@ module.exports = {
     siteUrl: 'https://omarhoumz.com',
     projects: [
       {
-        title: 'devfest.gdgcasablanca.com',
-        link: 'https://devfest.gdgcasablanca.com/',
-        external: true,
-        shortDesc:
-          'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the site with gatsby, reactjs and meetup API.',
-      },
-      {
-        title: 'wtm.gdgcasablanca.com',
-        link: 'https://wtm.gdgcasablanca.com/',
-        external: true,
-        shortDesc:
-          'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. I created the site with HTML, CSS and a bit of JS.',
-      },
-      {
         title: 'gdgcasablanca.com',
-        link: 'https://gdgcasablanca.com/',
-        external: true,
+        link: {
+          href: 'https://gdgcasablanca.com/',
+          external: true,
+        },
+        status: projectStatuses.active,
         shortDesc:
           'GDG Casablanca is a local dev community. I created the site with gatsby, reactjs and meetup API.',
       },
       {
+        title: 'wtm.gdgcasablanca.com',
+        link: {
+          href: 'https://wtm.gdgcasablanca.com/',
+          external: true,
+        },
+        status: projectStatuses.active,
+        shortDesc:
+          'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. I created the site with HTML, CSS and a bit of JS.',
+      },
+      {
+        title: 'devfest.gdgcasablanca.com',
+        link: {
+          href: 'https://devfest.gdgcasablanca.com/',
+          external: true,
+        },
+        status: projectStatuses.active,
+        shortDesc:
+          'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the site with gatsby, reactjs and meetup API.',
+      },
+      {
         title: 'LineApp.',
-        link: 'https://github.com/omhoumz/lineapp',
-        external: true,
+        link: {
+          href: 'https://github.com/omhoumz/lineapp',
+          external: true,
+        },
+        status: projectStatuses.unmaintained,
         shortDesc: 'Yet another to do app that uses Firebase Auth.',
       },
       {
         title: 'CC Platform.',
-        link: 'https://github.com/omarhoumz/ccp',
-        external: true,
+        link: {
+          href: 'https://github.com/omarhoumz/ccp',
+          external: true,
+        },
+        status: projectStatuses.unmaintained,
         shortDesc:
           'Get free and high res photos from around the web. An agregation of APIs for CC images.',
       },
       {
         title: 'Aiesec.ma.',
-        link: 'http://www.aiesec.ma/AIESEC/p/',
-        external: true,
+        link: {
+          href: 'http://www.aiesec.ma/AIESEC/p/',
+          external: true,
+        },
+        status: projectStatuses.archived,
         shortDesc:
           'The official website of the Mchina brand of AIESEC in Morocco.',
       },

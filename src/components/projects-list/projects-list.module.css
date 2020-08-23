@@ -27,6 +27,7 @@
 
   transition: 190ms ease;
   transition-property: box-shadow;
+  font-size: 0.9em;
 }
 
 .projectLink:hover {
@@ -42,4 +43,16 @@
 .linkDesc {
   margin-top: 0.6em;
   margin-bottom: 0;
+  font-size: inherit !important;
+}
+
+.badge {
+  font-size: 65%;
+  padding: 4px 6px;
+  color: var(--grey-400);
+  border-radius: 18px;
+  border: 1px solid;
+  text-transform: uppercase;
+  margin-inline-end: 6px;
+  line-height: 1;
 }

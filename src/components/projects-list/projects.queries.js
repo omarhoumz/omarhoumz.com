@@ -7,8 +7,11 @@ export default () =>
         siteMetadata {
           projects {
             title
-            link
-            external
+            link {
+              href
+              external
+            }
+            status
             shortDesc
           }
         }

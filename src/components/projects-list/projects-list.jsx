@@ -6,6 +6,7 @@ import projectsList from './projects.queries'
 import Link from '../link/link'
 import styles from './projects-list.module.css'
 import Text from '../_ui/text/text'
+import { projectStatuses } from '../../project-statuses'
 
 const ProjectsList = ({ latestOnly }) => {
   const { site } = projectsList()
@@ -20,21 +21,34 @@ const ProjectsList = ({ latestOnly }) => {
   return (
     <div className={styles.allProjectsList}>
       <ul className={styles.innerProjects}>
-        {projectsToRender.map(({ title, link, shortDesc }) => (
-          <li key={title} className={styles.projectItem}>
-            <Link
-              href={link}
-              target='_blank'
-              className={styles.projectLink}
-              variant='dark'
-            >
-              <span>{title}</span>
-              <Text classnames={cx(styles.linkDesc)} size='sm'>
-                {shortDesc}
-              </Text>
-            </Link>
-          </li>
-        ))}
+        {projectsToRender.map(
+          ({ title, link: { href, external }, status, shortDesc }) => (
+            <li key={title} className={styles.projectItem}>
+              <Link
+                href={href}
+                target='_blank'
+                external={external}
+                className={styles.projectLink}
+                variant='dark'
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  {status && status !== projectStatuses.active ? (
+                    <span className={styles.badge}>{status}</span>
+                  ) : null}
+                  <span>{title}</span>
+                </div>
+                <Text classnames={cx(styles.linkDesc)} size='sm'>
+                  {shortDesc}
+                </Text>
+              </Link>
+            </li>
+          ),
+        )}
       </ul>
     </div>
   )

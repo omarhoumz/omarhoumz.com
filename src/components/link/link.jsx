@@ -10,45 +10,49 @@ const Link = ({
   target,
   nofollow,
   children,
-  internal,
+  external,
   className,
   variant,
   inline,
   btnStyle,
   ...otherProps
 }) => {
-  const anchorProps = {
-    className: cx(
-      styles.link,
-      {
-        [styles.dark]: variant === 'dark',
-        [styles.btnStyle]: btnStyle,
-        [styles.inline]: inline,
-      },
-      className,
-    ),
-    href,
-    children,
-    ...otherProps,
+  const classes = cx(
+    styles.link,
+    {
+      [styles.dark]: variant === 'dark',
+      [styles.btnStyle]: btnStyle,
+      [styles.inline]: inline,
+    },
+    className,
+  )
+
+  if (external) {
+    const relProp = ['noopener', 'noreferrer', nofollow && 'nofollow']
+      .filter(Boolean)
+      .join(' ')
+
+    return (
+      <a
+        href={href}
+        // eslint-disable-next-line react/jsx-no-target-blank
+        target='_blank'
+        rel={relProp}
+        className={classes}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...otherProps}
+      >
+        {children}
+      </a>
+    )
   }
 
-  let Comp = 'a'
-
-  if (target === '_blank') {
-    anchorProps.target = '_blank'
-    anchorProps.rel = 'noopener noreferrer'
-    if (nofollow) {
-      anchorProps.rel += ' nofollow'
-    }
-  }
-
-  if (internal) {
-    Comp = GatsbyLink
-    anchorProps.to = href
-  }
-
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <Comp {...anchorProps}>{children}</Comp>
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <GatsbyLink to={href} className={classes} {...otherProps}>
+      {children}
+    </GatsbyLink>
+  )
 }
 
 Link.defaultProps = {
