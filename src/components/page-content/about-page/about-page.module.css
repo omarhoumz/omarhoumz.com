@@ -8,8 +8,8 @@
 }
 .short-about p {
   margin: 0 0 24px 0;
-  color: var(--grey-400);
-  max-width: 54ch;
+  color: var(--grey-500);
+  max-width: 53ch;
 }
 .short-about h3 {
   margin-top: 0;

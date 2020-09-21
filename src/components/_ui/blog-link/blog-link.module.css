@@ -1,7 +1,7 @@
 .container {
   padding-block-end: 1.5rem;
   padding-block-start: 1.5rem;
-  border-block-end: 1px solid var(--secondary-200);
+  border-block-end: 1px solid var(--blue-50);
 
   display: block;
   color: inherit;
@@ -15,5 +15,5 @@
 
 .date {
   font-size: 0.8em;
-  color: var(--grey-400);
+  color: var(--grey-500);
 }

@@ -68,7 +68,7 @@ const BlogPost = ({ data, pageContext }) => {
           )}
           {postAuthor && (
             <span className={styles.metaAuthor}>
-              <span role='img' aria-label='icon image'>
+              <span role='img' aria-label='An icon of a hand holding a pen'>
                 ✍🏻
               </span>
               &nbsp; by {postAuthor}

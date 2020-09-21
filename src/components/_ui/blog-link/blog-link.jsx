@@ -10,7 +10,7 @@ const BlogLink = memo(function BlogLink({ title, date, excerpt, link }) {
       <h3 className={styles.title}>{title}</h3>
       <span className={styles.date}>{date}</span>
       <p>{excerpt}</p>
-      <div style={{ color: 'var(--color-secondary)' }}>Read →</div>
+      <div style={{ color: 'var(--blue-500)' }}>Read →</div>
     </GatsbyLink>
   )
 })

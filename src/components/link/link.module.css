@@ -1,17 +1,17 @@
 .link {
   text-decoration: none;
-  color: var(--color-secondary);
+  color: var(--blue-500);
   padding: 0.4rem;
   margin-left: -0.4rem;
   transition: color var(--transition);
 }
 
 .link.dark {
-  color: var(--color-dark);
+  color: var(--grey-900);
 }
 .link:hover,
 .link.dark:hover {
-  color: var(--color-primary);
+  color: var(--blue-700);
 }
 
 .link.inline {
@@ -32,8 +32,9 @@
   align-items: center;
   font-size: 0.9rem;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1;
 }
 .link.btnStyle:hover {
-  background-color: var(--secondary-200);
+  background-color: var(--blue-50);
 }
