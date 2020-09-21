@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import cx from 'classnames'
 
 import menuLinks from './header.queries'
@@ -6,7 +6,12 @@ import Link from '../link/link'
 import styles from './header.module.css'
 
 const Header = () => {
+  const [showNav, setShowNav] = useState(false)
   const { site } = menuLinks()
+
+  const handleMenuClick = useCallback(() => {
+    setShowNav((o) => !o)
+  }, [])
 
   return (
     <header className={styles.header}>
@@ -24,7 +29,20 @@ const Header = () => {
             <strong>houmz</strong>
           </Link>
         </h1>
-        <nav className={cx(styles.navigation, styles.dark)}>
+
+        <button
+          type='button'
+          onClick={handleMenuClick}
+          className={cx(styles.menuBtn)}
+        >
+          Menu
+        </button>
+
+        <nav
+          className={cx(styles.navigation, styles.dark, {
+            [styles.showNav]: showNav,
+          })}
+        >
           {site.siteMetadata.menuLinks.map(
             ({ link, label, partiallyActive }, index) => (
               <Link

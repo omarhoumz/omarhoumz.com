@@ -3,8 +3,8 @@
   margin: 0 -1em;
   border-width: 2px 0 2px 0;
   border-style: solid;
-  border-color: var(--secondary-200);
-  color: var(--grey-500);
+  border-color: var(--blue-50);
+  color: var(--grey-800);
   background-color: #fbfbff;
 }
 
@@ -24,7 +24,7 @@
 
 .label {
   text-transform: uppercase;
-  color: var(--grey-400);
+  color: var(--grey-500);
   font-size: 0.7em;
   margin-inline-end: 1em;
 }
@@ -35,12 +35,12 @@
 }
 
 .shareBtn:hover {
-  color: var(--color-primary) !important;
+  color: var(--blue-700) !important;
 }
 
 .shareBtn:active,
 .shareBtn:focus {
-  background-color: var(--secondary-200) !important;
+  background-color: var(--blue-50) !important;
 }
 
 .shareBtn:not(:last-child) {

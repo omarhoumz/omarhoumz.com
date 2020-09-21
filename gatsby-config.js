@@ -9,6 +9,16 @@ module.exports = {
     siteUrl: 'https://omarhoumz.com',
     projects: [
       {
+        title: 'devfest.gdgcasablanca.com',
+        link: {
+          href: 'https://devfest.gdgcasablanca.com/',
+          external: true,
+        },
+        status: projectStatuses.active,
+        shortDesc:
+          'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the website with gatsby and reactjs.',
+      },
+      {
         title: 'gdgcasablanca.com',
         link: {
           href: 'https://gdgcasablanca.com/',
@@ -16,7 +26,7 @@ module.exports = {
         },
         status: projectStatuses.active,
         shortDesc:
-          'GDG Casablanca is a local dev community. I created the site with gatsby, reactjs and meetup API.',
+          'GDG (Google developer groups) is global program for developers. GDG Casablanca is a local chapter. I created the website with gatsby, reactjs and meetup API.',
       },
       {
         title: 'wtm.gdgcasablanca.com',
@@ -26,17 +36,7 @@ module.exports = {
         },
         status: projectStatuses.active,
         shortDesc:
-          'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. I created the site with HTML, CSS and a bit of JS.',
-      },
-      {
-        title: 'devfest.gdgcasablanca.com',
-        link: {
-          href: 'https://devfest.gdgcasablanca.com/',
-          external: true,
-        },
-        status: projectStatuses.active,
-        shortDesc:
-          'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the site with gatsby, reactjs and meetup API.',
+          'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. WTM Casablanca is a local chapter. I created the website with gatsby and reactjs.',
       },
       {
         title: 'LineApp.',

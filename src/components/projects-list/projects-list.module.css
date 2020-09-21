@@ -19,7 +19,7 @@
   margin: 0;
   box-sizing: border-box;
   padding: var(--space);
-  width: 60ch;
+  width: 56ch;
   max-width: 100%;
 
   font-weight: bold;
@@ -49,7 +49,7 @@
 .badge {
   font-size: 65%;
   padding: 4px 6px;
-  color: var(--grey-400);
+  color: var(--grey-500);
   border-radius: 18px;
   border: 1px solid;
   text-transform: uppercase;
