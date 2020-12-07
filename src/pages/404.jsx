@@ -28,13 +28,13 @@ const NotFoundPage = () => (
       </p>
       <p>
         If you think this page should exist,&nbsp;
-        <Link href='/contact' internal btnStyle>
+        <Link href='/contact' btnStyle>
           Contact me
         </Link>
       </p>
       <p>
         Or, just go&nbsp;
-        <Link href='/' internal btnStyle>
+        <Link href='/' btnStyle>
           Home
         </Link>
       </p>

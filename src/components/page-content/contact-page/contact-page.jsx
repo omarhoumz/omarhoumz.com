@@ -81,7 +81,7 @@ const ContactLink = ({ label, link, external }) => (
   <li className={styles.linkItem}>
     <Link
       href={link}
-      internal={!external}
+      external={external}
       className={styles.link}
       target='_blank'
     >

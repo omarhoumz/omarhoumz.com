@@ -35,18 +35,18 @@
   font-size: inherit;
 }
 .text.md {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .text.sm {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 768px) {
   .text.md {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
 
   .text.sm {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }

@@ -21,7 +21,7 @@
   --grey-900: #161718;
 
   --transition: 0.2s ease;
-  --radius: 0.38em;
+  --radius: 0.38rem;
 }
 html,
 body {
@@ -41,6 +41,12 @@ body {
   background-color: var(--blue-500);
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 #___gatsby > div {
   min-height: 100vh;
   background-color: white;
@@ -48,7 +54,7 @@ body {
 
 body,
 #___gatsby > div {
-  font-size: calc(15px + 0.25vw);
+  font-size: calc(16px + 0.25vw);
   color: var(--grey-900);
 
   display: flex;
@@ -57,8 +63,9 @@ body,
 
 .container-md,
 .container-sm {
-  margin: 0 auto;
-  padding: 0 1rem;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  padding-inline: 1rem;
   box-sizing: border-box;
 }
 
@@ -72,7 +79,14 @@ body,
 @media (min-width: 576px) {
   .container-md,
   .container-sm {
-    padding: 0 1.2rem;
+    padding-inline: 1.2rem;
+  }
+}
+
+@media (min-width: 767px) {
+  .container-md,
+  .container-sm {
+    padding: 0;
   }
 }
 

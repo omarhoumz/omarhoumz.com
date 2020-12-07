@@ -53,14 +53,8 @@ const BlogPost = ({ data, pageContext }) => {
           root: styles.blogContentSection,
         }}
       >
-        <Link href='/blog' internal>
-          ← Back
-        </Link>
-        <div
-          style={{
-            paddingBlockStart: '1em',
-          }}
-        />
+        <Link href='/blog'>← Back</Link>
+        <div style={{ paddingBlockStart: '1rem' }} />
         <h1 className={styles.postTitle}>{postTitle}</h1>
         <p className={styles.metaData}>
           {postStatus === 'draft' && (
@@ -91,17 +85,12 @@ const BlogPost = ({ data, pageContext }) => {
         Component='nav'
       >
         {previous && (
-          <Link
-            rel='prev'
-            internal
-            href={previousSlug}
-            className={styles.navLinks}
-          >
+          <Link rel='prev' href={previousSlug} className={styles.navLinks}>
             {`← ${previousTitle}`}
           </Link>
         )}
         {next && (
-          <Link rel='next' internal href={nextSlug} className={styles.navLinks}>
+          <Link rel='next' href={nextSlug} className={styles.navLinks}>
             {`${nextTitle} →`}
           </Link>
         )}

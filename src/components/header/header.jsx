@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={cx('container-md', styles.innerHeader)}>
+      <div className={styles.innerHeader}>
         <h1 className={styles.websiteTitle}>
           <Link
             href='/'
@@ -23,7 +23,6 @@ const Header = () => {
             aria-label='Omar Houmz'
             role='heading'
             aria-level='1'
-            internal
           >
             omar{` `}
             <strong>houmz</strong>
@@ -37,28 +36,27 @@ const Header = () => {
         >
           Menu
         </button>
-
-        <nav
-          className={cx(styles.navigation, styles.dark, {
-            [styles.showNav]: showNav,
-          })}
-        >
-          {site.siteMetadata.menuLinks.map(
-            ({ link, label, partiallyActive }, index) => (
-              <Link
-                href={link}
-                internal
-                key={index.toString()}
-                activeClassName={styles.active}
-                className={styles.navAnchor}
-                partiallyActive={partiallyActive}
-              >
-                {label}
-              </Link>
-            ),
-          )}
-        </nav>
       </div>
+
+      <nav
+        className={cx(styles.navigation, styles.dark, {
+          [styles.showNav]: showNav,
+        })}
+      >
+        {site.siteMetadata.menuLinks.map(
+          ({ link, label, partiallyActive }, index) => (
+            <Link
+              href={link}
+              key={index.toString()}
+              activeClassName={styles.active}
+              className={styles.navAnchor}
+              partiallyActive={partiallyActive}
+            >
+              {label}
+            </Link>
+          ),
+        )}
+      </nav>
     </header>
   )
 }

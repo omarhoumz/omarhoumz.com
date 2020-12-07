@@ -9,7 +9,7 @@
 .short-about p {
   margin: 0 0 24px 0;
   color: var(--grey-500);
-  max-width: 53ch;
+  max-width: 40ch;
 }
 .short-about h3 {
   margin-top: 0;

@@ -18,7 +18,7 @@ const Home = () => (
     >
       <ShortDescription />
 
-      <Link href='/about' internal btnStyle>
+      <Link href='/about' btnStyle>
         More about me ...
       </Link>
     </Section>
@@ -30,7 +30,7 @@ const Home = () => (
     >
       <ProjectsList latestOnly />
 
-      <Link href='/projects' internal btnStyle>
+      <Link href='/projects' btnStyle>
         See all projects
       </Link>
     </Section>
