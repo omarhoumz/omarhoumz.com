@@ -120,9 +120,7 @@ const SEO = memo(function SEO({ description, lang, meta, keywords, title }) {
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
+      htmlAttributes={{ lang }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={helmetMetas}

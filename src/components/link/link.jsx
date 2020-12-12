@@ -1,31 +1,47 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { Link as GatsbyLink } from 'gatsby'
+import NextLink from 'next/link'
 import cx from 'classnames'
+import { useRouter } from 'next/router'
 
-import styles from './link.module.css'
+const colors = {
+  blue: 'text-brand-500 hover:text-brand-700 hover:border-brand-700',
+  dark: 'text-gray-800 hover:text-gray-900 hover:border-gray-900',
+}
+
+const btnBgColors = {
+  blue: 'hover:text-brand-700 hover:bg-brand-50 focus:ring-brand-50',
+  dark: 'hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-100',
+}
 
 const Link = ({
   href,
+  as,
   target,
+  external,
   nofollow,
   children,
-  external,
   className,
-  variant,
-  inline,
+  activeClassName,
+  color,
   btnStyle,
+  unstyled,
   ...otherProps
 }) => {
-  const classes = cx(
-    styles.link,
-    {
-      [styles.dark]: variant === 'dark',
-      [styles.btnStyle]: btnStyle,
-      [styles.inline]: inline,
-    },
-    className,
-  )
+  const { asPath } = useRouter()
+
+  const classes = unstyled
+    ? cx(className, { [activeClassName]: asPath === href || asPath === as })
+    : cx(
+        {
+          'pb-0.5 pt-1 border-b-2 border-transparent': !btnStyle,
+          'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current focus:outline-none ring ring-transparent': btnStyle,
+          [btnBgColors[color]]: btnStyle,
+          [activeClassName]: asPath === href || asPath === as,
+        },
+        colors[color],
+        'transition-color duration-75',
+        className,
+      )
 
   if (external) {
     const relProp = ['noopener', 'noreferrer', nofollow && 'nofollow']
@@ -34,12 +50,10 @@ const Link = ({
 
     return (
       <a
-        href={href}
-        // eslint-disable-next-line react/jsx-no-target-blank
+        href={as || href}
         target='_blank'
         rel={relProp}
         className={classes}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...otherProps}
       >
         {children}
@@ -48,35 +62,32 @@ const Link = ({
   }
 
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <GatsbyLink to={href} className={classes} {...otherProps}>
-      {children}
-    </GatsbyLink>
+    <NextLink href={href} {...otherProps}>
+      <a className={classes}>{children}</a>
+    </NextLink>
   )
 }
 
 Link.defaultProps = {
-  href: '#!',
-  target: null,
   nofollow: false,
-  children: null,
   external: false,
-  className: '',
-  variant: 'default',
-  inline: false,
+  color: 'blue',
   btnStyle: false,
+  unstyled: false,
 }
 
 Link.propTypes = {
   href: PropTypes.string,
+  as: PropTypes.string,
   target: PropTypes.string,
   nofollow: PropTypes.bool,
   children: PropTypes.node,
   external: PropTypes.bool,
   className: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'dark']),
-  inline: PropTypes.bool,
+  activeClassName: PropTypes.string,
+  color: PropTypes.oneOf(Object.keys(colors)),
   btnStyle: PropTypes.bool,
+  unstyled: PropTypes.bool,
 }
 
 export default Link

@@ -19,6 +19,7 @@ coverage
 
 # nyc test coverage
 .nyc_output
+/coverage
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -35,6 +36,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+/.pnp
+.pnp.js
 
 # Typescript v1 declaration files
 typings/
@@ -53,13 +56,17 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # gatsby files
 .cache/
-public
 
 # Mac files
 .DS_Store
+*.pem
 
 # Yarn
 yarn-error.log
@@ -67,3 +74,16 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+
+# vercel
+.vercel

@@ -1,0 +1,16 @@
+.blockquote {
+  --inline-space: 1rem;
+  display: block;
+  padding: 0.2rem var(--inline-space);
+  margin-inline-start: calc(-1 * var(--inline-space));
+  margin-inline-end: calc(-1 * var(--inline-space));
+
+  border-left: 4px solid #0f0a84;
+  background-color: #f6f6fd;
+}
+
+@media (min-width: 860px) {
+  .preWrapper {
+    --inline-space: 2rem;
+  }
+}

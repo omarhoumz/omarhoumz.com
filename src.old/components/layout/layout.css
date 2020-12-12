@@ -104,17 +104,3 @@ h2 {
   flex-grow: 1;
   padding: 3rem 0;
 }
-
-code {
-  background-color: #f2f2f2;
-  border-radius: 2px;
-  padding: 1px 3px;
-  border: 1px solid #e2e6ea;
-  color: #24292e;
-}
-
-code,
-pre {
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  font-size: 88%;
-}
