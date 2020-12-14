@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "."
-  }
+  },
+  "exclude": [".git", ".npm", ".cache", "dist", "out", "node_modules"]
 }
