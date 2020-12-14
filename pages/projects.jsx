@@ -14,7 +14,7 @@ function Projects() {
       </Head>
 
       <Layout mainClassName='py-14 space-y-12'>
-        <section className='block xl:w-full xl:max-w-5xl xl:mx-auto'>
+        <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
             <h1 className='text-3xl font-bold'>All Projects</h1>
             <ProjectList projects={allProjects} />

@@ -16,7 +16,11 @@ const Layout = memo(function Layout({ children, mainClassName }) {
 })
 
 Layout.propTypes = {
-  children: PropTypes.elementType,
+  children: PropTypes.oneOfType([
+    PropTypes.elementType,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
   mainClassName: PropTypes.string,
 }
 
