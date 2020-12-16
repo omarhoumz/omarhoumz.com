@@ -9,7 +9,7 @@ function Projects() {
   return (
     <>
       <Head>
-        <title>Omar Houmz</title>
+        <title key='title'>Omar Houmz</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 

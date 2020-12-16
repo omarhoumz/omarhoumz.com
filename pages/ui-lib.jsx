@@ -13,7 +13,7 @@ const UiLib = memo(function UiLib() {
   return (
     <div className='p-12'>
       <Head>
-        <title>UI Lib</title>
+        <title key='title'>UI Lib</title>
       </Head>
 
       <section className='mt-6'>
