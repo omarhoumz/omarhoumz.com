@@ -3,33 +3,38 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
-
+import Head from 'next/head'
 import PropTypes from 'prop-types'
-import { contentFolder, formatDate } from '.'
+
+import { components } from 'src/components/mdx/components/components'
 import Layout from 'src/layout/layout'
 import Link from 'src/components/link/link'
 import Pill from 'src/components/pill/pill'
-import Head from 'next/head'
+import styles from 'styles/single-post.module.css'
 
-function Singlepost({ title, content, date, author, ...props }) {
-  const source = hydrate(content)
+import { contentFolder, formatDate } from '.'
+
+function Singlepost({ title, content, date, author, status }) {
+  const source = hydrate(content, { components })
   return (
     <Layout>
       <Head>
         <title key='title'>{title} | Omar Houmz</title>
       </Head>
       <div className='py-8 lg:py-12 px-4 lg:px-0 max-w-2xl mx-auto'>
-        <Link href='/blog' className='inline-block text-xl mb-8'>
+        <Link href='/blog' className='inline-block text-xl mb-2'>
           ← Back
         </Link>
-        <h1 className='text-5xl text-blueGray-700 font-bold'>{title}</h1>
+        <h1 className='text-4xl md:text-5xl text-blueGray-800 font-bold'>
+          {title}
+        </h1>
         <div className='mt-4 mb-8'>
           <span className='text-blueGray-500 mr-2'>
             ✍🏻 by <span className='capitalize'>{author}</span>
           </span>
           <Pill label={date} />
         </div>
-        <div>{source}</div>
+        <div className={styles.contentWrapper}>{source}</div>
       </div>
     </Layout>
   )

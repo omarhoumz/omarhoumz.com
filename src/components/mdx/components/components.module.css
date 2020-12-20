@@ -1,16 +1,25 @@
+/* .code {
+  background-color: #f2f2f2;
+  border-radius: 2px;
+  padding: 1px 3px;
+  border: 1px solid #e2e6ea;
+  color: #24292e;
+  font-size: 88%;
+} */
+
 .blockquote {
   --inline-space: 1rem;
+
   display: block;
   padding: 0.2rem var(--inline-space);
   margin-inline-start: calc(-1 * var(--inline-space));
   margin-inline-end: calc(-1 * var(--inline-space));
-
   border-left: 4px solid #0f0a84;
   background-color: #f6f6fd;
 }
 
 @media (min-width: 860px) {
-  .preWrapper {
+  .blockquote {
     --inline-space: 2rem;
   }
 }

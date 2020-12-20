@@ -7,7 +7,7 @@ tags: firebase, cloud functions, serverless
 status: published
 ---
 
-In this post we will cover one small, but very much hyped, part of serverless; **cloud functions**. One of the solutions available is firebase's <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>"Firebase Cloud Functions"</a>.
+In this post we will cover one small, but very much hyped, part of serverless; **cloud functions**. One of the solutions available is firebase's <a href='https://firebase.google.com/docs/functions' nofollow external>"Firebase Cloud Functions"</a>.
 
 We are going to:
 
@@ -22,9 +22,9 @@ I assume that you have node and npm installed on your machine.
 
 #### Starter project
 
-Before we start, let us set up a basic project to work with. I created some files and boilerplate code in <a href='https://github.com/omarhoumz/wr-firebase-clound-function/tree/master/001-create-a-firebase-function-start' target='_blank' rel='nofollow noopener noreferrer'>this repo</a> in the `001-create-a-firebase-function-start` folder.
+Before we start, let us set up a basic project to work with. I created some files and boilerplate code in <a href='https://github.com/omarhoumz/wr-firebase-clound-function/tree/master/001-create-a-firebase-function-start' nofollow external>this repo</a> in the `001-create-a-firebase-function-start` folder.
 
-Check the <a href='https://github.com/omarhoumz/wr-firebase-clound-function/blob/master/001-create-a-firebase-function-start/README.md' target='_blank' rel='nofollow noopener noreferrer'>readme file</a> on how to get started with the code.
+Check the <a href='https://github.com/omarhoumz/wr-firebase-clound-function/blob/master/001-create-a-firebase-function-start/README.md' nofollow external>readme file</a> on how to get started with the code.
 
 ### 1. Create and set up a Firebase project
 
@@ -32,7 +32,7 @@ Check the <a href='https://github.com/omarhoumz/wr-firebase-clound-function/blob
 
 To create a firebase project:
 
-- Go to the <a href='https://console.firebase.google.com/' target='_blank' rel='nofollow noopener noreferrer'>Firebase Console</a>
+- Go to the <a href='https://console.firebase.google.com/' nofollow external>Firebase Console</a>
 - Log in or create your account
 - Once on the home page, click the big "Add project" button
 - Enter a name for your project
@@ -86,7 +86,7 @@ In addition to some other files you see, these are the important ones:
 
 The file that we should take a look at now is `functions/index.js`. This is where we write our code for the cloud function.
 
-Let us use this "helloWorld" example. Notice that I disabled the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' target='_blank' rel='nofollow noopener noreferrer'>`CORS` header</a> since we are in development.
+Let us use this "helloWorld" example. Notice that I disabled the <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS' nofollow external>`CORS` header</a> since we are in development.
 
 ```js
 const functions = require('firebase-functions')
@@ -261,4 +261,4 @@ cd functions && npm run deploy
 
 Until this point, we created a Firebase project using the Firebase console. In our local machine, we initialized our project a Firebase function and deployed it. We also configured a better setup for local development.
 
-There is still much we can do here. We will explore other things in the next posts. But, if you are in a hurry, you can check the <a href='https://firebase.google.com/docs/functions' target='_blank' rel='nofollow noopener noreferrer'>the Firebase Functions docs</a>.
+There is still much we can do here. We will explore other things in the next posts. But, if you are in a hurry, you can check the <a href='https://firebase.google.com/docs/functions' nofollow external>the Firebase Functions docs</a>.

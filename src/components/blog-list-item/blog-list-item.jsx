@@ -10,7 +10,7 @@ const BlogListItem = memo(function BlogListItem({
   href,
 }) {
   return (
-    <div className='py-8'>
+    <Link href={href} unstyled className='block py-8'>
       <h3 className='text-2xl text-blueGray-700 font-bold mb-1.5'>{title}</h3>
       {!date ? null : <Pill label={date} />}
       <p className='text-lg text-blueGray-700 font-light my-4'>{excerpt}</p>
@@ -20,7 +20,7 @@ const BlogListItem = memo(function BlogListItem({
           Read more →
         </Link>
       )}
-    </div>
+    </Link>
   )
 })
 

@@ -1,11 +1,9 @@
 .preWrapper {
+  @apply flex px-2 mx-2 rounded overflow-auto shadow;
+
   --inline-space: 1rem;
-  display: flex;
-  overflow: auto;
   margin: 1rem calc(-1 * var(--inline-space));
-  border: 1px solid var(--blue-50);
-  border-radius: 4px;
-  overflow: hidden;
+  background-color: #fbfbfb;
 }
 
 @media (min-width: 860px) {
