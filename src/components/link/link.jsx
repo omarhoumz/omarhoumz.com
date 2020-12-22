@@ -25,9 +25,9 @@ const Link = ({
   color,
   btnStyle,
   unstyled,
-  ...otherProps
 }) => {
-  const { asPath } = useRouter()
+  const router = useRouter()
+  const { asPath } = router ?? {}
 
   const classes = unstyled
     ? cx(className, { [activeClassName]: asPath === href || asPath === as })
@@ -49,20 +49,14 @@ const Link = ({
       .join(' ')
 
     return (
-      <a
-        href={as || href}
-        target='_blank'
-        rel={relProp}
-        className={classes}
-        {...otherProps}
-      >
+      <a href={as || href} target='_blank' rel={relProp} className={classes}>
         {children}
       </a>
     )
   }
 
   return (
-    <NextLink href={href} {...otherProps}>
+    <NextLink href={href}>
       <a className={classes}>{children}</a>
     </NextLink>
   )

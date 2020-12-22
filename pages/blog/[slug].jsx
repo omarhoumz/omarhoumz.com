@@ -3,7 +3,6 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
-import Head from 'next/head'
 import PropTypes from 'prop-types'
 
 import { components } from 'src/components/mdx/components/components'
@@ -13,14 +12,16 @@ import Pill from 'src/components/pill/pill'
 import styles from 'styles/single-post.module.css'
 
 import { contentFolder, formatDate } from '.'
+import PageSeo from 'src/components/page-seo/page-seo'
+import { canonical } from 'next-seo.config'
 
-function Singlepost({ title, content, date, author, status }) {
+function Singlepost({ title, content, date, author, slug, status }) {
   const source = hydrate(content, { components })
+
   return (
     <Layout>
-      <Head>
-        <title key='title'>{title} | Omar Houmz</title>
-      </Head>
+      <PageSeo title={title} url={canonical.concat(`/${slug}/`)} />
+
       <div className='py-8 lg:py-12 px-4 lg:px-0 max-w-2xl mx-auto'>
         <Link href='/blog' className='inline-block text-xl mb-2'>
           ← Back
@@ -53,7 +54,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   const { content, data } = matter(source)
 
-  const mdxSource = await renderToString(content, { scope: data })
+  const mdxSource = await renderToString(content, { components, scope: data })
 
   return {
     props: {
@@ -62,6 +63,7 @@ export async function getStaticProps({ params: { slug } }) {
       date: formatDate(data?.date),
       author: data?.author,
       status: data?.status,
+      slug,
     },
   }
 }
