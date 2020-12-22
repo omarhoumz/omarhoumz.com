@@ -8,14 +8,13 @@ import Head from 'next/head'
 import BlogListItem from 'src/components/blog-list-item/blog-list-item'
 
 import Layout from 'src/layout/layout'
+import PageSeo from 'src/components/page-seo/page-seo'
+import { canonical } from 'next-seo.config'
 
 function Blog({ posts }) {
   return (
     <>
-      <Head>
-        <title key='title'>Omar Houmz</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <PageSeo title='Blog' url={canonical.concat('/blog/')} />
 
       <Layout mainClassName='py-14 space-y-12'>
         <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>

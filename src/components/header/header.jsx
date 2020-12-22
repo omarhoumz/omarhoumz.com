@@ -11,20 +11,20 @@ const links = [
   },
   {
     label: 'Blog',
-    link: '/blog',
+    link: '/blog/',
     partiallyActive: true,
   },
   {
     label: 'Projects',
-    link: '/projects',
+    link: '/projects/',
   },
   {
     label: 'About',
-    link: '/about',
+    link: '/about/',
   },
   {
     label: 'Contact',
-    link: '/contact',
+    link: '/contact/',
   },
 ]
 

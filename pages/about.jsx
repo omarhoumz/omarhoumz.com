@@ -1,6 +1,7 @@
-import Head from 'next/head'
+import PageSeo from 'src/components/page-seo/page-seo'
 
 import Layout from 'src/layout/layout'
+import { canonical } from 'next-seo.config'
 
 const workIcon = (
   <svg
@@ -96,10 +97,7 @@ const sections = [
 function About() {
   return (
     <>
-      <Head>
-        <title key='title'>Omar Houmz</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <PageSeo title='About' url={canonical.concat('/about/')} />
 
       <Layout mainClassName='py-14 space-y-12'>
         <section className='block xl:w-full max-w-5xl mx-auto'>

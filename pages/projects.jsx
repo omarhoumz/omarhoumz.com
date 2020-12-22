@@ -1,17 +1,15 @@
-import React, { memo } from 'react'
-import Head from 'next/head'
+import React from 'react'
 
 import allProjects from 'src/components/project-list/projects'
 import Layout from 'src/layout/layout'
 import ProjectList from 'src/components/project-list/project-list'
+import PageSeo from 'src/components/page-seo/page-seo'
+import { canonical } from 'next-seo.config'
 
 function Projects() {
   return (
     <>
-      <Head>
-        <title key='title'>Omar Houmz</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <PageSeo title='Projects' url={canonical.concat('/projects/')} />
 
       <Layout mainClassName='py-14 space-y-12'>
         <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>
