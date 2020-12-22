@@ -11,7 +11,10 @@ const PageSeo = memo(function PageSeo({
 
   if (description) meta.description = description
   if (title) meta.title = title
-  if (url) meta.url = url
+  if (url) {
+    meta.url = url
+    meta.canonical = url
+  }
 
   return (
     <NextSeo

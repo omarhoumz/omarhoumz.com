@@ -18,11 +18,6 @@
   @apply text-lg;
 }
 
-.contentWrapper p + ol,
-.contentWrapper p + ul {
-  @apply -mt-2;
-}
-
 .contentWrapper ul {
   list-style: disc;
 }
@@ -36,6 +31,11 @@
   @apply pl-10;
 }
 
+.contentWrapper p + ol,
+.contentWrapper p + ul {
+  @apply -mt-2;
+}
+
 .contentWrapper h1,
 .contentWrapper h2,
 .contentWrapper h3,
@@ -44,13 +44,6 @@
 .contentWrapper h6 {
   @apply mt-6 mb-4 font-semibold;
 }
-
-/*
-.contentWrapper h1,
-.contentWrapper h2,
-.contentWrapper h3 {
-  @apply font-light tracking-wide;
-} */
 
 .contentWrapper h1 {
   @apply text-5xl;
