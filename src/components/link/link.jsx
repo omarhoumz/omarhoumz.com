@@ -14,29 +14,31 @@ const btnBgColors = {
 }
 
 const Link = ({
-  href,
-  as,
-  target,
-  external,
-  nofollow,
+  activeClassName,
+  btnStyle,
   children,
   className,
-  activeClassName,
   color,
-  btnStyle,
+  external,
+  href,
+  nofollow,
   unstyled,
 }) => {
   const router = useRouter()
   const { asPath } = router ?? {}
 
+  const isActive = href.startsWith('/blog/')
+    ? asPath.startsWith('/blog/')
+    : asPath === href
+
   const classes = unstyled
-    ? cx(className, { [activeClassName]: asPath === href || asPath === as })
+    ? cx(className, { [activeClassName]: isActive })
     : cx(
         {
           'pb-0.5 pt-1 border-b-2 border-transparent': !btnStyle,
           'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current focus:outline-none ring ring-transparent': btnStyle,
           [btnBgColors[color]]: btnStyle,
-          [activeClassName]: asPath === href || asPath === as,
+          [activeClassName]: isActive,
         },
         colors[color],
         'transition-color duration-75',
@@ -49,7 +51,7 @@ const Link = ({
       .join(' ')
 
     return (
-      <a href={as || href} target='_blank' rel={relProp} className={classes}>
+      <a href={href} target='_blank' rel={relProp} className={classes}>
         {children}
       </a>
     )
@@ -63,24 +65,22 @@ const Link = ({
 }
 
 Link.defaultProps = {
-  nofollow: false,
-  external: false,
-  color: 'blue',
   btnStyle: false,
+  color: 'blue',
+  external: false,
+  nofollow: false,
   unstyled: false,
 }
 
 Link.propTypes = {
-  href: PropTypes.string,
-  as: PropTypes.string,
-  target: PropTypes.string,
-  nofollow: PropTypes.bool,
-  children: PropTypes.node,
-  external: PropTypes.bool,
-  className: PropTypes.string,
   activeClassName: PropTypes.string,
-  color: PropTypes.oneOf(Object.keys(colors)),
   btnStyle: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  color: PropTypes.oneOf(Object.keys(colors)),
+  external: PropTypes.bool,
+  href: PropTypes.string,
+  nofollow: PropTypes.bool,
   unstyled: PropTypes.bool,
 }
 
