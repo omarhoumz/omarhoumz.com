@@ -2,8 +2,8 @@ import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import cx from 'classnames'
 
-import Header from 'src/components/header/header'
-import Footer from 'src/components/footer/footer'
+import Header from '@/components/header/header'
+import Footer from '@/components/footer/footer'
 
 const Layout = memo(function Layout({ children, mainClassName }) {
   return (

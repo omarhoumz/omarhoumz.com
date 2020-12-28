@@ -1,9 +1,9 @@
 import React from 'react'
 
-import allProjects from 'src/components/project-list/projects'
+import allProjects from '@/components/project-list/projects'
+import ProjectList from '@/components/project-list/project-list'
+import PageSeo from '@/components/page-seo/page-seo'
 import Layout from 'src/layout/layout'
-import ProjectList from 'src/components/project-list/project-list'
-import PageSeo from 'src/components/page-seo/page-seo'
 import { canonical } from 'next-seo.config'
 
 function Projects() {

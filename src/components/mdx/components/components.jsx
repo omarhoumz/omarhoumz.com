@@ -1,8 +1,8 @@
 import React from 'react'
 import { preToCodeBlock } from 'mdx-utils'
 
-import PreCodeHighlighted from 'src/components/mdx/pre-code-highlighted/pre-code-highlighted'
-import Link from 'src/components/link/link'
+import PreCodeHighlighted from '@/components/mdx/pre-code-highlighted/pre-code-highlighted'
+import Link from '@/components/link/link'
 
 import styles from './components.module.css'
 

@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import { memo } from 'react'
-import Footer from 'src/components/footer/footer'
-import Header from 'src/components/header/header'
 
-import Link from 'src/components/link/link'
-import ProjectItem from 'src/components/project-list/project-item'
-import ProjectList from 'src/components/project-list/project-list'
-import allProjects from 'src/components/project-list/projects'
+import Footer from '@/components/footer/footer'
+import Header from '@/components/header/header'
+
+import Link from '@/components/link/link'
+import ProjectItem from '@/components/project-list/project-item'
+import ProjectList from '@/components/project-list/project-list'
+import allProjects from '@/components/project-list/projects'
 import Layout from 'src/layout/layout'
 
 const UiLib = memo(function UiLib() {

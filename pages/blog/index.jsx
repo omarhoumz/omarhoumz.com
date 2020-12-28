@@ -4,11 +4,10 @@ import matter from 'gray-matter'
 // import renderToString from 'next-mdx-remote/render-to-string'
 
 // import hydrate from 'next-mdx-remote/hydrate'
-import Head from 'next/head'
-import BlogListItem from 'src/components/blog-list-item/blog-list-item'
+import BlogListItem from '@/components/blog-list-item/blog-list-item'
 
 import Layout from 'src/layout/layout'
-import PageSeo from 'src/components/page-seo/page-seo'
+import PageSeo from '@/components/page-seo/page-seo'
 import { canonical } from 'next-seo.config'
 
 function Blog({ posts }) {

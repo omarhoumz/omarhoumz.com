@@ -1,6 +1,6 @@
-import { canonical } from 'next-seo.config'
-import Link from 'src/components/link/link'
-import PageSeo from 'src/components/page-seo/page-seo'
+import SEO, { canonical } from 'next-seo.config'
+import Link from '@/components/link/link'
+import PageSeo from '@/components/page-seo/page-seo'
 
 import Layout from 'src/layout/layout'
 
@@ -17,7 +17,7 @@ function Contact() {
             <div>
               <h2>Twitter:</h2>
               <Link external nofollow href='https://twitter.com/omarhoumz'>
-                @omarhoumz
+                {SEO.twitter.handle}
               </Link>
             </div>
             <div>

@@ -1,6 +1,6 @@
-import Link from 'src/components/link/link'
-import ProjectList from 'src/components/project-list/project-list'
-import allProjects from 'src/components/project-list/projects'
+import Link from '@/components/link/link'
+import ProjectList from '@/components/project-list/project-list'
+import allProjects from '@/components/project-list/projects'
 
 import Layout from 'src/layout/layout'
 

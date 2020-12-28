@@ -1,4 +1,4 @@
-import PageSeo from 'src/components/page-seo/page-seo'
+import PageSeo from '@/components/page-seo/page-seo'
 
 import Layout from 'src/layout/layout'
 import { canonical } from 'next-seo.config'
