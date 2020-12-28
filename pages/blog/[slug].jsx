@@ -1,22 +1,28 @@
-import path from 'path'
 import fs from 'fs'
+import path from 'path'
 import matter from 'gray-matter'
-import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
-import PropTypes from 'prop-types'
+import renderToString from 'next-mdx-remote/render-to-string'
+import { useRouter } from 'next/router'
 
-import { components } from 'src/components/mdx/components/components'
+import SEO, { canonical } from 'next-seo.config'
+
+import Link from '@/components/link/link'
+import { components } from '@/components/mdx/components/components'
+import PageSeo from '@/components/page-seo/page-seo'
+import Pill from '@/components/pill/pill'
+import Sharer from '@/components/sharer/sharer'
+
 import Layout from 'src/layout/layout'
-import Link from 'src/components/link/link'
-import Pill from 'src/components/pill/pill'
 import styles from 'styles/single-post.module.css'
-
 import { contentFolder, formatDate } from '.'
-import PageSeo from 'src/components/page-seo/page-seo'
-import { canonical } from 'next-seo.config'
 
 function Singlepost({ title, content, date, author, slug, status }) {
   const source = hydrate(content, { components })
+
+  const router = useRouter()
+
+  const currentUrl = `https://omarhoumz.com${router.asPath}`
 
   return (
     <Layout>
@@ -36,6 +42,12 @@ function Singlepost({ title, content, date, author, slug, status }) {
           <Pill label={date} />
         </div>
         <div className={styles.contentWrapper}>{source}</div>
+
+        <Sharer
+          url={currentUrl}
+          title={title}
+          twitterHandle={SEO.twitter.handle}
+        />
       </div>
     </Layout>
   )

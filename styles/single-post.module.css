@@ -15,7 +15,7 @@
 .contentWrapper p,
 .contentWrapper ul,
 .contentWrapper ol {
-  @apply text-lg;
+  @apply text-xl leading-8;
 }
 
 .contentWrapper ul {
