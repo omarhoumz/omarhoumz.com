@@ -17,6 +17,6 @@
   ],
   "theme_color": "#251bf9",
   "background_color": "#251bf9",
-  "start_url": "https://omarhoumz.com",
+  "start_url": "/",
   "display": "standalone"
 }
