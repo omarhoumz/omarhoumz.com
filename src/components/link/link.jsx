@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 const colors = {
   blue: 'text-brand-500 hover:text-brand-700 hover:border-brand-700',
   dark: 'text-gray-800 hover:text-gray-900 hover:border-gray-900',
+  current: 'hover:border-current',
 }
 
 const btnBgColors = {
@@ -32,13 +33,13 @@ const Link = ({
     : asPath === href
 
   const classes = unstyled
-    ? cx(className, { [activeClassName]: isActive })
+    ? cx(className, { [activeClassName]: isActive && activeClassName })
     : cx(
         {
           'pb-0.5 pt-1 border-b-2 border-transparent': !btnStyle,
           'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current focus:outline-none ring ring-transparent': btnStyle,
           [btnBgColors[color]]: btnStyle,
-          [activeClassName]: isActive,
+          [activeClassName]: isActive && activeClassName,
         },
         colors[color],
         'transition-color duration-75',

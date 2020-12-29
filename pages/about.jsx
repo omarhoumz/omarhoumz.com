@@ -2,6 +2,8 @@ import PageSeo from '@/components/page-seo/page-seo'
 
 import Layout from 'src/layout/layout'
 import { canonical } from 'next-seo.config'
+import AboutSection from '@/components/about-section/about-section'
+import Link from '@/components/link/link'
 
 const workIcon = (
   <svg
@@ -46,7 +48,7 @@ const communityIcon = (
       strokeLinecap='round'
       strokeLinejoin='round'
       strokeWidth={2}
-      d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
+      d='M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11'
     />
   </svg>
 )
@@ -71,26 +73,105 @@ const sections = [
   {
     icon: workIcon,
     title: 'work',
-    description:
-      'I’m a software engineer based in Casablanca, Morocco. I work at Avito.ma as a front-end engineer.',
+    id: 'work',
+    description: (
+      <>
+        <p>
+          I’m a software engineer based in Casablanca, Morocco. I work at{' '}
+          <Link href='https://linkedin.com' color='current' external nofollow>
+            Avito.ma
+          </Link>{' '}
+          as a front-end engineer for over 2 years now (October 2018).
+        </p>
+        <p className='mt-1.5'>
+          Professionally, I work with React, Next Js for SSR, Redux for State
+          management, styled-components for CSS and a UI library, Storybook,
+          jest/cypress for unit and e2e testing, and Graphql (a server backend
+          and client using apollo).
+        </p>
+      </>
+    ),
   },
   {
     icon: educationIcon,
-    title: 'Education',
-    description:
-      'I studied a lot of disciplines in computer and data sciences. But I always liked front-end development and I still do.',
+    title: 'education',
+    id: 'education',
+    description: (
+      <p>
+        I have a bachelar's degree in computer science. I reply on self learning
+        a lot, and the local developer community to learn and explore new
+        things.
+      </p>
+    ),
   },
   {
     icon: communityIcon,
-    title: 'Community',
-    description:
-      'I’m actively helping my dev community to get better through events and conferences at GDG Casablanca.',
+    title: 'volunteering',
+    id: 'volunteering',
+    description: (
+      <>
+        <h4 className='mt-4 mb-1 text-lg'>
+          <span className='font-bold'>GDG Casablanca</span>
+          <span className='mx-2 text-base'>Apr 2017 - present</span>
+        </h4>
+        <p>
+          I’m actively helping my developer community to get better through
+          events and conferences at{' '}
+          <Link href='https://gdgcasablanca.com/' color='current'>
+            GDG Casablanca
+          </Link>
+          .
+        </p>
+        <p className='mt-1.5'>
+          Through our activities, I'm learning how to build a community,
+          collaborating with five other co-organizers, and managing 20 plus
+          volunteers.
+        </p>
+        <p className='mt-1.5'>
+          Since our first event, we've organized more than 30 meetups,
+          workshops, and conferences.
+        </p>
+
+        <h4 className='mt-4 mb-1 text-lg'>
+          <span className='font-bold'>AIESEC</span>
+        </h4>
+        <p>
+          AIESEC is a youth-run organization. And provides real-world
+          experiences to develop future leaders. I volunteered in teams locally
+          (Casablanca & Morocco) and in the international in-house dev team.
+        </p>
+
+        <h5 className='mt-2 mb-1 text-base'>May 2019 - Feb 2020</h5>
+        <p>
+          Contributing to the New Mobile app for Operations at AIESEC
+          International as a front-end developper.
+        </p>
+
+        <h5 className='mt-2 mb-1 text-base'>Oct 2017 - Aug 2019</h5>
+        <ul className='list-disc ml-5'>
+          <li>Website team & Marketing Growth Hackers (AIESEC Morocco)</li>
+          <li>
+            Team leader,{' '}
+            <abbr title='Outgoing Global Entrpreneurship & Talent'>OGET</abbr>{' '}
+            team (4 team members)
+          </li>
+          <li>Member, the marketing departement</li>
+        </ul>
+      </>
+    ),
   },
   {
     icon: contactIcon,
-    title: 'Contact',
-    description:
-      'If you want to help, or know someone that can support the work we do in our community, drop me a line: omarhoumz[at]gmail.com',
+    title: 'contact',
+    id: 'contact',
+    description: (
+      <p>
+        Check the /contact page, or drop me a line:{' '}
+        <Link href='mailto:omarhoumz@gmail.com' color='current'>
+          omarhoumz[at]gmail.com
+        </Link>
+      </p>
+    ),
   },
 ]
 
@@ -103,29 +184,25 @@ function About() {
         <section className='block xl:w-full max-w-5xl mx-auto'>
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
             <h1 className='text-3xl font-bold'>About me</h1>
-            <div className='grid gap-8 grid-cols-1 lg:grid-cols-2'>
-              {sections.map(({ icon, title, description }, index) => {
-                return (
-                  <div
-                    key={index.toString()}
-                    className='flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4'
-                  >
-                    <div className='flex-shrink-0 grid place-items-center p-2.5 w-12 h-12 rounded-full text-brand-500 bg-brand-50 '>
-                      {icon}
-                    </div>
-                    <div className='data'>
-                      <h3 className='text-2xl text-blueGray-800 font-bold mb-2'>
-                        {title}
-                      </h3>
-                      <p className='text-xl text-blueGray-500 max-w-xl lg:max-w-md'>
-                        {description}
-                      </p>
-                    </div>
-                  </div>
-                )
-              })}
+            <nav style={{ marginTop: 0, marginInline: '-0.25rem' }}>
+              {sections.map(({ id, title }) => (
+                <Link
+                  key={id}
+                  href={`#${id}`}
+                  color='dark'
+                  className='inline-block capitalize mx-1'
+                >
+                  {title}
+                </Link>
+              ))}
+            </nav>
+            <div className='flex flex-col gap-4 grid-cols-1 lg:grid-cols-2'>
+              {sections.map((section) => (
+                <AboutSection key={section.id} {...section} />
+              ))}
             </div>
           </div>
+          <div className='h-44'></div>
         </section>
       </Layout>
     </>
