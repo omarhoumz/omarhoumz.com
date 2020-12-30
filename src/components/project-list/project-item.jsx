@@ -6,7 +6,14 @@ import styles from './project-list.module.css'
 import Pill from '../pill/pill'
 import { projectStatuses } from 'src.old/project-statuses'
 
+const externalIcon = (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+  </svg>
+)
+
 const ProjectItem = memo(function ProjectItem({
+  icon,
   title,
   description,
   link: { href, external } = {},
@@ -18,24 +25,27 @@ const ProjectItem = memo(function ProjectItem({
       external={external}
       unstyled
       className={[
-        'block p-6 rounded-lg transition-shadow focus:outline-none',
+        'group flex flex-col gap-2 p-6 border border-brand-50 rounded-lg transition-shadow focus:outline-none',
         styles.projectItem,
       ].join(' ')}
     >
-      <h3 className='flex items-center text-lg font-bold mb-2'>
+      <h3 className='flex items-center gap-3 text-lg'>
         {props?.status ? (
           props?.status === projectStatuses.active ? null : (
-            <Pill label={projectStatuses[props.status]} className='mr-2' />
+            <Pill label={projectStatuses[props.status]} />
           )
         ) : null}
-        <span>{title}</span>
+        {icon && <img src={icon} className='w-7 h-7 border border-gray-100 rounded-md' />}
+        <span className='font-bold transition-colors text-brand-800 group-hover:text-brand-600'>{title}</span>
+        <span className='text-gray-300 transition-colors group-hover:text-gray-400'>{externalIcon}</span>
       </h3>
-      <p className='text-lg font-light max-w-2xl'>{description}</p>
+      <p className='max-w-2xl text-gray-500'>{description}</p>
     </Link>
   )
 })
 
 export const projectItemType = {
+  icon: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   link: PropTypes.shape({

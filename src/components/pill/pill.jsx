@@ -5,7 +5,7 @@ const Pill = memo(function Pill({ label, className }) {
   return (
     <span
       className={[
-        'text-xs text-gray-500 font-bold border border-current py-0.5 px-2 rounded-full uppercase',
+        'text-xs text-gray-500 font-medium tracking-wide py-1 px-3 rounded-full uppercase bg-gray-100',
         className,
       ]
         .filter(Boolean)

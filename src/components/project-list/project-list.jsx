@@ -5,7 +5,7 @@ import ProjectItem, { projectItemType } from './project-item'
 
 const ProjectList = memo(function ProjectList({ projects }) {
   return (
-    <ul className='inline-flex flex-col max-w-2xl border border-brand-50 rounded-lg space-y-0.5'>
+    <ul className='flex flex-col max-w-2xl gap-6'>
       {projects.map((project, index) => {
         return (
           <li key={`${index}`}>
