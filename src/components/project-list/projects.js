@@ -6,6 +6,7 @@ export const projectStatuses = {
 
 const allProjects = [
   {
+    icon: 'https://devfest.gdgcasablanca.com/icons/icon-144x144.png',
     title: 'devfest.gdgcasablanca.com',
     link: {
       href: 'https://devfest.gdgcasablanca.com/',
@@ -16,6 +17,7 @@ const allProjects = [
       'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the website with gatsby and reactjs.',
   },
   {
+    icon: 'https://gdgcasablanca.com/icons/icon-144x144.png',
     title: 'gdgcasablanca.com',
     link: {
       href: 'https://gdgcasablanca.com/',
@@ -26,6 +28,7 @@ const allProjects = [
       'GDG (Google developer groups) is global program for developers. GDG Casablanca is a local chapter. I created the website with gatsby, reactjs and meetup API.',
   },
   {
+    icon: 'https://wtm.gdgcasablanca.com/icons/icon-144x144.png',
     title: 'wtm.gdgcasablanca.com',
     link: {
       href: 'https://wtm.gdgcasablanca.com/',
@@ -53,16 +56,6 @@ const allProjects = [
     status: projectStatuses.unmaintained,
     description:
       'Get free and high res photos from around the web. An agregation of APIs for CC images.',
-  },
-  {
-    title: 'Aiesec.ma.',
-    link: {
-      href: 'http://www.aiesec.ma/AIESEC/p/',
-      external: true,
-    },
-    status: projectStatuses.archived,
-    description:
-      'The official website of the Mchina brand of AIESEC in Morocco.',
   },
 ]
 
