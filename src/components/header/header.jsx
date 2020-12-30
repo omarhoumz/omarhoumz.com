@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import Link from '../link/link'
 import styles from './header.module.css'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const links = [
   {
@@ -40,12 +40,12 @@ const Header = memo(function Header() {
           href='/'
           className='flex items-center gap-2 text-xl py-1 px-2 -ml-1 leading-none transition-colors duration-75 ring ring-transparent rounded-sm hover:text-brand-700 focus:outline-none focus:ring-brand-100'
         >
-          <Image src='/icon.png' width={32} height={32} />
-          <span className="pb-1">
+          {/* <Image src='/icon.png' width={32} height={32} /> */}
+          <img src='/icon.png' width={32} height={32} />
+          <span className='pb-1'>
             <span className='pr-1'>omar </span>
             <span className='font-bold'>houmz</span>
           </span>
-
         </Link>
 
         <nav className='hidden md:flex items-stretch self-stretch space-x-1'>

@@ -57,16 +57,6 @@ const allProjects = [
     description:
       'Get free and high res photos from around the web. An agregation of APIs for CC images.',
   },
-  {
-    title: 'Aiesec.ma.',
-    link: {
-      href: 'http://www.aiesec.ma/AIESEC/p/',
-      external: true,
-    },
-    status: projectStatuses.archived,
-    description:
-      'The official website of the Mchina brand of AIESEC in Morocco.',
-  },
 ]
 
 export default allProjects
