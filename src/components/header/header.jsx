@@ -43,7 +43,7 @@ const Header = memo(function Header() {
           {/* <Image src='/icon.png' width={32} height={32} /> */}
           <img src='/icon.png' width={32} height={32} />
           <span className='pb-1'>
-            <span className='pr-1'>omar </span>
+            <span>omar </span>
             <span className='font-bold'>houmz</span>
           </span>
         </Link>

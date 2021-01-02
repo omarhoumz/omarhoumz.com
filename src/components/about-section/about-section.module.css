@@ -3,10 +3,19 @@
 }
 
 .section::before {
+  --icon-width: theme('spacing.11');
+
   content: '';
   width: 2px;
   height: 100%;
   position: absolute;
-  left: 28px;
+  left: calc(var(--icon-width) / 2);
+
   @apply bg-brand-100;
+}
+
+@screen sm {
+  .section::before {
+    --icon-width: theme('spacing.14');
+  }
 }

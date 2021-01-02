@@ -1,11 +1,12 @@
 .mobileNav {
-  @apply block md:hidden px-2 absolute z-0 left-0 bottom-0 translate-y-0 transition transform w-full opacity-0;
+  @apply block md:hidden px-2 absolute z-20 left-0 bottom-0 translate-y-0 transition transform w-full opacity-0;
 }
 
 .mobileNav.showNav,
 .mobileNav:focus-within {
-  opacity: 1;
   --tw-translate-y: calc(100% + 0.5rem);
+
+  opacity: 1;
 }
 
 .navLink {
@@ -21,25 +22,23 @@
   @apply outline-none ring-brand-100;
 }
 
-.navLink:after {
+.navLink::after {
   --height: 3px;
 
   content: '';
-
   height: var(--height);
   width: calc(1rem + 35%);
   transform: translateX(-50%) scaleX(0.1);
   transform-origin: center bottom;
   color: inherit;
-
   border-radius: calc(var(--height) * 2) calc(var(--height) * 2) 0 0;
 
   @apply block absolute bottom-0 left-1/2 opacity-0 transition duration-200 bg-current;
 }
 
-.navLink:hover:after,
-.navLink:focus:after,
-.navLink.activeLink:after {
+.navLink:hover::after,
+.navLink:focus::after,
+.navLink.activeLink::after {
   opacity: 1;
   transform: translateX(-50%) scaleX(1);
 }
