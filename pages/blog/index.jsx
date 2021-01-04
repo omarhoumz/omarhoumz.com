@@ -9,6 +9,8 @@ import BlogListItem from '@/components/blog-list-item/blog-list-item'
 import Layout from 'src/layout/layout'
 import PageSeo from '@/components/page-seo/page-seo'
 import { canonical } from 'next-seo.config'
+import formatDate from 'utils/format-date'
+import { contentFolder } from 'config/content-folder'
 
 function Blog({ posts }) {
   return (
@@ -39,8 +41,6 @@ function Blog({ posts }) {
   )
 }
 
-export const contentFolder = 'content'
-
 export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), contentFolder)
   const filenames = fs.readdirSync(postsDirectory)
@@ -50,10 +50,7 @@ export async function getStaticProps() {
     const slug = filename.replace(/\.mdx?$/, '')
     const source = fs.readFileSync(filePath, 'utf8')
 
-    const {
-      //content,
-      data,
-    } = matter(source)
+    const { /*content, */ data } = matter(source)
 
     // const mdxSource = await renderToString(content, { scope: data })
 
@@ -68,32 +65,6 @@ export async function getStaticProps() {
   const posts = await Promise.all(asyncPosts)
 
   return { props: { posts } }
-}
-
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-]
-
-export function formatDate(d) {
-  const date = new Date(d)
-
-  const month = months[date.getMonth()]
-  const day = date.getDate()
-  const year = date.getFullYear()
-
-  // "MMMM DD, YYYY"
-  return `${month} ${day}, ${year}`
 }
 
 export default Blog

@@ -17,7 +17,10 @@
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "start": "next start"
+    "start": "next start",
+    "gen:feed": "node scripts/generate-sitemap.js",
+    "lint": "eslint --ext .js",
+    "prettier": "prettier --write \"**/*.{html,js,json,md,mdx,yml}\""
   },
   "dependencies": {
     "autoprefixer": "^10.1.0",
@@ -43,6 +46,12 @@
     "url": "https://github.com/omarhoumz/omarhoumz.github.io/issues"
   },
   "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "globby": "^11.0.1",
+    "prettier": "^2.2.1",
+    "rss": "^1.2.2",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0"
   }

@@ -15,7 +15,8 @@ import Sharer from '@/components/sharer/sharer'
 
 import Layout from 'src/layout/layout'
 import styles from 'styles/single-post.module.css'
-import { contentFolder, formatDate } from '.'
+import formatDate from 'utils/format-date'
+import { contentFolder } from 'config/content-folder'
 
 function Singlepost({ title, content, date, author, slug, status }) {
   const source = hydrate(content, { components })
