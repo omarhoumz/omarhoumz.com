@@ -84,14 +84,18 @@ const BlogPost = ({ data, pageContext }) => {
         }}
         Component='nav'
       >
-        {previous && (
+        {!previous ? (
+          <span />
+        ) : (
           <Link rel='prev' href={previousSlug} className={styles.navLinks}>
-            {`← ${previousTitle}`}
+            <div className={styles.linkSubTitle}>Previous Post</div>
+            <div>{`← ${previousTitle}`}</div>
           </Link>
         )}
-        {next && (
+        {!next ? null : (
           <Link rel='next' href={nextSlug} className={styles.navLinks}>
-            {`${nextTitle} →`}
+            <div className={styles.linkSubTitle}>Next Post</div>
+            <div>{`${nextTitle} →`}</div>
           </Link>
         )}
       </Section>

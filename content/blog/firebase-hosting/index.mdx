@@ -1,0 +1,125 @@
+---
+title: Host almost anything with firebase hosting
+date: '2021-01-06T22:00:00.000Z'
+author: omar houmz
+description: Host almost anything with firebase hosting
+tags: firebase, hosting, firebase hosting
+status: draft
+---
+
+Almost anytime you want to share a new trick or showcase something, you will need a way to host your web pages or app. Firebase Hosting can help you.
+
+### What is Firebase Hosting?
+
+As the Firebase Hosting [docs](https://firebase.google.com/docs/hosting) mention:
+
+> Firebase Hosting provides fast and secure hosting for your web app, static and dynamic content, and microservices.
+
+So, whether you have some static HTML/CSS, a reactjs, vuejs, or svelte app, you can use Firebase Hosting to deploy your code to a global CDN.
+
+### How to get started?
+
+**Step 1:** Install the Firebase cli, here I'm using _npm_ ([check the docs](https://firebase.google.com/docs/cli) for other methods):
+
+```bash
+npm install -g firebase-tools
+```
+
+**Step 2:** Login to your account using the Firebase cli:
+
+```bash
+firebase login
+```
+
+This should redirect you to a web page to login into your account (create one if you don't have it already). Once logged in, you should see a "Login successful" message in your terminal.
+
+**Step 3:** Init a firebase project
+
+This step involves linking your project (the code you want to deploy) to a firebase project. You can use an existing project or create a new one.
+
+To do this, let's run:
+
+```bash
+firebase init hosting
+```
+
+The CLI will prompt us to "Use an existing project" or to "Create a new project", among other options. For me, I'll create a new project.
+
+After following the steps, we should have some new files. `.firebaserc` contains the project id. The `firebase.json` file has the hosting config; public folder and other things. You will also notice a `404.html` page that is created by default by Firebase (if you don't already have one in your project).
+
+```diff
++ .firebaserc
++ 404.html
++ firebase.json
+```
+
+These first three steps are identical regardless of your project type; Static HTML, reactjs, vuejs, or svelte app, etc ...
+
+## **Deploying static HTML**
+
+In the case of a static HTML project, I created a project with only one `index.html` file [here](https://github.com/omarhoumz/wr-firebase-hosting/blob/main/static-html/index.html). You can clone it to follow along.
+
+### **Step 4: Deploy**
+
+Now, we can deploy our website (our index.html in this case) to Firebase Hosting using this:
+
+```bash
+firebase deploy --only hosting
+```
+
+If the deployment is successful, you should see the URL to your newly deployed website in your terminal. It should be in this format: `<project-id>.web.app`
+
+For me, this is the URL I ended up with [wr-firebase-hosting.web.app](http://wr-firebase-hosting.web.app).
+
+Check the whole static HTML project here: [https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html)
+
+## Create-React-App app
+
+I created a CRA sample app here: [https://github.com/omarhoumz/wr-firebase-hosting/tree/main/firebase-is-fire-cra](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/firebase-is-fire-cra)
+
+### Step 4: build our project:
+
+We can build our CRA app using:
+
+```bash
+npm run build
+```
+
+This is will create a `build` folder. And this is the folder we should deploy to Firebase. But how to tell Firebase about it? Good question.
+
+Remember the `firebase.json` file? We need to change the `"public"` key in that config file from whatever it is now to `"build"`, like so:
+
+```diff
+- "public": "public",
++ "public": "build",
+```
+
+### Step 5: Deploy
+
+Now we are all set to deploy our CRA app to firebase.
+
+```diff
+firebase deploy --only hosting
+```
+
+And again, if the deployment is successful, you should see the URL to your newly deployed website in your terminal. It should be in this format `<project-id>.web.app` .
+
+For me, this is the URL I ended up with [wr-firebase-hosting-cra.web.app](http://wr-firebase-hosting-cra.web.app).
+
+You'll the whole project here: [https://github.com/omarhoumz/wr-firebase-hosting/tree/main/firebase-is-fire-cra](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/firebase-is-fire-cra)
+
+## NextJs app
+
+NextJs handles hybrid static & server rendering. And many more features. Firebase Hosting allows only to host static files. However, we can go around it by using [Firebase Cloud Function](https://firebase.google.com/docs/functions) and do some [fancy Hosting rewrites](https://firebase.google.com/docs/hosting/full-config#rewrites).
+
+### SSG content
+
+We'll need to build and "export" our next app
+
+```bash
+# yarn
+yarn build && yarn export
+
+# npm
+npm run build && npm run export
+```
