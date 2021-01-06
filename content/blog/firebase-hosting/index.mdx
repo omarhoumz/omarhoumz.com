@@ -112,9 +112,9 @@ You'll the whole project here: [https://github.com/omarhoumz/wr-firebase-hosting
 
 NextJs handles hybrid static & server rendering. And many more features. Firebase Hosting allows only to host static files. However, we can go around it by using [Firebase Cloud Function](https://firebase.google.com/docs/functions) and do some [fancy Hosting rewrites](https://firebase.google.com/docs/hosting/full-config#rewrites).
 
-### SSG content
+### SSG content step 4: build our project
 
-We'll need to build and "export" our next app
+We'll need to build and "export" our next app, using the command:
 
 ```bash
 # yarn
@@ -123,3 +123,28 @@ yarn build && yarn export
 # npm
 npm run build && npm run export
 ```
+
+This will create an `out` folder. And this is the folder we need to deploy. We need to change the `"public"` key in the `firebase.json` file from whatever it is now to `"out"`, like so
+
+```diff
+- "public": "public",
++ "public": "out",
+```
+
+### SSG content step 5: Deploy
+
+After a successful deployment, you should see the URL to your newly deployed website in your terminal. It should be in this format `<project-id>.web.app`.
+
+For me, this is the URL I ended up with [wr-firebase-hosting-next.web.app](https://wr-firebase-hosting-next.web.app/).
+
+You'll the whole project here: [https://github.com/omarhoumz/wr-firebase-hosting/tree/main/firebase-is-fire-next](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/firebase-is-fire-next)
+
+## Conclusion
+
+The steps to host anything in Firebase hosting is pretty easy once you know the basics. Fundamentally, you identify the folder where your static files are. You tell Firebase about it (using the "public" key). And then use the command to deploy your code.
+
+From here, you can setup your CI/CD pipeline to automate this process.
+
+Firebase Hosting has more to it than what I showed here. And even more products by Firebase. You can check them all at [firebase.google.com](https://firebase.google.com/).
+
+If you have any question don't hesitate to email me or shoot me a DM @omarhoumz on twitter.
