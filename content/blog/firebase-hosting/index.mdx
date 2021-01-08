@@ -61,17 +61,25 @@ If we have a static HTML files based project, I created an example project [here
 
 ### **Step 4: Deploy**
 
-Now, we can deploy our website (our index.html in this case) to Firebase Hosting using this:
+Now, we can deploy our website (our index.html in this case) to Firebase Hosting using this command:
 
 ```bash
 firebase deploy --only hosting
 ```
 
-If the deployment is successful, you should see the URL to your newly deployed website in your terminal. It should be in this format: `<project-id>.web.app`
+If the deployment is successful, you should see the URL to your newly deployed website in your terminal. It should be in this format: `<project-id>.web.app`. You can get your `project-id` in the `.firebaserc` file.
+
+```json
+{
+  "projects": {
+    "default": "<project-id>"
+  }
+}
+```
 
 For me, this is the URL I ended up with [wr-firebase-hosting.web.app](http://wr-firebase-hosting.web.app).
 
-Check the whole static HTML project here: [https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html)
+Check the whole static HTML project here: [github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html)
 
 ## Create-React-App app
 
