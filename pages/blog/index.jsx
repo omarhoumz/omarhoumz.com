@@ -58,11 +58,14 @@ export async function getStaticProps() {
       title: data?.title,
       excerpt: data?.description,
       href: `/blog/${slug}`,
+      rawDate: data?.date,
       date: formatDate(data?.date),
     }
   })
 
-  const posts = await Promise.all(asyncPosts)
+  const posts = (await Promise.all(asyncPosts)).sort(
+    (a, b) => new Date(b.rawDate) - new Date(a.rawDate),
+  )
 
   return { props: { posts } }
 }
