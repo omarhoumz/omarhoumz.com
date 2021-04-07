@@ -8,22 +8,12 @@ body {
   padding: 0;
   background-color: #fff;
   min-height: 100vh;
-
-  line-height: 1.5;
-
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 ::selection {
   @apply text-white bg-brand-500;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
 /**
 code {
   background-color: #f2f2f2;
@@ -41,13 +31,17 @@ pre {
 */
 
 /* Start purging... */
+
 @tailwind components;
+
 /* Stop purging. */
 
 /* Write your own custom component styles here */
 
 /* Start purging... */
+
 @tailwind utilities;
+
 /* Stop purging. */
 
 /* Your own custom utilities */

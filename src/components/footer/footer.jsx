@@ -14,8 +14,8 @@ const Footer = memo(function Footer() {
           Nextjs
         </Link>{' '}
         and hosted on{' '}
-        <Link color='dark' href='https://netlify.com/' external>
-          Netlify
+        <Link color='dark' href='https://vercel.com/' external>
+          Vercel
         </Link>
         . The source code is hosted on{' '}
         <Link
