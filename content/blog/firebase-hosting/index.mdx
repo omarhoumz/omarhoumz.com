@@ -45,15 +45,15 @@ firebase init hosting
 
 The CLI will prompt us to "Use an existing project" or to "Create a new project", among other options. For me, I'll create a new project.
 
-After following the steps, we should have some new files. `.firebaserc` contains the project id. The `firebase.json` file has the hosting config; public folder and other things. You will also notice a `404.html` page that is created by default by Firebase (if you don't already have one in your project).
-
 ```diff
 + .firebaserc
 + 404.html
 + firebase.json
 ```
 
-These first three steps are identical regardless of your project type; Static HTML, reactjs, vuejs, or svelte app, etc ...
+After following the steps, we should have some new files. `.firebaserc` contains the project id. The `firebase.json` file has the hosting config; public folder location and other things. You will also notice a `404.html` page that is created by default by Firebase (if you don't already have one in your project).
+
+These first three steps are identical regardless of your project type; Static HTML, reactjs, nextjs, vuejs, or svelte app, etc ...
 
 ## **Deploying static HTML**
 
@@ -63,17 +63,25 @@ You can clone it to follow along.
 
 ### **Step 4: Deploy**
 
-Now, we can deploy our website (our index.html in this case) to Firebase Hosting using this:
+Now, we can deploy our website (our index.html in this case) to Firebase Hosting using this command:
 
 ```bash
 firebase deploy --only hosting
 ```
 
-If the deployment is successful, you should see the URL to your newly deployed website in your terminal. It should be in this format: `<project-id>.web.app`
+If the deployment is successful, you should see the URL to your newly deployed website in your terminal. It should be in this format: `<project-id>.web.app`. You can get your `project-id` in the `.firebaserc` file.
+
+```json
+{
+  "projects": {
+    "default": "<project-id>"
+  }
+}
+```
 
 For me, this is the URL I ended up with [wr-firebase-hosting.web.app](http://wr-firebase-hosting.web.app).
 
-Check the whole static HTML project here: [https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html)
+Check the whole static HTML project here: [github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html](https://github.com/omarhoumz/wr-firebase-hosting/tree/main/static-html)
 
 ## Create-React-App app
 
