@@ -57,11 +57,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "start": "yarn develop",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "yarn run develop",
     "serve": "gatsby serve",
+    "build": "gatsby build",
+    "format": "prettier --write src/**/*.{js,jsx}",
     "lint": "eslint --ext .js,.jsx src/components/** src/pages/**",
     "lint:fix": "eslint --ext .js,.jsx src/components/** src/pages/** --fix"
   },
