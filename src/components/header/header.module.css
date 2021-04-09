@@ -1,181 +1,49 @@
-.header {
-  --nav-height: 52px;
-
-  width: calc(100% - 16px);
-  max-width: 960px;
-  position: relative;
-
-  margin-block-start: 8px;
-
-  margin-inline-start: auto;
-  margin-inline-end: auto;
+.mobileNav {
+  @apply block md:hidden px-2 absolute z-20 left-0 bottom-0 translate-y-0 transition transform w-full opacity-0;
 }
 
-.innerHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+.mobileNav.showNav,
+.mobileNav:focus-within {
+  --tw-translate-y: calc(100% + 0.5rem);
 
-  height: var(--nav-height);
-  padding: 0 1rem;
-
-  position: relative;
-  z-index: 2;
-
-  border-radius: var(--nav-height);
-  box-shadow: 0px 0px 6px -2px rgb(37 27 249 / 15%);
-  background-color: #fff;
-}
-
-.websiteTitle {
-  display: flex;
-  margin: 0;
-  line-height: 1;
-  font-weight: normal;
-}
-
-.linkLogo {
-  font-size: 1.4rem;
-  white-space: nowrap;
-  display: inline-block;
-  margin-left: -0.4rem;
-  color: var(--blue-900);
-}
-
-.navigation {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  position: absolute;
-  top: calc(var(--nav-height) + 1px);
-  left: 0;
-  padding: calc(var(--nav-height) / 4) 0;
-  min-height: var(--nav-height);
-  border-radius: calc(var(--nav-height) / 4);
-  transition: 160ms ease-in-out;
-  transition-property: transform, opacity;
-  opacity: 0;
-  transform: translateY(-100%);
-  box-shadow: 0px 0px 19px -10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-}
-
-.navigation.showNav,
-.navigation:focus-within {
   opacity: 1;
-  transform: translateY(calc(0% + 8px));
-  box-shadow: 0px 0px 19px -10px rgba(0, 0, 0, 0.24);
 }
 
-.menuBtn {
-  background-color: transparent;
-  border: 0;
-  font-size: 1rem;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
+.navLink {
+  @apply flex items-center relative px-2 rounded-sm ring ring-transparent;
 }
 
-.navAnchor.navAnchor {
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-sizing: border-box;
-
-  padding: 0.5rem 1.25rem;
-  margin: 0;
-
-  font-size: 1.2rem;
-
-  --header-nav-color: var(--grey-900);
-  color: var(--header-nav-color);
+.navLink:focus,
+.navLink:hover {
+  @apply text-brand-500;
 }
 
-.navAnchor:hover {
-  --header-nav-color: var(--blue-700);
-  background-color: var(--blue-50);
+.navLink:focus {
+  @apply outline-none ring-brand-100;
 }
 
-.navAnchor.active,
-.navAnchor.active:hover {
-  --header-nav-color: var(--blue-500);
-}
-
-.navAnchor:after {
+.navLink::after {
   --height: 3px;
 
   content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  opacity: 0;
   height: var(--height);
-  width: var(--height);
-
+  width: calc(1rem + 35%);
+  transform: translateX(-50%) scaleX(0.1);
+  transform-origin: center bottom;
+  color: inherit;
   border-radius: calc(var(--height) * 2) calc(var(--height) * 2) 0 0;
-  background-color: var(--header-nav-color);
 
-  transition: 250ms ease;
-  transition-property: opacity, width, border-radius;
+  @apply block absolute bottom-0 left-1/2 opacity-0 transition duration-200 bg-current;
 }
 
-@media (min-width: 767px) {
-  .header {
-    --nav-height: 60px;
-    display: flex;
+.navLink:hover::after,
+.navLink:focus::after,
+.navLink.activeLink::after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
 
-    padding: 0 1rem;
-    border-radius: var(--nav-height);
-    box-shadow: 0px 0px 6px -2px rgb(37 27 249 / 15%);
-    background-color: #fff;
-  }
-
-  .innerHeader {
-    padding: 0;
-    box-shadow: none;
-  }
-
-  .navigation {
-    justify-content: flex-end;
-    flex-direction: row;
-
-    position: static;
-    z-index: 0;
-    padding: 0;
-    transform: translateY(0%);
-    opacity: 1;
-
-    box-shadow: 0px 0px 19px -10px rgba(0, 0, 0, 0) !important;
-    background-color: transparent;
-  }
-  .navigation:focus-within {
-    transform: translateY(0%);
-  }
-
-  .navAnchor.navAnchor {
-    font-size: 1rem;
-    padding-inline: 0.2rem;
-  }
-
-  .navAnchor.navAnchor:hover {
-    background-color: transparent;
-  }
-
-  .navAnchor.navAnchor:not(:last-child) {
-    margin-inline-end: 1rem;
-  }
-
-  .navAnchor:hover:after,
-  .navAnchor.active:after {
-    opacity: 1;
-    width: calc(1rem + 35%);
-  }
-
-  .menuBtn {
-    display: none;
-  }
+.navLink.activeLink,
+.navLink.activeLink:hover {
+  @apply text-brand-700;
 }

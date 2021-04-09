@@ -1,64 +1,96 @@
-import React, { useState, useCallback } from 'react'
+import { memo, useState } from 'react'
 import cx from 'classnames'
 
-import menuLinks from './header.queries'
 import Link from '../link/link'
 import styles from './header.module.css'
+// import Image from 'next/image'
 
-const Header = () => {
+const links = [
+  {
+    label: 'Home',
+    link: '/',
+  },
+  {
+    label: 'Blog',
+    link: '/blog/',
+    partiallyActive: true,
+  },
+  {
+    label: 'Projects',
+    link: '/projects/',
+  },
+  {
+    label: 'About',
+    link: '/about/',
+  },
+  {
+    label: 'Contact',
+    link: '/contact/',
+  },
+]
+
+const Header = memo(function Header() {
   const [showNav, setShowNav] = useState(false)
-  const { site } = menuLinks()
-
-  const handleMenuClick = useCallback(() => {
-    setShowNav((o) => !o)
-  }, [])
 
   return (
-    <header className={styles.header}>
-      <div className={styles.innerHeader}>
-        <h1 className={styles.websiteTitle}>
-          <Link
-            href='/'
-            className={styles.linkLogo}
-            aria-label='Omar Houmz'
-            role='heading'
-            aria-level='1'
-          >
-            omar{` `}
-            <strong>houmz</strong>
-          </Link>
-        </h1>
+    <header className='relative w-full px-2 xl:px-0'>
+      <div className='relative z-1 flex items-center justify-between h-12 w-full max-w-5xl mx-auto bg-white border-b border-brand-50'>
+        <Link
+          unstyled
+          href='/'
+          className='flex items-center gap-2 text-xl py-1 px-2 -ml-1 leading-none transition-colors duration-75 ring ring-transparent rounded-sm hover:text-brand-700 focus:outline-none focus:ring-brand-100'
+        >
+          {/* <Image src='/icon.png' width={32} height={32} /> */}
+          <img src='/icon.png' width={32} height={32} />
+          <span className='pb-1'>
+            <span>omar </span>
+            <span className='font-bold'>houmz</span>
+          </span>
+        </Link>
+
+        <nav className='hidden md:flex items-stretch self-stretch space-x-1'>
+          {links.map(({ link, label }, index) => {
+            return (
+              <Link
+                unstyled
+                href={link}
+                key={index}
+                className={styles.navLink}
+                activeClassName={styles.activeLink}
+              >
+                {label}
+              </Link>
+            )
+          })}
+        </nav>
 
         <button
-          type='button'
-          onClick={handleMenuClick}
-          className={cx(styles.menuBtn)}
+          className='flex md:hidden leading-none py-2 px-4'
+          onClick={() => setShowNav((o) => !o)}
         >
           Menu
         </button>
       </div>
 
-      <nav
-        className={cx(styles.navigation, styles.dark, {
-          [styles.showNav]: showNav,
-        })}
-      >
-        {site.siteMetadata.menuLinks.map(
-          ({ link, label, partiallyActive }, index) => (
-            <Link
-              href={link}
-              key={index.toString()}
-              activeClassName={styles.active}
-              className={styles.navAnchor}
-              partiallyActive={partiallyActive}
-            >
-              {label}
-            </Link>
-          ),
-        )}
-      </nav>
+      <div className={cx(styles.mobileNav, { [styles.showNav]: showNav })}>
+        <nav className='flex flex-col py-3 rounded-lg bg-white shadow-md'>
+          {links.map(({ link, label }, index) => {
+            return (
+              <Link
+                unstyled
+                href={link}
+                key={index}
+                className='text-xl px-6 py-2 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:text-brand-700 focus:bg-brand-50'
+                activeClassName='text-brand-500'
+              >
+                {label}
+              </Link>
+            )
+          })}
+        </nav>
+      </div>
     </header>
   )
-}
+})
 
 export default Header

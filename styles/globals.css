@@ -1,0 +1,47 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+::selection {
+  @apply text-white bg-brand-500;
+}
+
+/**
+code {
+  background-color: #f2f2f2;
+  border-radius: 2px;
+  padding: 1px 3px;
+  border: 1px solid #e2e6ea;
+  color: #24292e;
+}
+
+code,
+pre {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 88%;
+}
+*/
+
+/* Start purging... */
+
+@tailwind components;
+
+/* Stop purging. */
+
+/* Write your own custom component styles here */
+
+/* Start purging... */
+
+@tailwind utilities;
+
+/* Stop purging. */
+
+/* Your own custom utilities */

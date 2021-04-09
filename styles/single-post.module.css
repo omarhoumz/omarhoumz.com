@@ -1,0 +1,70 @@
+.contentWrapper {
+  @apply text-gray-900;
+}
+
+.contentWrapper > * {
+  @apply mb-4;
+}
+
+.contentWrapper code {
+  @apply p-0.5 text-blueGray-700 bg-gray-100 border border-gray-300 rounded-sm;
+
+  font-size: 88%;
+}
+
+.contentWrapper p,
+.contentWrapper ul,
+.contentWrapper ol {
+  @apply text-xl leading-8;
+}
+
+.contentWrapper ul {
+  list-style: disc;
+}
+
+.contentWrapper ol {
+  list-style: decimal;
+}
+
+.contentWrapper ul,
+.contentWrapper ol {
+  @apply pl-10;
+}
+
+.contentWrapper p + ol,
+.contentWrapper p + ul {
+  @apply -mt-2;
+}
+
+.contentWrapper h1,
+.contentWrapper h2,
+.contentWrapper h3,
+.contentWrapper h4,
+.contentWrapper h5,
+.contentWrapper h6 {
+  @apply mt-6 mb-4 font-semibold;
+}
+
+.contentWrapper h1 {
+  @apply text-5xl;
+}
+
+.contentWrapper h2 {
+  @apply text-4xl;
+}
+
+.contentWrapper h3 {
+  @apply text-3xl;
+}
+
+.contentWrapper h4 {
+  @apply text-2xl;
+}
+
+.contentWrapper h5 {
+  @apply text-xl;
+}
+
+.contentWrapper h6 {
+  @apply text-lg;
+}

@@ -1,0 +1,130 @@
+.metaData {
+  margin-block-start: 0.2rem;
+  margin-block-end: 2rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.metaData > * + * {
+  margin-inline-start: 0.6rem;
+}
+
+.metaDate {
+  padding: 0.4rem 0.8rem;
+  line-height: 1;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  color: #423f84;
+  background-color: #f0efff;
+}
+
+.metaAuthor {
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  color: var(--grey-500);
+}
+
+.postTitle {
+  margin-block-end: 1rem;
+  font-size: max(2.5em, 3rem);
+  font-weight: 700;
+  max-inline-size: 20ch;
+  line-height: 1.05;
+  color: var(--grey-900);
+}
+
+.blogContentSection {
+  flex-grow: 1;
+}
+
+.blogContentSection p {
+  max-width: 65ch;
+  line-height: 1.8;
+}
+
+.mainBlog {
+  display: flex;
+  flex-direction: column;
+  padding-block-end: 0 !important;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  min-height: 4rem;
+}
+
+.navLinks {
+  flex-basis: 50%;
+  padding: 0.5rem 1rem;
+  line-height: 1.2;
+  transition-property: color, background-color !important;
+}
+
+.navLinks:hover {
+  background-color: #f0f0ff;
+}
+
+.navLinks:nth-child(2) {
+  margin-inline-start: auto;
+}
+
+.navLinks::before {
+  text-transform: uppercase;
+  color: var(--grey-700);
+  font-weight: bold;
+  width: max-content;
+  z-index: -1;
+}
+
+.navLinks:nth-child(1)::before {
+  content: 'Previous post';
+  left: 0;
+}
+
+.navLinks:nth-child(2)::before {
+  content: 'Next post';
+  right: 0;
+}
+
+.postStatus {
+  position: relative;
+  line-height: 1;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  background-color: #423f84;
+  color: #f0efff;
+}
+
+.mdxContentWrapper :global(h1),
+.mdxContentWrapper :global(h2),
+.mdxContentWrapper :global(h3),
+.mdxContentWrapper :global(h4),
+.mdxContentWrapper :global(h5),
+.mdxContentWrapper :global(h6) {
+  margin-block-start: 1.8rem;
+  margin-block-end: 0.8rem;
+  line-height: 1;
+}
+
+.mdxContentWrapper :global(a) {
+  text-decoration: none;
+  padding: 0.1rem 0;
+  border-block-end: 2px solid transparent;
+  color: var(--blue-700);
+}
+.mdxContentWrapper :global(a):hover {
+  border-block-end-color: inherit;
+}
+.mdxContentWrapper :global(a):focus,
+.mdxContentWrapper :global(a):active {
+  background-color: var(--blue-50);
+}
+
+.mdxContentWrapper :global(p) {
+  margin-block-start: 0;
+}
