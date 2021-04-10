@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f611cf27-ccff-4a88-9b80-036696d46dfe/deploy-status)](https://app.netlify.com/sites/omarhoumz/deploys)
-
 Source code for [https://omarhoumz.com](https://omarhoumz.com)
 
 - Name: **Omar Houmz**
@@ -9,3 +7,4 @@ Source code for [https://omarhoumz.com](https://omarhoumz.com)
 
 - [React](https://reactjs.org/)
 - [Nextjs](https://www.nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
