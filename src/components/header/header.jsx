@@ -76,30 +76,29 @@ const Header = memo(function Header() {
         >
           Menu
         </button>
-      </div>
-
-      <div
-        className={cx(
-          styles.mobileNav,
-          'block md:hidden px-2 absolute left-0 bottom-0 translate-y-0 transition transform w-full opacity-0',
-          { [styles.showNav]: showNav },
-        )}
-      >
-        <nav className='flex flex-col py-3 rounded-lg bg-white shadow-md'>
-          {links.map(({ link, label }, index) => {
-            return (
-              <Link
-                unstyled
-                href={link}
-                key={index}
-                className='text-xl px-6 py-2 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:text-brand-700 focus:bg-brand-50'
-                activeClassName='text-brand-500'
-              >
-                {label}
-              </Link>
-            )
-          })}
-        </nav>
+        <div
+          className={cx(
+            styles.mobileNav,
+            'block md:hidden px-2 absolute left-0 bottom-0 translate-y-0 transition transform w-full opacity-0',
+            { [styles.showNav]: showNav },
+          )}
+        >
+          <nav className='flex flex-col py-3 rounded-lg bg-white shadow-md'>
+            {links.map(({ link, label }, index) => {
+              return (
+                <Link
+                  unstyled
+                  href={link}
+                  key={index}
+                  className='text-xl px-6 py-2 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:text-brand-700 focus:bg-brand-50'
+                  activeClassName='text-brand-500'
+                >
+                  {label}
+                </Link>
+              )
+            })}
+          </nav>
+        </div>
       </div>
     </header>
   )
