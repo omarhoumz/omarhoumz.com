@@ -55,8 +55,14 @@ const Header = memo(function Header() {
                 unstyled
                 href={link}
                 key={index}
-                className={styles.navLink}
-                activeClassName={styles.activeLink}
+                className={cx(
+                  styles.navLink,
+                  'flex items-center relative px-2 rounded-sm ring ring-transparent hover:text-brand-500 focus:text-brand-500 focus:outline-none focus:ring-brand-100',
+                )}
+                activeClassName={cx(
+                  styles.activeLink,
+                  'text-brand-700 hover:text-brand-700',
+                )}
               >
                 {label}
               </Link>
@@ -72,7 +78,13 @@ const Header = memo(function Header() {
         </button>
       </div>
 
-      <div className={cx(styles.mobileNav, { [styles.showNav]: showNav })}>
+      <div
+        className={cx(
+          styles.mobileNav,
+          'block md:hidden px-2 absolute left-0 bottom-0 translate-y-0 transition transform w-full opacity-0',
+          { [styles.showNav]: showNav },
+        )}
+      >
         <nav className='flex flex-col py-3 rounded-lg bg-white shadow-md'>
           {links.map(({ link, label }, index) => {
             return (

@@ -1,25 +1,8 @@
-.mobileNav {
-  @apply block md:hidden px-2 absolute z-20 left-0 bottom-0 translate-y-0 transition transform w-full opacity-0;
-}
-
 .mobileNav.showNav,
 .mobileNav:focus-within {
   --tw-translate-y: calc(100% + 0.5rem);
 
   opacity: 1;
-}
-
-.navLink {
-  @apply flex items-center relative px-2 rounded-sm ring ring-transparent;
-}
-
-.navLink:focus,
-.navLink:hover {
-  @apply text-brand-500;
-}
-
-.navLink:focus {
-  @apply outline-none ring-brand-100;
 }
 
 .navLink::after {
@@ -41,9 +24,4 @@
 .navLink.activeLink::after {
   opacity: 1;
   transform: translateX(-50%) scaleX(1);
-}
-
-.navLink.activeLink,
-.navLink.activeLink:hover {
-  @apply text-brand-700;
 }

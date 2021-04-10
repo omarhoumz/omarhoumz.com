@@ -111,7 +111,7 @@ const sections = [
     description: (
       <>
         <h4 className='mt-4 mb-1 text-lg'>
-          <span className='font-bold'>GDG Casablanca</span>
+          <span className='text-blueGray-600 font-bold'>GDG Casablanca</span>
           <span className='mx-2 text-base'>Apr 2017 - present</span>
         </h4>
         <p>
@@ -133,7 +133,7 @@ const sections = [
         </p>
 
         <h4 className='mt-4 mb-1 text-lg'>
-          <span className='font-bold'>AIESEC</span>
+          <span className='text-blueGray-600 font-bold'>AIESEC</span>
         </h4>
         <p>
           AIESEC is a youth-run organization. And provides real-world
@@ -199,7 +199,7 @@ function About() {
                 </Link>
               ))}
             </nav>
-            <div className='flex flex-col gap-4 grid-cols-1 lg:grid-cols-2'>
+            <div className='flex flex-col gap-2 grid-cols-1 lg:grid-cols-2'>
               {sections.map((section) => (
                 <AboutSection key={section.id} {...section} />
               ))}
