@@ -93,18 +93,6 @@ const sections = [
     ),
   },
   {
-    icon: educationIcon,
-    title: 'education',
-    id: 'education',
-    description: (
-      <p>
-        I have a bachelar's degree in computer science. I rely on self learning
-        a lot, and the local developer community, to learn and explore new
-        things.
-      </p>
-    ),
-  },
-  {
     icon: communityIcon,
     title: 'volunteering',
     id: 'volunteering',
@@ -158,6 +146,18 @@ const sections = [
           <li>Member, the marketing departement</li>
         </ul>
       </>
+    ),
+  },
+  {
+    icon: educationIcon,
+    title: 'education',
+    id: 'education',
+    description: (
+      <p>
+        I have a bachelar's degree in computer science. I rely on self learning
+        a lot, and the local developer community, to learn and explore new
+        things.
+      </p>
     ),
   },
   {
