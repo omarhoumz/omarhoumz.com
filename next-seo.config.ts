@@ -1,7 +1,7 @@
 const title = 'Omar Houmz'
 const description = 'Front-end developer, organizer @gdgcasablanca'
 
-export const canonical = 'https://omarhoumz.com'
+export const canonical: string = 'https://www.omarhoumz.com'
 
 const SEO = {
   title,
@@ -10,7 +10,7 @@ const SEO = {
   openGraph: {
     type: 'website',
     locale: 'en_gb',
-    url: 'https://omarhoumz.com',
+    url: canonical,
     title,
     description,
     images: [
