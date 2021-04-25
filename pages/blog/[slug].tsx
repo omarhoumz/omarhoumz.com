@@ -5,7 +5,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useRouter } from 'next/router'
 
-import SEO, { canonical } from 'next-seo.config'
+import SEO from 'next-seo.config'
 
 import Link from '@/components/link/link'
 import { components } from '@/components/mdx/components/components'
@@ -17,14 +17,25 @@ import Layout from 'src/layout/layout'
 import formatDate from 'utils/format-date'
 import { contentFolder } from 'config/content-folder'
 
-function Singlepost({ title, content, date, author, slug, status }) {
+function Singlepost({ title, content, date, author }) {
   const router = useRouter()
 
   const currentUrl = `https://omarhoumz.com${router.asPath}`
 
   return (
     <Layout>
-      <PageSeo title={title} url={canonical.concat(`/${slug}/`)} />
+      <PageSeo
+        title={title}
+        url={currentUrl}
+        images={[
+          {
+            url: `https://omarhoumz.com/api/og-image/?title=${title}&url=${router.asPath}`,
+            alt: title,
+            width: 1200,
+            height: 630,
+          },
+        ]}
+      />
 
       <div className='py-8 lg:py-12 px-4 lg:px-0 max-w-2xl mx-auto'>
         <Link href='/blog' className='inline-block text-xl mb-2'>
@@ -39,9 +50,10 @@ function Singlepost({ title, content, date, author, slug, status }) {
           </span>
           <Pill label={date} />
         </div>
-        <aticle className='prose lg:prose-xl prose-slate'>
+
+        <article className='prose lg:prose-xl prose-slate'>
           <MDXRemote {...content} components={components} />
-        </aticle>
+        </article>
 
         <Sharer
           url={currentUrl}

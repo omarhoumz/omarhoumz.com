@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import Link from '../link/link'
 import styles from './project-list.module.css'
 import Pill from '../pill/pill'
-import { projectStatuses } from 'src.old/project-statuses'
+import { projectStatuses } from './projects'
 
 const externalIcon = (
   <svg
