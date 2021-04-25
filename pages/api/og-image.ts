@@ -5,7 +5,7 @@ import { getScreenshot } from 'lib/chromium'
 const baseUrl =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:3000'
-    : 'https://www.omarhoumz.com'
+    : process.env.VERCEL_URL
 
 export default async function handler(
   req: NextApiRequest,
