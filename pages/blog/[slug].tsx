@@ -17,24 +17,21 @@ import Layout from 'src/layout/layout'
 import formatDate from 'utils/format-date'
 import { contentFolder } from 'config/content-folder'
 
-function Singlepost({ title, content, date, author }) {
+function Singlepost({ title, content, date, author, baseUrl }) {
   const router = useRouter()
 
   const currentUrl = `https://omarhoumz.com${router.asPath}`
+
+  const basePath = `${baseUrl}/api/og-image/`
+  const params = new URLSearchParams({ title, url: router.asPath })
+  const url = basePath.concat(`?${params.toString()}`)
 
   return (
     <Layout>
       <PageSeo
         title={title}
         url={currentUrl}
-        images={[
-          {
-            url: `https://omarhoumz.com/api/og-image/?title=${title}&url=${router.asPath}`,
-            alt: title,
-            width: 1200,
-            height: 630,
-          },
-        ]}
+        images={[{ url, alt: title, width: 1200, height: 630 }]}
       />
 
       <div className='py-8 lg:py-12 px-4 lg:px-0 max-w-2xl mx-auto'>
@@ -80,14 +77,21 @@ export async function getStaticProps({ params: { slug } }) {
 
   const mdxSource = await serialize(content)
 
+  const { title = '', date = '', author = '', status = '' } = data
+  const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? process.env.NEXT_PUBLIC_VERCEL_URL
+      : `http://localhost:3000`
+
   return {
     props: {
-      title: data?.title,
+      title,
       content: mdxSource,
-      date: formatDate(data?.date),
-      author: data?.author,
-      status: data?.status,
+      date: formatDate(date),
+      author,
+      status,
       slug,
+      baseUrl,
     },
   }
 }
