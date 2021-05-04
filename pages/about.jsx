@@ -185,7 +185,7 @@ function About() {
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
             <h1 className='text-3xl font-bold'>About me</h1>
             <nav
-              className='sticky top-2 bg-white bg-opacity-80 -mx-1 z-10'
+              className='sticky z-1 top-2 bg-white bg-opacity-80 -mx-1'
               style={{ marginTop: 0 }}
             >
               {sections.map(({ id, title }) => (

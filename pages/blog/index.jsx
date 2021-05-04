@@ -1,16 +1,10 @@
-import path from 'path'
-import fs from 'fs'
-import matter from 'gray-matter'
-// import renderToString from 'next-mdx-remote/render-to-string'
-
 // import hydrate from 'next-mdx-remote/hydrate'
 import BlogListItem from '@/components/blog-list-item/blog-list-item'
 
 import Layout from 'src/layout/layout'
 import PageSeo from '@/components/page-seo/page-seo'
 import { canonical } from 'next-seo.config'
-import formatDate from 'utils/format-date'
-import { contentFolder } from 'config/content-folder'
+import { getPosts } from '@/lib/get-posts'
 
 function Blog({ posts }) {
   return (
@@ -42,30 +36,7 @@ function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const postsDirectory = path.join(process.cwd(), contentFolder)
-  const filenames = fs.readdirSync(postsDirectory)
-
-  const asyncPosts = filenames.map(async (filename) => {
-    const filePath = path.join(postsDirectory, filename, 'index.mdx')
-    const slug = filename.replace(/\.mdx?$/, '')
-    const source = fs.readFileSync(filePath, 'utf8')
-
-    const { /*content, */ data } = matter(source)
-
-    // const mdxSource = await renderToString(content, { scope: data })
-
-    return {
-      title: data?.title,
-      excerpt: data?.description,
-      href: `/blog/${slug}`,
-      rawDate: data?.date,
-      date: formatDate(data?.date),
-    }
-  })
-
-  const posts = (await Promise.all(asyncPosts)).sort(
-    (a, b) => new Date(b.rawDate) - new Date(a.rawDate),
-  )
+  const posts = await getPosts()
 
   return { props: { posts } }
 }

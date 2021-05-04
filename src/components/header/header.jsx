@@ -33,12 +33,12 @@ const Header = memo(function Header() {
   const [showNav, setShowNav] = useState(false)
 
   return (
-    <header className='relative w-full px-2 xl:px-0'>
+    <header className='relative z-10 w-full px-2 xl:px-0'>
       <div className='relative z-1 flex items-center justify-between h-12 w-full max-w-5xl mx-auto bg-white border-b border-brand-50'>
         <Link
           unstyled
           href='/'
-          className='flex items-center gap-2 text-xl py-1 px-2 -ml-1 leading-none transition-colors duration-75 ring ring-transparent rounded-sm hover:text-brand-700 focus:outline-none focus:ring-brand-100'
+          className='flex z-10 items-center gap-2 text-xl py-1 px-2 -ml-1 leading-none transition-colors duration-75 ring ring-transparent rounded-sm hover:text-brand-700 focus:outline-none focus:ring-brand-100'
         >
           <Image src='/icon.png' width={32} height={32} alt='' />
           <span className='pb-1'>
@@ -56,11 +56,11 @@ const Header = memo(function Header() {
                 key={index}
                 className={cx(
                   styles.navLink,
-                  'flex items-center relative px-2 rounded-sm ring ring-transparent hover:text-brand-500 focus:text-brand-500 focus:outline-none focus:ring-brand-100',
+                  'flex items-center relative px-2 rounded-sm ring ring-transparent hover:text-brand-700 focus:text-brand-700 focus:outline-none focus:ring-brand-100',
                 )}
                 activeClassName={cx(
                   styles.activeLink,
-                  'text-brand-700 hover:text-brand-700',
+                  'text-brand-500 hover:text-brand-500',
                 )}
               >
                 {label}
@@ -70,7 +70,7 @@ const Header = memo(function Header() {
         </nav>
 
         <button
-          className='flex md:hidden leading-none py-2 px-4'
+          className='flex z-10 md:hidden leading-none py-2 px-4'
           onClick={() => setShowNav((o) => !o)}
         >
           Menu
@@ -78,7 +78,7 @@ const Header = memo(function Header() {
         <div
           className={cx(
             styles.mobileNav,
-            'block md:hidden px-2 absolute left-0 bottom-0 translate-y-0 transition transform w-full opacity-0',
+            'block md:hidden px-2 absolute left-0 bottom-0 -translate-y-14 transition transform w-full opacity-0',
             { [styles.showNav]: showNav },
           )}
         >

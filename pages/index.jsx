@@ -1,10 +1,13 @@
+import BlogListItem from '@/components/blog-list-item/blog-list-item'
 import Link from '@/components/link/link'
 import ProjectList from '@/components/project-list/project-list'
 import allProjects from '@/components/project-list/projects'
+import { getPosts } from '@/lib/get-posts'
 
 import Layout from 'src/layout/layout'
 
-export default function Home() {
+export default function Home({ posts }) {
+  console.log(posts)
   return (
     <>
       <Layout mainClassName='py-14 space-y-12'>
@@ -29,6 +32,27 @@ export default function Home() {
           </div>
         </section>
         <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>
+          <div className='flex flex-col items-start px-5 xl:px-0'>
+            <h2 className='text-3xl font-bold'>Latest blog posts</h2>
+            <div className=''>
+              {posts.map(({ title, excerpt, href, date }, index) => {
+                return (
+                  <BlogListItem
+                    title={title}
+                    excerpt={excerpt}
+                    href={href}
+                    date={date}
+                    key={index.toString()}
+                  />
+                )
+              })}
+            </div>
+            <Link href='/blog' btnStyle>
+              See all posts
+            </Link>
+          </div>
+        </section>
+        <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
             <h2 className='text-3xl font-bold'>Latest projects</h2>
             <ProjectList projects={allProjects.slice(0, 2)} />
@@ -40,4 +64,10 @@ export default function Home() {
       </Layout>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const posts = (await getPosts()).slice(0, 2)
+
+  return { props: { posts } }
 }
