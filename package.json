@@ -26,14 +26,14 @@
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.2",
     "mdx-utils": "^0.2.0",
-    "next": "10.2.0",
-    "next-mdx-remote": "^2.1.4",
-    "next-seo": "^4.23.0",
-    "prism-react-renderer": "^1.2.0",
+    "next": "11.0.1",
+    "next-mdx-remote": "^3.0.4",
+    "next-seo": "^4.26.0",
+    "prism-react-renderer": "^1.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-share": "^4.4.0",
-    "terser-webpack-plugin": "^5.1.1"
+    "terser-webpack-plugin": "^5.1.4"
   },
   "repository": {
     "type": "git",
@@ -43,14 +43,14 @@
     "url": "https://github.com/omarhoumz/omarhoumz.github.io/issues"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.5",
-    "eslint": "^7.24.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "globby": "^11.0.3",
-    "postcss": "^8.2.10",
-    "prettier": "^2.2.1",
+    "autoprefixer": "^10.3.1",
+    "eslint": "^7.31.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "globby": "^11.0.4",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
     "rss": "^1.2.2",
-    "tailwindcss": "^2.1.1"
+    "tailwindcss": "^2.2.4"
   }
 }
