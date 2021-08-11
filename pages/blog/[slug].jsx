@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import hydrate from 'next-mdx-remote/hydrate'
-import renderToString from 'next-mdx-remote/render-to-string'
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import { useRouter } from 'next/router'
 
 import SEO, { canonical } from 'next-seo.config'
@@ -19,8 +19,6 @@ import formatDate from 'utils/format-date'
 import { contentFolder } from 'config/content-folder'
 
 function Singlepost({ title, content, date, author, slug, status }) {
-  const source = hydrate(content, { components })
-
   const router = useRouter()
 
   const currentUrl = `https://omarhoumz.com${router.asPath}`
@@ -42,7 +40,9 @@ function Singlepost({ title, content, date, author, slug, status }) {
           </span>
           <Pill label={date} />
         </div>
-        <div className={styles.contentWrapper}>{source}</div>
+        <div className={styles.contentWrapper}>
+          <MDXRemote {...content} components={components} />
+        </div>
 
         <Sharer
           url={currentUrl}
@@ -67,7 +67,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   const { content, data } = matter(source)
 
-  const mdxSource = await renderToString(content, { components, scope: data })
+  const mdxSource = await serialize(content)
 
   return {
     props: {

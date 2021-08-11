@@ -111,12 +111,12 @@ const sections = [
           .
         </p>
         <p className='mt-1.5'>
-          Through our activities, I'm learning how to build a community,
+          Through our activities, I am learning how to build a community,
           collaborating with five other co-organizers, and managing 20 plus
           volunteers.
         </p>
         <p className='mt-1.5'>
-          Since our first event, we've organized more than 30 meetups,
+          Since our first event, we have organized more than 30 meetups,
           workshops, and conferences.
         </p>
 
@@ -154,7 +154,7 @@ const sections = [
     id: 'education',
     description: (
       <p>
-        I have a bachelar's degree in computer science. I rely on self learning
+        I have a bachelar&apos;s degree in computer science. I rely on self learning
         a lot, and the local developer community, to learn and explore new
         things.
       </p>

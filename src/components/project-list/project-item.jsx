@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import Image from 'next/image'
 import PropTypes from 'prop-types'
 
 import Link from '../link/link'
@@ -45,9 +46,12 @@ const ProjectItem = memo(function ProjectItem({
           <Pill label={projectStatuses[props.status]} />
         )}
         {!icon ? null : (
-          <img
+          <Image
             src={icon}
-            className='w-7 h-7 border border-gray-100 rounded-md'
+            className='border border-gray-100 rounded-md'
+            width={28}
+            height={28}
+            alt=''
           />
         )}
         <span className='font-bold transition-colors text-brand-800 group-hover:text-brand-600'>

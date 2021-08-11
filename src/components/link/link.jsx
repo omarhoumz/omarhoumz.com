@@ -52,6 +52,7 @@ const Link = ({
       .join(' ')
 
     return (
+      // eslint-disable-next-line react/jsx-no-target-blank
       <a href={href} target='_blank' rel={relProp} className={classes}>
         {children}
       </a>
