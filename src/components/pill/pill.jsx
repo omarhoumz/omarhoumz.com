@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 
-const Pill = memo(function Pill({ label, className }) {
+function Pill({ label, className = '' }) {
   return (
     <span
       className={[
@@ -14,7 +14,7 @@ const Pill = memo(function Pill({ label, className }) {
       {label}
     </span>
   )
-})
+}
 
 Pill.propTypes = {
   label: PropTypes.string,

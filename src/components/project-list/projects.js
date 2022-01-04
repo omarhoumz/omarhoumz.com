@@ -6,7 +6,7 @@ export const projectStatuses = {
 
 const allProjects = [
   {
-    icon: 'https://devfest.gdgcasablanca.com/icons/icon-144x144.png',
+    icon: 'https://devfest-casablanca-2020.web.app/icons/icon-144x144.png',
     title: 'devfest.gdgcasablanca.com',
     link: {
       href: 'https://devfest.gdgcasablanca.com/',

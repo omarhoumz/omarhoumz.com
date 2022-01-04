@@ -20,7 +20,6 @@ const Blockquote = (props) => (
 )
 
 const Code = (props) => {
-  console.log(props)
   return <code className={styles.code} {...props} />
 }
 
