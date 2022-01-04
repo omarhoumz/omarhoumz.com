@@ -1,6 +1,4 @@
 .preWrapper {
-  @apply flex px-2 mx-2 rounded overflow-auto shadow;
-
   --inline-space: 1rem;
   margin: 1rem calc(-1 * var(--inline-space));
   background-color: #fbfbfb;

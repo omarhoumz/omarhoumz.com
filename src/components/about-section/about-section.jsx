@@ -17,7 +17,7 @@ const AboutSection = memo(function AboutSection({
       ].join(' ')}
       id={id}
     >
-      <div className='relative flex-shrink-0 grid place-items-center p-1.5 sm:p-2.5 w-11 h-11 sm:w-14 sm:h-14 border-4 border-white rounded-full text-brand-500 bg-brand-50 '>
+      <div className='relative flex-shrink-0 grid place-items-center p-1.5 sm:p-2.5 w-11 h-11 sm:w-14 sm:h-14 border-4 border-white rounded-full text-brand-500 bg-brand-50'>
         {icon}
       </div>
       <div className='pt-1.5 sm:pt-3'>
