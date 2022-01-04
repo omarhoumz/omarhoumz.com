@@ -17,7 +17,9 @@ const PreCodeHighlighted = memo(function PreCodeHighlighted({
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className={styles.preWrapper}>
+        <div
+          className={`${styles.preWrapper} flex px-2 mx-2 rounded overflow-auto shadow`}
+        >
           <pre
             className={[className, styles.preStyles].join(' ')}
             style={style}

@@ -14,7 +14,6 @@ import Pill from '@/components/pill/pill'
 import Sharer from '@/components/sharer/sharer'
 
 import Layout from 'src/layout/layout'
-import styles from 'styles/single-post.module.css'
 import formatDate from 'utils/format-date'
 import { contentFolder } from 'config/content-folder'
 
@@ -40,9 +39,9 @@ function Singlepost({ title, content, date, author, slug, status }) {
           </span>
           <Pill label={date} />
         </div>
-        <div className={styles.contentWrapper}>
+        <aticle className='prose lg:prose-xl prose-slate'>
           <MDXRemote {...content} components={components} />
-        </div>
+        </aticle>
 
         <Sharer
           url={currentUrl}

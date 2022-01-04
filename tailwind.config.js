@@ -1,13 +1,12 @@
-const { blueGray } = require('tailwindcss/colors')
+const { slate } = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'media', // 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        blueGray,
+        blueGray: slate,
         'accent-1': '#333',
         'brand-50': '#edecff',
         'brand-100': '#d3d1fe',
@@ -30,5 +29,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }

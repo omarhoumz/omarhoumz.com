@@ -154,9 +154,9 @@ const sections = [
     id: 'education',
     description: (
       <p>
-        I have a bachelar&apos;s degree in computer science. I rely on self learning
-        a lot, and the local developer community, to learn and explore new
-        things.
+        I have a bachelar&apos;s degree in computer science. I rely on self
+        learning a lot, and the local developer community, to learn and explore
+        new things.
       </p>
     ),
   },
@@ -185,7 +185,7 @@ function About() {
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
             <h1 className='text-3xl font-bold'>About me</h1>
             <nav
-              className='sticky top-2 bg-white bg-opacity-80 -mx-1'
+              className='sticky top-2 bg-white bg-opacity-80 -mx-1 z-10'
               style={{ marginTop: 0 }}
             >
               {sections.map(({ id, title }) => (
