@@ -3,16 +3,17 @@ import Link from '@/components/link/link'
 import PageSeo from '@/components/page-seo/page-seo'
 
 import Layout from 'src/layout/layout'
+import PageTitle from '@/components/page-title'
 
 function Contact() {
   return (
     <>
       <PageSeo title='Contact Me' url={canonical.concat('/contact/')} />
 
-      <Layout mainClassName='py-14 space-y-12'>
+      <Layout mainClassName='py-32 space-y-12'>
         <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0 text-blueGray-600'>
-            <h1 className='text-3xl text-blueGray-800 font-bold'>Contact Me</h1>
+            <PageTitle>Contact Me</PageTitle>
             <p>If you want to get in touch, this is where I hang out often.</p>
             <div>
               <h2>Twitter:</h2>
