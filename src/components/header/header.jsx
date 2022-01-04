@@ -33,8 +33,8 @@ export default function Header() {
   const [showNav, setShowNav] = useState(false)
 
   return (
-    <header className='relative z-10 w-full px-2 xl:px-0'>
-      <div className='relative z-1 flex items-center justify-between h-12 w-full max-w-5xl mx-auto bg-white border-b border-brand-50'>
+    <header className='sticky top-0 z-10 w-full xl:px-0'>
+      <div className='relative z-1 flex items-center justify-between h-14 w-full max-w-5xl px-2 mx-auto bg-white bg-opacity-80 backdrop-blur-sm backdrop-saturate-150 border-b border-brand-50'>
         <Link
           unstyled
           href='/'
@@ -78,11 +78,11 @@ export default function Header() {
         <div
           className={cx(
             styles.mobileNav,
-            'block md:hidden px-2 absolute left-0 bottom-0 -translate-y-14 transition transform w-full opacity-0',
+            'block md:hidden px-2 absolute left-0 bottom-0 -translate-y-14 transition transform w-full opacity-0 bg-opacity-80',
             { [styles.showNav]: showNav },
           )}
         >
-          <nav className='flex flex-col py-3 rounded-lg bg-white shadow-md'>
+          <nav className='flex flex-col py-3 rounded-lg bg-white bg-opacity-95 backdrop-blur-sm backdrop-saturate-150 shadow-md'>
             {links.map(({ link, label }, index) => {
               return (
                 <Link

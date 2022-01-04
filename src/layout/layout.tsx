@@ -12,7 +12,7 @@ export default function Layout({
   mainClassName?: string
 }) {
   return (
-    <div className='flex flex-col min-h-screen py-2'>
+    <div className='flex flex-col min-h-screen'>
       <Header />
       <main className={cx('flex-grow', mainClassName)}>{children}</main>
       <Footer />
