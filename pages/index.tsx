@@ -8,13 +8,11 @@ import { getPosts } from '@/lib/get-posts'
 import Layout from 'src/layout/layout'
 
 export default function Home({ posts }) {
-  console.log(posts)
   return (
     <>
       <Layout mainClassName='py-32 flex flex-col gap-32'>
         <section className='xl:w-full xl:max-w-2xl xl:mx-auto'>
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
-            <p className='text-3xl text-blueGray-800 font-bold'>Hi,</p>
             <PageTitle as='p'>Hi,</PageTitle>
             <p className='text-lg max-w-xl'>
               I’m <strong>Omar Houmz</strong>, I’m a software engineer based in
