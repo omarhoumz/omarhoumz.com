@@ -1,16 +1,15 @@
 import cx from 'classnames'
-import { memo } from 'react'
 import type { ReactNode } from 'react'
 
-import Header from 'components/header/header'
-import Footer from 'components/footer/footer'
+import Header from '@/components/header/header'
+import Footer from '@/components/footer/footer'
 
-const Layout = memo(function Layout({
+export default function Layout({
   children,
   mainClassName,
 }: {
   children: ReactNode
-  mainClassName: string
+  mainClassName?: string
 }) {
   return (
     <div className='flex flex-col min-h-screen py-2'>
@@ -19,6 +18,4 @@ const Layout = memo(function Layout({
       <Footer />
     </div>
   )
-})
-
-export default Layout
+}

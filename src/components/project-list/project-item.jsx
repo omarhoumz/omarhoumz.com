@@ -1,4 +1,3 @@
-import React, { memo } from 'react'
 import Image from 'next/image'
 import PropTypes from 'prop-types'
 
@@ -24,7 +23,7 @@ const externalIcon = (
   </svg>
 )
 
-const ProjectItem = memo(function ProjectItem({
+export default function ProjectItem({
   icon,
   title,
   description,
@@ -64,7 +63,7 @@ const ProjectItem = memo(function ProjectItem({
       <p className='max-w-2xl text-gray-500'>{description}</p>
     </Link>
   )
-})
+}
 
 export const projectItemType = {
   icon: PropTypes.string,
@@ -77,5 +76,3 @@ export const projectItemType = {
 }
 
 ProjectItem.propTypes = projectItemType
-
-export default ProjectItem

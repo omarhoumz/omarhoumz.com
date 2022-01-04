@@ -1,9 +1,9 @@
-import BlogListItem from 'components/blog-list-item/blog-list-item'
-import Link from 'components/link/link'
-import PageTitle from 'components/page-title'
-import ProjectList from 'components/project-list/project-list'
-import allProjects from 'components/project-list/projects'
-import { getPosts } from 'lib/get-posts'
+import BlogListItem from '@/components/blog-list-item/blog-list-item'
+import Link from '@/components/link/link'
+import PageTitle from '@/components/page-title'
+import ProjectList from '@/components/project-list/project-list'
+import allProjects from '@/components/project-list/projects'
+import { getPosts } from '@/lib/get-posts'
 
 import Layout from 'src/layout/layout'
 

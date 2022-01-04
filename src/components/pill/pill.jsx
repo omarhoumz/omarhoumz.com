@@ -1,7 +1,4 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
-
-function Pill({ label, className = '' }) {
+export default function Pill({ label, className = '' }) {
   return (
     <span
       className={[
@@ -15,9 +12,3 @@ function Pill({ label, className = '' }) {
     </span>
   )
 }
-
-Pill.propTypes = {
-  label: PropTypes.string,
-}
-
-export default Pill

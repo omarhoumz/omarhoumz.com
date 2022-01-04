@@ -1,14 +1,6 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
-
 import styles from './about-section.module.css'
 
-const AboutSection = memo(function AboutSection({
-  description,
-  icon,
-  title,
-  id,
-}) {
+export default function AboutSection({ description, icon, title, id }) {
   return (
     <div
       className={[
@@ -30,12 +22,4 @@ const AboutSection = memo(function AboutSection({
       </div>
     </div>
   )
-})
-
-AboutSection.propTypes = {
-  description: PropTypes.node,
-  icon: PropTypes.node,
-  title: PropTypes.string,
 }
-
-export default AboutSection

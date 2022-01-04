@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import cx from 'classnames'
 
@@ -29,7 +29,7 @@ const links = [
   },
 ]
 
-const Header = memo(function Header() {
+export default function Header() {
   const [showNav, setShowNav] = useState(false)
 
   return (
@@ -101,6 +101,4 @@ const Header = memo(function Header() {
       </div>
     </header>
   )
-})
-
-export default Header
+}
