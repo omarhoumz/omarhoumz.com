@@ -132,7 +132,7 @@ const sections = [
         <h5 className='mt-2 mb-1 text-base'>May 2019 - Feb 2020</h5>
         <p>
           Contributing to the New Mobile app for Operations at AIESEC
-          International as a front-end developper.
+          International as a front-end engineer.
         </p>
 
         <h5 className='mt-2 mb-1 text-base'>Oct 2017 - Aug 2019</h5>

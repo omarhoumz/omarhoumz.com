@@ -1,5 +1,5 @@
 const title = 'Omar Houmz'
-const description = 'Front-end developer, organizer @gdgcasablanca'
+const description = 'Front-end engineer, organizer @gdgcasablanca'
 
 export const canonical: string = 'https://www.omarhoumz.com'
 
