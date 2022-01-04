@@ -17,7 +17,8 @@
     "paths": {
       "@/lib/*": ["src/lib/*"],
       "@/components/*": ["src/components/*"]
-    }
+    },
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": [".git", ".npm", ".cache", "dist", "out", "node_modules"]
