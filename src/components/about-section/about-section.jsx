@@ -1,14 +1,6 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
-
 import styles from './about-section.module.css'
 
-const AboutSection = memo(function AboutSection({
-  description,
-  icon,
-  title,
-  id,
-}) {
+export default function AboutSection({ description, icon, title, id }) {
   return (
     <div
       className={[
@@ -24,16 +16,10 @@ const AboutSection = memo(function AboutSection({
         <h3 className='mb-2 text-2xl text-blueGray-800 font-bold capitalize'>
           {title}
         </h3>
-        <div className='text-xl text-blueGray-500 max-w-xl'>{description}</div>
+        <div className='text-xl text-blueGray-500 max-w-xl prose'>
+          {description}
+        </div>
       </div>
     </div>
   )
-})
-
-AboutSection.propTypes = {
-  description: PropTypes.node,
-  icon: PropTypes.node,
-  title: PropTypes.string,
 }
-
-export default AboutSection

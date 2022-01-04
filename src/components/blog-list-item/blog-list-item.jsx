@@ -1,29 +1,32 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
+import cx from 'classnames'
+
 import Link from '../link/link'
 import Pill from '../pill/pill'
 
-const BlogListItem = memo(function BlogListItem({
-  title,
-  date,
-  excerpt,
-  href,
-}) {
+function BlogListItem({ title, date, excerpt, href, className = '' }) {
   return (
-    <Link href={href} unstyled className='block py-8'>
-      <h3 className='text-2xl text-blueGray-700 font-bold mb-1.5'>{title}</h3>
+    <Link
+      href={href}
+      unstyled
+      className={cx(
+        'flex flex-col items-start p-4 group hover:bg-[#fbfbff]',
+        className,
+      )}
+    >
       {!date ? null : <Pill label={date} />}
-      <p className='text-lg text-blueGray-700 font-light my-4'>{excerpt}</p>
+      <h3 className='text-2xl text-blueGray-700 font-bold mt-1.5'>{title}</h3>
+
+      {!excerpt ? null : (
+        <p className='text-lg text-blueGray-700 font-light my-2 max-w-prose'>
+          {excerpt}
+        </p>
+      )}
 
       {!href ? null : (
-        <Link href={href} className='text-lg'>
-          Read more →
-        </Link>
+        <p className='group-hover:text-brand-700 text-lg'>Read →</p>
       )}
     </Link>
   )
-})
-
-BlogListItem.propTypes = {}
+}
 
 export default BlogListItem

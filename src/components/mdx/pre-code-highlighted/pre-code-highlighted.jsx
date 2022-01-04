@@ -1,16 +1,11 @@
-import React, { memo } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwlLight'
 
 import styles from './pre-code-highlighted.module.css'
 
-const PreCodeHighlighted = memo(function PreCodeHighlighted({
-  codeString,
-  language,
-}) {
+export default function PreCodeHighlighted({ codeString, language }) {
   return (
     <Highlight
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...defaultProps}
       code={codeString}
       language={language}
@@ -46,6 +41,4 @@ const PreCodeHighlighted = memo(function PreCodeHighlighted({
       )}
     </Highlight>
   )
-})
-
-export default PreCodeHighlighted
+}

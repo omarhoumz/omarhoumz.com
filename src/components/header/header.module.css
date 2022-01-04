@@ -1,6 +1,6 @@
 .mobileNav.showNav,
 .mobileNav:focus-within {
-  --tw-translate-y: calc(100% + 0.5rem);
+  --tw-translate-y: calc(100% + 0.1px);
 
   opacity: 1;
 }

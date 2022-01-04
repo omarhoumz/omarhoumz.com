@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { memo } from 'react'
 
 import Footer from '@/components/footer/footer'
 import Header from '@/components/header/header'
@@ -10,7 +9,7 @@ import ProjectList from '@/components/project-list/project-list'
 import allProjects from '@/components/project-list/projects'
 import Layout from 'src/layout/layout'
 
-const UiLib = memo(function UiLib() {
+export default function UiLib() {
   return (
     <div className='p-12'>
       <Head>
@@ -97,6 +96,4 @@ const UiLib = memo(function UiLib() {
       </section>
     </div>
   )
-})
-
-export default UiLib
+}

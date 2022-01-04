@@ -1,11 +1,8 @@
-import React, { memo } from 'react'
-import PropTypes from 'prop-types'
-
-function Pill({ label, className = '' }) {
+export default function Pill({ label, className = '' }) {
   return (
     <span
       className={[
-        'text-xs text-gray-500 font-medium tracking-wide py-1 px-3 rounded-full uppercase bg-gray-100',
+        'text-xs text-gray-500 font-medium tracking-wide py-1 px-3 rounded-full uppercase bg-gray-100 relative',
         className,
       ]
         .filter(Boolean)
@@ -15,9 +12,3 @@ function Pill({ label, className = '' }) {
     </span>
   )
 }
-
-Pill.propTypes = {
-  label: PropTypes.string,
-}
-
-export default Pill

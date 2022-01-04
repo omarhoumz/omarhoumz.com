@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { getScreenshot } from 'lib/chromium'
+import { getScreenshot } from '../../lib/chromium'
 
 const baseUrl =
   process.env.NODE_ENV !== 'production'

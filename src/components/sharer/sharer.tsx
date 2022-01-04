@@ -1,8 +1,6 @@
-import React, { memo } from 'react'
-
 import { TwitterShareButton, FacebookShareButton } from 'react-share'
 
-function Sharer({ url, title, twitterHandle }) {
+export default function Sharer({ url, title, twitterHandle }) {
   return (
     <div className='mt-24 bg-brand-50 bg-opacity-30 border-t-2 border-b-2 border-brand-50 py-8 px-4 space-y-3 text-xl'>
       <p>
@@ -38,5 +36,3 @@ function Sharer({ url, title, twitterHandle }) {
     </div>
   )
 }
-
-export default Sharer

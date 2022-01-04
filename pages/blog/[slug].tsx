@@ -17,7 +17,7 @@ import Layout from 'src/layout/layout'
 import formatDate from 'utils/format-date'
 import { contentFolder } from 'config/content-folder'
 
-function Singlepost({ title, content, date, author, baseUrl }) {
+export default function Singlepost({ title, content, date, author, baseUrl }) {
   const router = useRouter()
 
   const currentUrl = `https://omarhoumz.com${router.asPath}`
@@ -104,7 +104,3 @@ export async function getStaticPaths() {
 
   return { paths, fallback: false }
 }
-
-Singlepost.propTypes = {}
-
-export default Singlepost

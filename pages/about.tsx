@@ -4,6 +4,7 @@ import Layout from 'src/layout/layout'
 import { canonical } from 'next-seo.config'
 import AboutSection from '@/components/about-section/about-section'
 import Link from '@/components/link/link'
+import PageTitle from '@/components/page-title'
 
 const workIcon = (
   <svg
@@ -76,18 +77,12 @@ const sections = [
     id: 'work',
     description: (
       <>
+        <p>I’m a front-end engineer based in Casablanca, Morocco.</p>
         <p>
-          I’m a software engineer based in Casablanca, Morocco. I work at{' '}
-          <Link href='https://linkedin.com' color='current' external nofollow>
-            Avito.ma
-          </Link>{' '}
-          as a front-end engineer for over 2 years now (October 2018).
-        </p>
-        <p className='mt-1.5'>
-          Professionally, I work with React, Next Js for SSR, Redux for State
-          management, styled-components for CSS and a UI library, Storybook,
-          jest/cypress for unit and e2e testing, and Graphql (a server backend
-          and client using apollo).
+          I work with React, Next Js for SSR, Redux for State management,
+          styled-components for CSS and a UI library, Storybook, jest/cypress
+          for unit and e2e testing, and Graphql (backend api and client using
+          apollo).
         </p>
       </>
     ),
@@ -129,13 +124,17 @@ const sections = [
           (Casablanca & Morocco) and in the international in-house dev team.
         </p>
 
-        <h5 className='mt-2 mb-1 text-base'>May 2019 - Feb 2020</h5>
+        <h5 className='mt-2.5 mb-1 text-base font-medium'>
+          May 2019 - Feb 2020
+        </h5>
         <p>
           Contributing to the New Mobile app for Operations at AIESEC
           International as a front-end engineer.
         </p>
 
-        <h5 className='mt-2 mb-1 text-base'>Oct 2017 - Aug 2019</h5>
+        <h5 className='mt-2.5 mb-1 text-base font-medium'>
+          Oct 2017 - Aug 2019
+        </h5>
         <ul className='list-disc ml-5'>
           <li>Website team & Marketing Growth Hackers (AIESEC Morocco)</li>
           <li>
@@ -153,11 +152,17 @@ const sections = [
     title: 'education',
     id: 'education',
     description: (
-      <p>
-        I have a bachelar&apos;s degree in computer science. I rely on self
-        learning a lot, and the local developer community, to learn and explore
-        new things.
-      </p>
+      <>
+        <p>
+          I have a bachelar&apos;s degree in computer science. I also studied
+          two year&apos;s as Masters student in Big Data & Cloud Computing at
+          Hassan II University of Casablanca.
+        </p>
+        <p>
+          I rely on self learning a lot, and the local developer community, to
+          learn and explore new things.
+        </p>
+      </>
     ),
   },
   {
@@ -166,8 +171,12 @@ const sections = [
     id: 'contact',
     description: (
       <p>
-        Check the /contact page, or drop me a line:{' '}
-        <Link href='mailto:omarhoumz@gmail.com' color='current'>
+        Check the{' '}
+        <Link href='/contact' color='current'>
+          /contact
+        </Link>{' '}
+        page, or drop me a line:{' '}
+        <Link href='mailto:omarhoumz@gmail.com' external color='current'>
           omarhoumz[at]gmail.com
         </Link>
       </p>
@@ -180,12 +189,12 @@ function About() {
     <>
       <PageSeo title='About' url={canonical.concat('/about/')} />
 
-      <Layout mainClassName='py-14 space-y-12'>
+      <Layout mainClassName='py-32 space-y-12'>
         <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
-            <h1 className='text-3xl font-bold'>About me</h1>
+            <PageTitle>About me</PageTitle>
             <nav
-              className='sticky top-2 bg-white bg-opacity-80 -mx-1 z-10'
+              className='sticky z-1 top-2 bg-white bg-opacity-80 -mx-1'
               style={{ marginTop: 0 }}
             >
               {sections.map(({ id, title }) => (
