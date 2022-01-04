@@ -1,9 +1,18 @@
+import cx from 'classnames'
+
 import Link from '../link/link'
 import Pill from '../pill/pill'
 
-function BlogListItem({ title, date, excerpt, href }) {
+function BlogListItem({ title, date, excerpt, href, className = '' }) {
   return (
-    <Link href={href} unstyled className='flex flex-col items-start py-4'>
+    <Link
+      href={href}
+      unstyled
+      className={cx(
+        'flex flex-col items-start p-4 group hover:bg-[#fbfbff]',
+        className,
+      )}
+    >
       {!date ? null : <Pill label={date} />}
       <h3 className='text-2xl text-blueGray-700 font-bold mt-1.5'>{title}</h3>
 
@@ -14,9 +23,7 @@ function BlogListItem({ title, date, excerpt, href }) {
       )}
 
       {!href ? null : (
-        <Link href={href} className='text-lg'>
-          Read →
-        </Link>
+        <p className='group-hover:text-brand-700 text-lg'>Read →</p>
       )}
     </Link>
   )

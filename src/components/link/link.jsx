@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 
 const colors = {
-  blue: 'text-brand-500 hover:text-brand-700 hover:border-brand-700',
+  blue: 'text-brand-500 hover:text-brand-700 hover:border-brand-700 text-current no-underline',
   dark: 'text-gray-800 hover:text-gray-900 hover:border-gray-900',
   current: 'hover:border-current text-current no-underline',
 }
