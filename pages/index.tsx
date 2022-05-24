@@ -17,14 +17,15 @@ export default function Home({ posts }) {
             <p className='text-lg max-w-xl'>
               I’m <strong>Omar Houmz</strong>, I’m a software engineer based in
               Casablanca, Morocco. I work at{' '}
-              <Link href='https://avito.ma' nofollow external color='dark'>
-                Avito.ma
+              <Link
+                href='https://remotepass.com'
+                nofollow
+                external
+                color='dark'
+              >
+                RemotePass.com
               </Link>{' '}
               as a <strong>front-end engineer</strong>.
-            </p>
-            <p className='text-lg max-w-xl'>
-              Wanna collaborate? <strong>drop me a line</strong>:
-              omarhoumz[at]gmail.com
             </p>
             <Link href='/about' btnStyle>
               More About Me ...

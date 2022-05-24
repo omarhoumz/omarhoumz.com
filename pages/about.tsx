@@ -154,7 +154,7 @@ const sections = [
     description: (
       <>
         <p>
-          I have a bachelar&apos;s degree in computer science. I also studied
+          I have a bachelor&apos;s degree in computer science. I also studied
           two year&apos;s as Masters student in Big Data & Cloud Computing at
           Hassan II University of Casablanca.
         </p>

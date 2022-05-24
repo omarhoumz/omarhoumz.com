@@ -14,10 +14,10 @@ const allProjects = [
     },
     status: projectStatuses.active,
     description:
-      'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the website with gatsby and reactjs.',
+      'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the website with NextJs and ReactJs. Deployed with Vercel.',
   },
   {
-    icon: 'https://gdgcasablanca.com/icons/icon-144x144.png',
+    icon: 'https://gdgcasablanca.com/gdg-casa-icon.png',
     title: 'gdgcasablanca.com',
     link: {
       href: 'https://gdgcasablanca.com/',
@@ -25,7 +25,7 @@ const allProjects = [
     },
     status: projectStatuses.active,
     description:
-      'GDG (Google developer groups) is global program for developers. GDG Casablanca is a local chapter. I created the website with gatsby, reactjs and meetup API.',
+      'GDG (Google Developer Groups) is global program for developers. GDG Casablanca is a local chapter. I created the website with NextJs, ReactJs and meetup API. Deployed with Vercel.',
   },
   {
     icon: 'https://wtm.gdgcasablanca.com/icons/icon-144x144.png',
