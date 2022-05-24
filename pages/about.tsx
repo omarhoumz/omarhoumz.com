@@ -154,9 +154,9 @@ const sections = [
     description: (
       <>
         <p>
-          I have a bachelor&apos;s degree in computer science. I also studied
-          two year&apos;s as Masters student in Big Data & Cloud Computing at
-          Hassan II University of Casablanca.
+          I have a bachelor&apos;s degree in computer science. I also have two
+          years of Masters studies (but did not graduate) in Big Data & Cloud
+          Computing at Hassan II University of Casablanca.
         </p>
         <p>
           I rely on self learning a lot, and the local developer community, to
