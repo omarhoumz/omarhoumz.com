@@ -45,7 +45,7 @@
     "url": "https://github.com/omarhoumz/omarhoumz.github.io/issues"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.7",
     "@types/react": "^18.0.21",
     "autoprefixer": "10.4.12",
     "eslint": "8.24.0",
