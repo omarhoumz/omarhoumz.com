@@ -17,7 +17,7 @@ import Layout from 'src/layout/layout'
 import formatDate from 'utils/format-date'
 import { contentFolder } from 'config/content-folder'
 
-export default function Singlepost({ title, content, date, author, baseUrl }) {
+export default function SinglePost({ title, content, date, author, baseUrl }) {
   const router = useRouter()
 
   const currentUrl = `https://omarhoumz.com${router.asPath}`
