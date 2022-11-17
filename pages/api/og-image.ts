@@ -19,7 +19,7 @@ export default async function handler(
 
     const image = await getScreenshot(
       thumbnailUrl,
-      process.env.NODE_ENV !== 'production',
+      process.env.NODE_ENV !== 'production' || !process.env.AWS_REGION,
     )
 
     res.setHeader('Content-Type', 'image/jpeg')
