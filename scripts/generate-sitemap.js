@@ -6,7 +6,7 @@ const matter = require('gray-matter')
 const { contentFolder } = require('../config/content-folder')
 
 function getBlogPath(postFolderPath) {
-  return postFolderPath.replace(/\/index\.mdx?$/, '').replace(/content/, 'blog');
+  return postFolderPath.replace(/\/index\.mdx?$/, '').replace(/content/, 'blog')
 }
 
 ;(async () => {

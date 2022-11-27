@@ -25,7 +25,7 @@ export default function SinglePost({ title, content, date, author, baseUrl }) {
 
   const currentUrl = `https://omarhoumz.com${router.asPath}`
 
-  const basePath = `${baseUrl}/api/og-image/`
+  const basePath = `${baseUrl}/api/og`
   const params = new URLSearchParams({ title, url: router.asPath })
   const url = basePath.concat(`?${params.toString()}`)
 

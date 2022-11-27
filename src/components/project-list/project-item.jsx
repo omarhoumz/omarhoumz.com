@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from 'next/image'
 import PropTypes from 'prop-types'
 
 import Link from '../link/link'
@@ -51,6 +51,7 @@ export default function ProjectItem({
             width={28}
             height={28}
             alt=''
+            style={{ maxWidth: '100%', height: 'auto' }}
           />
         )}
         <span className='font-bold transition-colors text-brand-800 group-hover:text-brand-600'>

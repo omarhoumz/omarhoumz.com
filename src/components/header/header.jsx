@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Image from "next/legacy/image";
+import Image from 'next/image'
 import cx from 'classnames'
 
 import Link from '../link/link'
@@ -40,7 +40,13 @@ export default function Header() {
           href='/'
           className='flex z-10 items-center gap-2 text-xl py-1 px-2 -ml-1 leading-none transition-colors duration-75 ring ring-transparent rounded-sm hover:text-brand-700 focus:outline-none focus:ring-brand-100'
         >
-          <Image src='/icon.png' width={32} height={32} alt='' />
+          <Image
+            src='/icon.png'
+            width={32}
+            height={32}
+            alt=''
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
           <span className='pb-1'>
             <span>omar </span>
             <span className='font-bold'>houmz</span>
