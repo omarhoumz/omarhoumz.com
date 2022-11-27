@@ -1,10 +1,8 @@
-import React from 'react'
-import { preToCodeBlock } from 'mdx-utils'
-
-import PreCodeHighlighted from '@/components/mdx/pre-code-highlighted/pre-code-highlighted'
 import Link from '@/components/link/link'
+import PreCodeHighlighted from '@/components/mdx/pre-code-highlighted/pre-code-highlighted'
 
 import styles from './components.module.css'
+import preToCodeBlock from './pre-to-code-block'
 
 const Pre = (preProps) => {
   const props = preToCodeBlock(preProps)

@@ -61,8 +61,8 @@ const Link = ({
   }
 
   return (
-    <NextLink href={href}>
-      <a className={classes}>{children}</a>
+    <NextLink href={href} className={classes}>
+      {children}
     </NextLink>
   )
 }

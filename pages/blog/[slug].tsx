@@ -1,9 +1,12 @@
+// import rehypePrism from '@mapbox/rehype-prism'
 import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useRouter } from 'next/router'
+import path from 'path'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug'
 
 import SEO from 'next-seo.config'
 
@@ -13,9 +16,9 @@ import PageSeo from '@/components/page-seo/page-seo'
 import Pill from '@/components/pill/pill'
 import Sharer from '@/components/sharer/sharer'
 
+import { contentFolder } from 'config/content-folder'
 import Layout from 'src/layout/layout'
 import formatDate from 'utils/format-date'
-import { contentFolder } from 'config/content-folder'
 
 export default function SinglePost({ title, content, date, author, baseUrl }) {
   const router = useRouter()
@@ -75,7 +78,15 @@ export async function getStaticProps({ params: { slug } }) {
 
   const { content, data } = matter(source)
 
-  const mdxSource = await serialize(content)
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+        // rehypePrism,
+      ],
+    },
+  })
 
   const { title = '', date = '', author = '', status = '' } = data
   const baseUrl =
