@@ -25,7 +25,7 @@ export default function SinglePost({ title, content, date, author, baseUrl }) {
 
   const currentUrl = `https://omarhoumz.com${router.asPath}`
 
-  const basePath = `${baseUrl}/api/og`
+  const basePath = `${baseUrl}/api/og/`
   const params = new URLSearchParams({ title, url: router.asPath })
   const url = basePath.concat(`?${params.toString()}`)
 
@@ -92,8 +92,8 @@ export async function getStaticProps({ params: { slug } }) {
   const baseUrl =
     process.env.NODE_ENV === 'production' &&
     process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-      ? process.env.NEXT_PUBLIC_VERCEL_URL
-      : `http://localhost:3001`
+      ? 'https://omarhoumz.com'
+      : 'http://localhost:3001'
 
   return {
     props: {
