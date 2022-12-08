@@ -37,8 +37,8 @@ export default function SinglePost({ title, content, date, author, baseUrl }) {
         images={[{ url, alt: title, width: 1200, height: 630 }]}
       />
 
-      <div className='py-8 lg:py-12 px-4 lg:px-0 max-w-2xl mx-auto'>
-        <Link href='/blog' className='inline-block text-xl mb-2'>
+      <div className='py-8 lg:py-32 px-4 lg:px-0 max-w-2xl mx-auto'>
+        <Link href='/blog' className='inline-block text-xl mb-6'>
           ← Back
         </Link>
         <h1 className='text-4xl md:text-5xl text-blueGray-800 font-bold'>
@@ -90,9 +90,10 @@ export async function getStaticProps({ params: { slug } }) {
 
   const { title = '', date = '', author = '', status = '' } = data
   const baseUrl =
-    process.env.NODE_ENV === 'production'
+    process.env.NODE_ENV === 'production' &&
+    process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
       ? process.env.NEXT_PUBLIC_VERCEL_URL
-      : `http://localhost:3000`
+      : `http://localhost:3001`
 
   return {
     props: {
