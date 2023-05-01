@@ -3,16 +3,16 @@ import { NextRequest } from 'next/server'
 
 export const config = { runtime: 'edge' }
 
-const fontNormal = fetch(
-  new URL('../../src/assets/fonts/Inter-Medium.woff2', import.meta.url),
-).then((res) => res.arrayBuffer())
+// const fontNormal = fetch(
+//   new URL('../../src/assets/fonts/Inter-Medium.ttf', import.meta.url),
+// ).then((res) => res.arrayBuffer())
 const fontBold = fetch(
-  new URL('../../src/assets/fonts/Inter-Bold.woff2', import.meta.url),
+  new URL('../../src/assets/fonts/Inter-Bold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
 
 export default async function handler(request: NextRequest) {
   try {
-    const fontData = await fontNormal
+    // const fontData = await fontNormal
     const fontBoldData = await fontBold
 
     const { searchParams } = new URL(request.url)
@@ -139,12 +139,12 @@ export default async function handler(request: NextRequest) {
         width: 1200,
         height: 630,
         fonts: [
-          {
-            name: 'Inter',
-            data: fontData,
-            weight: 400,
-            style: 'normal',
-          },
+          // {
+          //   name: 'Inter',
+          //   data: fontData,
+          //   weight: 400,
+          //   style: 'normal',
+          // },
           {
             name: 'Inter',
             data: fontBoldData,
