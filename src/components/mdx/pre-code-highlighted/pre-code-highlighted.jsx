@@ -1,11 +1,10 @@
-import { Highlight, defaultProps, themes } from 'prism-react-renderer'
+import { Highlight, themes } from 'prism-react-renderer'
 
 import styles from './pre-code-highlighted.module.css'
 
 export default function PreCodeHighlighted({ codeString, language }) {
   return (
     <Highlight
-      {...defaultProps}
       code={codeString}
       language={language}
       theme={themes.nightOwlLight}
