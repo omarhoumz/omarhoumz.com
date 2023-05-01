@@ -1,5 +1,4 @@
-import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/nightOwlLight'
+import { Highlight, defaultProps, themes } from 'prism-react-renderer'
 
 import styles from './pre-code-highlighted.module.css'
 
@@ -9,7 +8,7 @@ export default function PreCodeHighlighted({ codeString, language }) {
       {...defaultProps}
       code={codeString}
       language={language}
-      theme={theme}
+      theme={themes.nightOwlLight}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div
@@ -21,7 +20,6 @@ export default function PreCodeHighlighted({ codeString, language }) {
           >
             {tokens.map((line, i) => (
               <div
-                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...getLineProps({ line, key: i })}
                 className={styles.line}
                 key={i.toString()}
@@ -29,7 +27,6 @@ export default function PreCodeHighlighted({ codeString, language }) {
                 <span className={styles.lineNo}>{i + 1}</span>
                 {line.map((token, key) => (
                   <span
-                    // eslint-disable-next-line react/jsx-props-no-spreading
                     {...getTokenProps({ token, key })}
                     key={key.toString()}
                   />
