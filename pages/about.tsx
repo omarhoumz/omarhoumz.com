@@ -100,7 +100,12 @@ const sections = [
         <p>
           I’m actively helping my developer community to get better through
           events and conferences at{' '}
-          <Link href='https://gdgcasablanca.com/' color='current'>
+          <Link
+            href='https://gdgcasablanca.com/'
+            color='current'
+            className=''
+            activeClassName=''
+          >
             GDG Casablanca
           </Link>
           .
@@ -172,11 +177,17 @@ const sections = [
     description: (
       <p>
         Check the{' '}
-        <Link href='/contact' color='current'>
+        <Link href='/contact' color='current' className='' activeClassName=''>
           /contact
         </Link>{' '}
         page, or drop me a line:{' '}
-        <Link href='mailto:omarhoumz@gmail.com' external color='current'>
+        <Link
+          href='mailto:omarhoumz@gmail.com'
+          external
+          color='current'
+          className=''
+          activeClassName=''
+        >
           omarhoumz[at]gmail.com
         </Link>
       </p>
@@ -203,6 +214,7 @@ function About() {
                   href={`#${id}`}
                   color='dark'
                   className='inline-block capitalize mx-1'
+                  activeClassName=''
                 >
                   {title}
                 </Link>

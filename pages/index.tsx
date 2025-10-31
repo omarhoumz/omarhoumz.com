@@ -22,12 +22,14 @@ export default function Home({ posts }) {
                 nofollow
                 external
                 color='dark'
+                className=''
+                activeClassName=''
               >
                 RemotePass.com
               </Link>{' '}
               as a <strong>front-end engineer</strong>.
             </p>
-            <Link href='/about' btnStyle>
+            <Link href='/about' btnStyle className='' activeClassName=''>
               More About Me ...
             </Link>
           </div>
@@ -48,7 +50,7 @@ export default function Home({ posts }) {
                 )
               })}
             </div>
-            <Link href='/blog' btnStyle>
+            <Link href='/blog' btnStyle className='' activeClassName=''>
               See all posts
             </Link>
           </div>
@@ -57,7 +59,7 @@ export default function Home({ posts }) {
           <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
             <h2 className='text-3xl font-bold'>Latest projects</h2>
             <ProjectList projects={allProjects.slice(0, 2)} />
-            <Link href='/projects' btnStyle>
+            <Link href='/projects' btnStyle className='' activeClassName=''>
               See all projects
             </Link>
           </div>

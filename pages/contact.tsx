@@ -17,19 +17,37 @@ function Contact() {
             <p>If you want to get in touch, this is where I hang out often.</p>
             <div>
               <h2>Twitter:</h2>
-              <Link external nofollow href='https://twitter.com/omarhoumz'>
+              <Link
+                external
+                nofollow
+                href='https://twitter.com/omarhoumz'
+                className=''
+                activeClassName=''
+              >
                 {SEO.twitter.handle}
               </Link>
             </div>
             <div>
               <h2>LinkedIn:</h2>
-              <Link external nofollow href='https://linkedin.com/in/omarhoumz'>
+              <Link
+                external
+                nofollow
+                href='https://linkedin.com/in/omarhoumz'
+                className=''
+                activeClassName=''
+              >
                 /in/omarhoumz
               </Link>
             </div>
             <div>
               <h2>Email:</h2>
-              <Link external nofollow href='mailto://omarhoumz@gmail.com'>
+              <Link
+                external
+                nofollow
+                href='mailto://omarhoumz@gmail.com'
+                className=''
+                activeClassName=''
+              >
                 omarhoumz[at]gmail.com
               </Link>
             </div>

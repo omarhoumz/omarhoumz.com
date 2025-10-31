@@ -38,7 +38,11 @@ export default function SinglePost({ title, content, date, author, baseUrl }) {
       />
 
       <div className='py-8 lg:py-32 px-4 lg:px-0 max-w-2xl mx-auto'>
-        <Link href='/blog' className='inline-block text-xl mb-6'>
+        <Link
+          href='/blog'
+          className='inline-block text-xl mb-6'
+          activeClassName=''
+        >
           ← Back
         </Link>
         <h1 className='text-4xl md:text-5xl text-blueGray-800 font-bold'>
