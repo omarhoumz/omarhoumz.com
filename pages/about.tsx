@@ -202,10 +202,10 @@ function About() {
 
       <Layout mainClassName='py-32 space-y-12'>
         <section className='block xl:w-full xl:max-w-2xl xl:mx-auto'>
-          <div className='flex flex-col items-start space-y-6 px-5 xl:px-0'>
+          <div className='flex flex-col items-start px-5 xl:px-0'>
             <PageTitle>About me</PageTitle>
             <nav
-              className='sticky z-1 top-2 bg-white bg-opacity-80 -mx-1'
+              className='sticky z-1 top-2 bg-white/80 -mx-1'
               style={{ marginTop: 0 }}
             >
               {sections.map(({ id, title }) => (
@@ -220,7 +220,7 @@ function About() {
                 </Link>
               ))}
             </nav>
-            <div className='flex flex-col gap-2 grid-cols-1 lg:grid-cols-2'>
+            <div className='flex flex-col mt-6 gap-2 grid-cols-1 lg:grid-cols-2'>
               {sections.map((section) => (
                 <AboutSection key={section.id} {...section} />
               ))}

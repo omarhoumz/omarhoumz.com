@@ -3,7 +3,6 @@ import Image from 'next/image'
 import cx from 'classnames'
 
 import Link from '../link/link'
-import styles from './header.module.css'
 
 const links = [
   {
@@ -34,7 +33,7 @@ export default function Header() {
 
   return (
     <header className='sticky top-0 z-10 w-full xl:px-0'>
-      <div className='relative z-1 flex items-center justify-between h-14 w-full max-w-5xl px-2 mx-auto bg-white bg-opacity-80 backdrop-blur-sm backdrop-saturate-150 border-b border-brand-50'>
+      <div className='relative z-1 flex items-center justify-between h-14 w-full max-w-5xl px-2 mx-auto bg-white/70 backdrop-blur-sm backdrop-saturate-150 border-b border-brand-50'>
         <Link
           unstyled
           href='/'
@@ -61,12 +60,14 @@ export default function Header() {
                 href={link}
                 key={index}
                 className={cx(
-                  styles.navLink,
-                  'flex items-center relative px-2 rounded-sm ring ring-transparent hover:text-brand-700 focus:text-brand-700 focus:outline-none focus:ring-brand-100',
+                  '[--height:3px] after:h-(--height) after:w-[calc(1rem+35%)] after:-translate-x-1/2 after:scale-x-[0.1] after:origin-[center_bottom] after:text-inherit after:rounded-[calc(var(--height)*2)_calc(var(--height)*2)_0_0]',
+                  'after:block after:absolute after:bottom-0 after:left-1/2 after:opacity-0 after:transition after:duration-200 after:bg-current',
+                  'hover:after:opacity-100 hover:after:scale-x-[1] focus-visible:after:opacity-100 focus-visible:after:scale-x-[1] focus-visible:outline-brand-100 focus-visible:-outline-offset-2',
+                  'flex items-center relative px-2 rounded-sm ring ring-transparent hover:text-brand-700 focus:text-brand-700',
                 )}
                 activeClassName={cx(
-                  styles.activeLink,
                   'text-brand-500 hover:text-brand-500',
+                  'after:opacity-100 after:scale-x-[1] hover:after:scale-x-[1]',
                 )}
               >
                 {label}
@@ -81,14 +82,15 @@ export default function Header() {
         >
           Menu
         </button>
+
         <div
           className={cx(
-            styles.mobileNav,
-            'block md:hidden px-2 absolute left-0 bottom-0 -translate-y-14 transition transform w-full opacity-0 bg-opacity-80',
-            { [styles.showNav]: showNav },
+            'block md:hidden px-2 absolute left-0 bottom-0 -translate-y-1/2 transition transform w-full opacity-0',
+            'focus-within:translate-y-[calc(100%+0.1px)] focus-within:opacity-100',
+            { 'translate-y-[calc(100%+0.1px)] opacity-100': showNav },
           )}
         >
-          <nav className='flex flex-col py-3 rounded-lg bg-white bg-opacity-95 backdrop-blur-sm backdrop-saturate-150 shadow-md'>
+          <nav className='flex flex-col py-3 rounded-lg bg-white/95 backdrop-blur-sm backdrop-saturate-150 shadow-md'>
             {links.map(({ link, label }, index) => {
               return (
                 <Link

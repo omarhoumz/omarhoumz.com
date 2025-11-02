@@ -14,17 +14,17 @@ const btnBgColors = {
   dark: 'hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-100',
 }
 
-const Link = ({
-  activeClassName,
+function Link({
+  activeClassName = '',
   btnStyle,
   children,
   className,
-  color,
+  color = 'blue',
   external,
   href,
   nofollow,
   unstyled,
-}) => {
+}) {
   const router = useRouter()
   const { asPath } = router ?? {}
 
@@ -37,7 +37,7 @@ const Link = ({
     : cx(
         {
           'pb-0.5 pt-1 border-b-2 border-transparent': !btnStyle,
-          'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current focus:outline-none ring ring-transparent':
+          'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current focus-visible:ring-[3px] focus-visible:ring-brand-50 focus-visible:outline-none':
             btnStyle,
           [btnBgColors[color]]: btnStyle,
           [activeClassName]: isActive && activeClassName,

@@ -2,7 +2,7 @@ import { TwitterShareButton, FacebookShareButton } from 'react-share'
 
 export default function Sharer({ url, title, twitterHandle }) {
   return (
-    <div className='mt-24 bg-brand-50 bg-opacity-30 border-t-2 border-b-2 border-brand-50 py-8 px-4 space-y-3 text-xl'>
+    <div className='mt-24 bg-brand-50/30 border-t-2 border-b-2 border-brand-50 py-8 px-4 space-y-3 text-xl'>
       <p>
         <strong>Thank you</strong> for reading.
       </p>

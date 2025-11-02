@@ -2,7 +2,6 @@ import Image from 'next/image'
 import PropTypes from 'prop-types'
 
 import Link from '../link/link'
-import styles from './project-list.module.css'
 import Pill from '../pill/pill'
 import { projectStatuses } from './projects'
 
@@ -36,9 +35,12 @@ export default function ProjectItem({
       external={external}
       unstyled
       className={[
-        'group flex flex-col gap-2 p-6 border border-brand-50 rounded-lg transition-shadow focus:outline-none',
-        styles.projectItem,
-      ].join(' ')}
+        'group flex flex-col gap-2 p-6 border border-brand-50 rounded-lg transition-shadow',
+        '[--shadow:0_1px_16px_-4px_var(--color-brand-100)]',
+        'hover:shadow-(--shadow) focus-visible:shadow-(--shadow) focus-within:shadow-brand-100 focus-visible:outline-2 focus-visible:outline-brand-100 focus-visible:-outline-offset-2',
+      ]
+        .filter(Boolean)
+        .join(' ')}
     >
       <h3 className='flex items-center gap-3 text-lg'>
         {!props?.status || props?.status === projectStatuses.active ? null : (

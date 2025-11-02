@@ -1,5 +1,3 @@
-import React from 'react'
-
 import allProjects from '@/components/project-list/projects'
 import ProjectList from '@/components/project-list/project-list'
 import PageSeo from '@/components/page-seo/page-seo'

@@ -1,11 +1,39 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Brand colors */
+  --color-brand-50: #edecff;
+  --color-brand-100: #d3d1fe;
+  --color-brand-200: #a8a4fd;
+  --color-brand-300: #7c76fb;
+  --color-brand-400: #5149fa;
+  --color-brand-500: #251bf9;
+  --color-brand-600: #1e16c7;
+  --color-brand-700: #161095;
+  --color-brand-800: #0f0b64;
+  --color-brand-900: #070532;
+
+  /* Accent colors */
+  --color-accent-1: #333;
+
+  /* BlueGray colors (using underscore to match camelCase class names) */
+  --color-blueGray-50: #f8fafc;
+  --color-blueGray-100: #f1f5f9;
+  --color-blueGray-200: #e2e8f0;
+  --color-blueGray-300: #cbd5e1;
+  --color-blueGray-400: #94a3b8;
+  --color-blueGray-500: #64748b;
+  --color-blueGray-600: #475569;
+  --color-blueGray-700: #334155;
+  --color-blueGray-800: #1e293b;
+  --color-blueGray-900: #0f172a;
+}
 
 /* Write your own custom base styles here */
 
 html,
 body {
-  margin: 0;
-  padding: 0;
   background-color: #fff;
   min-height: 100vh;
 }
@@ -14,22 +42,6 @@ body {
   @apply text-white bg-brand-500;
 }
 
-/**
-code {
-  background-color: #f2f2f2;
-  border-radius: 2px;
-  padding: 1px 3px;
-  border: 1px solid #e2e6ea;
-  color: #24292e;
+button {
+  @apply cursor-pointer;
 }
-
-code,
-pre {
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  font-size: 88%;
-}
-*/
-
-/* Write your own custom component styles here */
-
-/* Your own custom utilities */
