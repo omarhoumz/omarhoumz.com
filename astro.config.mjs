@@ -12,6 +12,8 @@ export default defineConfig({
   trailingSlash: 'always',
   // Astro 7 defaults to 'jsx', which drops whitespace between inline elements.
   compressHTML: true,
+  // CSS is ~9 KB; inlining saves a render-blocking round trip before first paint.
+  build: { inlineStylesheets: 'always' },
   redirects: {
     '/writing/firebase-cloud-functions/': '/blog/firebase-cloud-functions/',
   },
