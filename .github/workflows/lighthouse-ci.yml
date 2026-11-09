@@ -34,6 +34,9 @@ jobs:
         id: lighthouse
         if: steps.pr.outputs.number != ''
         uses: treosh/lighthouse-ci-action@12.6.2
+        env:
+          # No checkout in this job; LHCI otherwise reads the hash via `git rev-parse HEAD`.
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.deployment.sha }}
         with:
           urls: |
             ${{ github.event.deployment_status.environment_url }}/
