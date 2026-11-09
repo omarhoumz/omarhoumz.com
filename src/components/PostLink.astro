@@ -16,7 +16,8 @@ const isAnchor = href.startsWith('#')
 <Link
   href={href}
   external={/^https?:\/\//.test(href)}
-  class:list={{ 'text-brand-500! hover:text-brand-700! no-underline! border-brand-500/25! hover:border-brand-700!': !isAnchor }}
+  underline={!isAnchor}
+  class:list={{ 'text-brand-500! hover:text-brand-700!': !isAnchor }}
   {...rest}
 >
   <slot />

@@ -16,19 +16,19 @@ We are going to:
 3. Deploy our first function
 4. Setup a local dev environment
 
-#### Requirements
+## Requirements
 
 I assume that you have node and npm installed on your machine.
 
-#### Starter project
+## Starter project
 
 Before we start, let us set up a basic project to work with. I created some files and boilerplate code in [this repo](https://github.com/omarhoumz/wr-firebase-clound-function/tree/master/001-create-a-firebase-function-start) in the `001-create-a-firebase-function-start` folder.
 
 Check the [readme file](https://github.com/omarhoumz/wr-firebase-clound-function/blob/master/001-create-a-firebase-function-start/README.md) on how to get started with the code.
 
-### 1. Create and set up a Firebase project
+## 1. Create and set up a Firebase project
 
-#### Create a Firebase project
+### Create a Firebase project
 
 To create a firebase project:
 
@@ -40,7 +40,7 @@ To create a firebase project:
 
 And voila, we have a Firebase project.
 
-#### Setup our firebase project locally
+### Setup our firebase project locally
 
 First, we have to install the Firebase CLI tools:
 
@@ -99,9 +99,9 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 })
 ```
 
-### 3. Deploy our first cloud function
+## 3. Deploy our first cloud function
 
-#### Test the Firebase function locally
+### Test the Firebase function locally
 
 Before we deploy, we want to test the function locally. To do so, let us `cd` into the `Functions` directory:
 
@@ -129,7 +129,7 @@ If we visit the URL and all goes well, we see this message:
 { "message": "And, hello from serverless land!" }
 ```
 
-#### Deploy the Firebase cloud function
+### Deploy the Firebase cloud function
 
 Now, let us deploy our function. While still being in the functions directory, execute this command:
 
@@ -143,7 +143,7 @@ The result of the command should have a public URL to trigger our function. It l
 https://${DATA_CENTER_REGION}-${YOUR_PROJECT_ID}.cloudfunctions.net/${FUNCTION_NAME}
 ```
 
-#### Trigger the cloud function
+### Trigger the cloud function
 
 Next, let us use the function in our project. To do that, we add a `div` in the `index.html` file to show a message:
 
@@ -193,7 +193,7 @@ Hello Firebase Functions
 And, hello from serverless land!
 ```
 
-### 4. A better local development setup
+## 4. A better local development setup
 
 When we are in development, we don't want to constantly deploy our function to see the result. So, we will leverage the local emulator provided by the Firebase CLI tools to have a better local development setup.
 
@@ -257,7 +257,7 @@ And then deploy the function:
 cd functions && npm run deploy
 ```
 
-### Summary
+## Summary
 
 Until this point, we created a Firebase project using the Firebase console. In our local machine, we initialized our project a Firebase function and deployed it. We also configured a better setup for local development.
 

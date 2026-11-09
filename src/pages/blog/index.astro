@@ -19,6 +19,7 @@ const posts = await getPosts()
             excerpt={post.data.description}
             href={`/blog/${post.id}/`}
             date={formatDate(post.data.date)}
+            headingLevel={2}
           />
         ))}
       </div>
