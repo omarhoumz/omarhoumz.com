@@ -13,6 +13,13 @@ const btnBgColors = {
   current: '',
 }
 
+// Links inside running text need more than colour to stand out (WCAG 1.4.1).
+const underlines = {
+  blue: 'border-brand-500/25 hover:border-brand-700',
+  dark: 'border-gray-800/25 hover:border-gray-900',
+  current: 'border-current/25 hover:border-current',
+}
+
 interface Props extends HTMLAttributes<'a'> {
   href: string
   activeClassName?: string
@@ -21,6 +28,8 @@ interface Props extends HTMLAttributes<'a'> {
   external?: boolean
   nofollow?: boolean
   unstyled?: boolean
+  /** Faint border underline, for links inside running text. */
+  underline?: boolean
 }
 
 const {
@@ -32,6 +41,7 @@ const {
   external = false,
   nofollow = false,
   unstyled = false,
+  underline = false,
   ...rest
 } = Astro.props
 
@@ -44,7 +54,9 @@ const classes = unstyled
   ? [className, { [activeClassName]: isActive && activeClassName }]
   : [
       {
-        'pb-0.5 pt-1 border-b-2 border-transparent': !btnStyle,
+        'pb-0.5 pt-1 border-b-2': !btnStyle,
+        'border-transparent': !btnStyle && !underline,
+        [underlines[color]]: !btnStyle && underline,
         'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current focus-visible:ring-[3px] focus-visible:ring-brand-50 focus-visible:outline-none':
           btnStyle,
         [btnBgColors[color]]: btnStyle,
