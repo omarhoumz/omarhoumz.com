@@ -5,3 +5,8 @@
 overrides:
   '@emnapi/runtime': ^1.11.3
   '@emnapi/core': ^1.11.3
+  # Security fixes for build-time-only deps (Dependabot alerts):
+  # @tailwindcss/typography pins 6.0.10 (quadratic selector parsing, fixed in 6.1.5)
+  'postcss-selector-parser': ^6.1.5
+  # satori's font parser pulls 0.7.3 (ZIP64 infinite loop, fixed in 0.7.5)
+  'fflate': ^0.7.5
