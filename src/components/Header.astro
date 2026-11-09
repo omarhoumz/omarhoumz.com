@@ -15,7 +15,7 @@ const links = [
 <header class='sticky top-0 z-10 w-full xl:px-0'>
   <div class='relative z-1 flex items-center justify-between h-14 w-full max-w-5xl px-2 mx-auto bg-white/70 backdrop-blur-sm backdrop-saturate-150 border-b border-brand-50'>
     <Link
-      unstyled
+      variant='card'
       href='/'
       class='flex z-10 items-center gap-2 text-xl py-1 px-2 -ml-1 leading-none transition-colors duration-75 ring ring-transparent rounded-sm hover:text-brand-700 focus:outline-none focus:ring-brand-100'
     >
@@ -36,15 +36,15 @@ const links = [
     <nav class='hidden md:flex items-stretch self-stretch space-x-1'>
       {links.map(({ link, label }) => (
         <Link
-          unstyled
+          variant='nav'
           href={link}
           class:list={[
             '[--height:3px] after:h-(--height) after:w-[calc(1rem+35%)] after:-translate-x-1/2 after:scale-x-[0.1] after:origin-[center_bottom] after:text-inherit after:rounded-[calc(var(--height)*2)_calc(var(--height)*2)_0_0]',
             'after:block after:absolute after:bottom-0 after:left-1/2 after:opacity-0 after:transition after:duration-200 after:bg-current',
             'hover:after:opacity-100 hover:after:scale-x-[1] focus-visible:after:opacity-100 focus-visible:after:scale-x-[1] focus-visible:outline-brand-100 focus-visible:-outline-offset-2',
             'flex items-center relative px-2 rounded-sm ring ring-transparent hover:text-brand-700 focus:text-brand-700',
+            'aria-[current=page]:text-brand-500 aria-[current=page]:hover:text-brand-500 aria-[current=page]:after:opacity-100 aria-[current=page]:after:scale-x-[1]',
           ]}
-          activeClassName='text-brand-500 hover:text-brand-500 after:opacity-100 after:scale-x-[1] hover:after:scale-x-[1]'
         >
           {label}
         </Link>
@@ -68,10 +68,9 @@ const links = [
       <nav class='flex flex-col py-3 rounded-lg bg-white/95 backdrop-blur-sm backdrop-saturate-150 shadow-md'>
         {links.map(({ link, label }) => (
           <Link
-            unstyled
+            variant='nav'
             href={link}
-            class='text-xl px-6 py-2 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:text-brand-700 focus:bg-brand-50'
-            activeClassName='text-brand-500'
+            class='text-xl px-6 py-2 hover:text-brand-700 hover:bg-brand-50 focus:outline-none focus:text-brand-700 focus:bg-brand-50 aria-[current=page]:text-brand-500'
           >
             {label}
           </Link>

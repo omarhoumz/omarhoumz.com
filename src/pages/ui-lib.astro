@@ -39,21 +39,18 @@ import allProjects from '@/lib/projects'
         <Link class='justify-self-start' href='/'>
           Go home
         </Link>
-        <Link class='justify-self-start' href='https://google.com' external>
+        <Link class='justify-self-start' href='https://google.com'>
           Gooogle
         </Link>
         <Link class='justify-self-start' href='/' color='dark'>
           Go home
         </Link>
-        <Link class='justify-self-start' href='/' btnStyle>
-          Go home
-        </Link>
-        <Link class='justify-self-start' href='/' color='dark' btnStyle>
+        <Link class='justify-self-start' href='/' variant='button'>
           Go home
         </Link>
         <Link
-          class='justify-self-start'
-          activeClassName='bg-brand-200'
+          variant='nav'
+          class='justify-self-start aria-[current=page]:bg-brand-200'
           href='/ui-lib/'
         >
           Go home
@@ -75,7 +72,7 @@ import allProjects from '@/lib/projects'
         <ProjectItem
           title='devfest.gdgcasablanca.com'
           description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque suscipit, autem distinctio quod amet praesentium sequi inventore, tempore obcaecati, voluptatibus assumenda neque? Quidem laboriosam ratione doloribus reiciendis nobis veritatis! Nam.'
-          link={{ href: 'https://google.com', external: true }}
+          link={{ href: 'https://google.com' }}
         />
         <ProjectList projects={allProjects.slice(0, 2)} />
       </div>

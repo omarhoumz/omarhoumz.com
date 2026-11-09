@@ -1,89 +1,98 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
 
+/**
+ * - `text`: a link in or near running text. Coloured, with a faint underline by default.
+ * - `button`: outlined uppercase call to action.
+ * - `nav`: site navigation; sets `aria-current="page"` on the current page, so style the
+ *   active state with `aria-[current=page]:` classes.
+ * - `card`: a whole block is the link; no link styling, the caller's classes only.
+ *
+ * Links to another host open in a new tab.
+ */
+type Variant = 'text' | 'button' | 'nav' | 'card'
+
+/** `text` colours. `plain` inherits the surrounding colour and turns brand on hover. */
 const colors = {
-  blue: 'text-brand-500 hover:text-brand-700 hover:border-brand-700 text-current no-underline',
-  dark: 'text-gray-800 hover:text-gray-900 hover:border-gray-900',
-  current: 'hover:border-current text-current no-underline',
+  plain: {
+    text: 'text-current hover:text-brand-700 hover:border-brand-700',
+    underline: 'border-brand-500/25',
+  },
+  brand: {
+    text: 'text-brand-500 hover:text-brand-700 hover:border-brand-700',
+    underline: 'border-brand-500/25',
+  },
+  dark: {
+    text: 'text-gray-800 hover:text-gray-900 hover:border-gray-900',
+    underline: 'border-gray-800/25',
+  },
+  current: {
+    text: 'text-current hover:border-current',
+    underline: 'border-current/25',
+  },
 }
 
-const btnBgColors = {
-  blue: 'hover:text-brand-700 hover:bg-brand-50 focus:ring-brand-50',
-  dark: 'hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-100',
-  current: '',
-}
-
-// Links inside running text need more than colour to stand out (WCAG 1.4.1).
-const underlines = {
-  blue: 'border-brand-500/25 hover:border-brand-700',
-  dark: 'border-gray-800/25 hover:border-gray-900',
-  current: 'border-current/25 hover:border-current',
+const variants = {
+  button:
+    'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current text-current no-underline transition-color duration-75 hover:text-brand-700 hover:bg-brand-50 hover:border-brand-700 focus:ring-brand-50 focus-visible:ring-[3px] focus-visible:ring-brand-50 focus-visible:outline-none',
+  text: 'pb-0.5 pt-1 border-b-2 no-underline transition-color duration-75',
 }
 
 interface Props extends HTMLAttributes<'a'> {
   href: string
-  activeClassName?: string
-  btnStyle?: boolean
+  variant?: Variant
+  /** `text` only. */
   color?: keyof typeof colors
-  external?: boolean
-  nofollow?: boolean
-  unstyled?: boolean
-  /** Faint border underline, for links inside running text. */
+  /** `text` only. Faint underline so the link doesn't rely on colour alone (WCAG 1.4.1). */
   underline?: boolean
+  nofollow?: boolean
 }
 
 const {
   href,
-  activeClassName = '',
-  btnStyle = false,
-  class: className,
-  color = 'blue',
-  external = false,
+  variant = 'text',
+  color = 'plain',
+  underline = true,
   nofollow = false,
-  unstyled = false,
-  underline = false,
+  class: className,
   ...rest
 } = Astro.props
 
-const pathname = Astro.url.pathname
-const isActive = href.startsWith('/blog/')
-  ? pathname.startsWith('/blog/')
-  : pathname === href
+const site = Astro.site ?? Astro.url
+const target = new URL(href, site)
+const external = /^https?:$/.test(target.protocol) && target.host !== site.host
 
-const classes = unstyled
-  ? [className, { [activeClassName]: isActive && activeClassName }]
-  : [
-      {
-        'pb-0.5 pt-1 border-b-2': !btnStyle,
-        'border-transparent': !btnStyle && !underline,
-        [underlines[color]]: !btnStyle && underline,
-        'inline-flex items-center h-8 px-3 uppercase text-sm font-bold rounded border border-current focus-visible:ring-[3px] focus-visible:ring-brand-50 focus-visible:outline-none':
-          btnStyle,
-        [btnBgColors[color]]: btnStyle,
-        [activeClassName]: isActive && activeClassName,
-      },
-      colors[color],
-      'transition-color duration-75',
-      className,
-    ]
+const pathname = Astro.url.pathname
+const isCurrent =
+  variant === 'nav' &&
+  (href.startsWith('/blog/') ? pathname.startsWith('/blog/') : pathname === href)
+
+const classes =
+  variant === 'text'
+    ? [
+        variants.text,
+        colors[color].text,
+        underline ? colors[color].underline : 'border-transparent',
+        className,
+      ]
+    : variant === 'button'
+      ? [variants.button, className]
+      : [className]
+
+const rel = [external && 'noopener noreferrer', nofollow && 'nofollow']
+  .filter(Boolean)
+  .join(' ')
 
 // Trimmed so formatter line breaks around <slot /> never leak into inline text.
 const content = (await Astro.slots.render('default')).trim()
-
-const externalProps = external
-  ? {
-      target: '_blank',
-      rel: ['noopener', 'noreferrer', nofollow && 'nofollow']
-        .filter(Boolean)
-        .join(' '),
-    }
-  : {}
 ---
 
 <a
   href={href}
   class:list={classes}
-  {...externalProps}
+  target={external ? '_blank' : undefined}
+  rel={rel || undefined}
+  aria-current={isCurrent ? 'page' : undefined}
   {...rest}
   set:html={content}
 />

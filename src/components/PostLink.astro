@@ -1,9 +1,6 @@
 ---
-// `a` override for MDX posts.
-// - Absolute URLs open in a new tab.
-// - Links get the brand colour; Link's `blue` style also sets `text-current`,
-//   which otherwise wins and renders links in the body text colour.
-// - Heading anchors (`#id`, from rehype-autolink-headings) keep the heading colour.
+// `a` override for MDX posts: brand-coloured, underlined text links.
+// Heading anchors (`#id`, from rehype-autolink-headings) keep the heading's look.
 import Link from './Link.astro'
 
 interface Props {
@@ -15,10 +12,7 @@ const isAnchor = href.startsWith('#')
 
 <Link
   href={href}
-  external={/^https?:\/\//.test(href)}
+  color={isAnchor ? 'plain' : 'brand'}
   underline={!isAnchor}
-  class:list={{ 'text-brand-500! hover:text-brand-700!': !isAnchor }}
-  {...rest}
+  {...rest}><slot /></Link
 >
-  <slot />
-</Link>
