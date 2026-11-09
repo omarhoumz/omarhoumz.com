@@ -11,11 +11,11 @@ export async function GET(context: APIContext) {
     description: 'Blog posts by Omar Houmz',
     site: context.site!,
     items: posts.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.description,
+      title: post.title,
+      pubDate: post.date,
+      description: post.description,
       author: 'Omar Houmz',
-      link: `/blog/${post.id}/`,
+      link: post.url,
     })),
   })
 }

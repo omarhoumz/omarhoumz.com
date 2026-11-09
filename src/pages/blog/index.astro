@@ -2,7 +2,6 @@
 import BlogListItem from '@/components/BlogListItem.astro'
 import PageTitle from '@/components/PageTitle.astro'
 import Layout from '@/layouts/Layout.astro'
-import formatDate from '@/lib/format-date'
 import { getPosts } from '@/lib/posts'
 
 const posts = await getPosts()
@@ -15,10 +14,10 @@ const posts = await getPosts()
       <div>
         {posts.map((post) => (
           <BlogListItem
-            title={post.data.title}
-            excerpt={post.data.description}
-            href={`/blog/${post.id}/`}
-            date={formatDate(post.data.date)}
+            title={post.title}
+            excerpt={post.description}
+            href={post.url}
+            date={post.dateLabel}
             headingLevel={2}
           />
         ))}

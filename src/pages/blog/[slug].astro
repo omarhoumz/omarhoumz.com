@@ -6,29 +6,28 @@ import PostLink from '@/components/PostLink.astro'
 import Pill from '@/components/Pill.astro'
 import Sharer from '@/components/Sharer.astro'
 import Layout from '@/layouts/Layout.astro'
-import formatDate from '@/lib/format-date'
 import { getPosts } from '@/lib/posts'
 import { twitterHandle } from '@/lib/site'
 
 export const getStaticPaths = (async () => {
   const posts = await getPosts()
-  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }))
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }))
 }) satisfies GetStaticPaths
 
 const { post } = Astro.props
-const { title, date, author } = post.data
-const { Content } = await render(post)
+const { title, author, dateLabel } = post
+const { Content } = await render(post.entry)
 
-const currentUrl = new URL(Astro.url.pathname, Astro.site).href
+const currentUrl = new URL(post.url, Astro.site).href
 const image = {
-  url: new URL(`/og/${post.id}.png`, Astro.site).href,
+  url: post.ogCardUrl,
   alt: title,
   width: 1200,
   height: 630,
 }
 ---
 
-<Layout title={title} description={post.data.description} image={image}>
+<Layout title={title} description={post.description} image={image}>
   <div class='py-8 lg:py-32 px-4 lg:px-0 max-w-2xl mx-auto'>
     <Link href='/blog/' class='inline-block text-xl mb-6'>
       ← Back
@@ -38,7 +37,7 @@ const image = {
       <span class='text-blueGray-500 mr-2'>
         ✍🏻 by <span class='capitalize'>{author}</span>
       </span>
-      <Pill label={formatDate(date)} />
+      <Pill label={dateLabel} />
     </div>
 
     <article class='prose lg:prose-xl prose-slate'>
