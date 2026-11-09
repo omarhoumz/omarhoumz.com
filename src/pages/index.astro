@@ -1,0 +1,58 @@
+---
+import BlogListItem from '@/components/BlogListItem.astro'
+import Link from '@/components/Link.astro'
+import PageTitle from '@/components/PageTitle.astro'
+import ProjectList from '@/components/ProjectList.astro'
+import Layout from '@/layouts/Layout.astro'
+import formatDate from '@/lib/format-date'
+import { getPosts } from '@/lib/posts'
+import allProjects from '@/lib/projects'
+
+const posts = (await getPosts()).slice(0, 2)
+---
+
+<Layout mainClass='py-32 flex flex-col gap-32'>
+  <section class='xl:w-full xl:max-w-2xl xl:mx-auto'>
+    <div class='flex flex-col items-start space-y-6 px-5 xl:px-0'>
+      <PageTitle as='p'>Hi,</PageTitle>
+      <p class='text-lg max-w-xl'>
+        I’m <strong>Omar Houmz</strong>, I’m a software engineer based in
+        Casablanca, Morocco. I work at{' '}
+        <Link href='https://remotepass.com' nofollow external color='dark'>
+          RemotePass.com
+        </Link>{' '}
+        as a <strong>front-end engineer</strong>.
+      </p>
+      <Link href='/about/' btnStyle>
+        More About Me ...
+      </Link>
+    </div>
+  </section>
+  <section class='xl:w-full xl:max-w-2xl xl:mx-auto'>
+    <div class='flex flex-col items-start px-5 xl:px-0'>
+      <h2 class='text-3xl font-bold'>Latest blog posts</h2>
+      <div class='flex flex-col gap-y-4 py-4'>
+        {posts.map((post) => (
+          <BlogListItem
+            title={post.data.title}
+            excerpt={post.data.description}
+            href={`/blog/${post.id}/`}
+            date={formatDate(post.data.date)}
+          />
+        ))}
+      </div>
+      <Link href='/blog/' btnStyle>
+        See all posts
+      </Link>
+    </div>
+  </section>
+  <section class='xl:w-full xl:max-w-2xl xl:mx-auto'>
+    <div class='flex flex-col items-start space-y-6 px-5 xl:px-0'>
+      <h2 class='text-3xl font-bold'>Latest projects</h2>
+      <ProjectList projects={allProjects.slice(0, 2)} />
+      <Link href='/projects/' btnStyle>
+        See all projects
+      </Link>
+    </div>
+  </section>
+</Layout>

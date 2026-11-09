@@ -1,0 +1,6 @@
+# pnpm 12 auto-installs peers and picks @emnapi/runtime 2.0.0-beta.x (allowed by
+# @napi-rs/wasm-runtime's peer range) next to @emnapi/core 1.x. The mismatched
+# pair crashes `astro check` on exit (bridge.deleteEnv is not a function).
+overrides:
+  '@emnapi/runtime': ^1.11.3
+  '@emnapi/core': ^1.11.3

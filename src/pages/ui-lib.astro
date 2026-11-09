@@ -1,0 +1,84 @@
+---
+// Dev-only component showcase. Excluded from the sitemap.
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import Link from '@/components/Link.astro'
+import ProjectItem from '@/components/ProjectItem.astro'
+import ProjectList from '@/components/ProjectList.astro'
+import Layout from '@/layouts/Layout.astro'
+import allProjects from '@/lib/projects'
+---
+
+<Layout title='UI Lib' bare>
+  <div class='p-12'>
+    <section class='mt-6'>
+      <h3 class='text-xl font-extralight mb-2 text-brand-800'>
+        Default Layout
+      </h3>
+      <div class='grid gap-4 p-4 border-l-2 border-gray-300 bg-gray-50'>
+        <div class='flex flex-col'>
+          <Header />
+          <main class='flex-grow'>This is my main content</main>
+          <Footer />
+        </div>
+      </div>
+    </section>
+    <section class='mt-6'>
+      <h3 class='text-xl font-extralight mb-2 text-brand-800'>Layout</h3>
+      <div class='grid gap-4 p-4 border-l-2 border-gray-300 bg-gray-50'>
+        <h4 class='text-lg font-extralight mb-2 text-brand-800'>Header</h4>
+        <Header />
+        <br />
+        <h4 class='text-lg font-extralight mb-2 text-brand-800'>Footer</h4>
+        <Footer />
+      </div>
+    </section>
+    <section class='mt-6'>
+      <h3 class='text-xl font-extralight mb-2 text-brand-800'>Links</h3>
+      <div class='grid gap-4 p-4 border-l-2 border-gray-300 bg-gray-50'>
+        <Link class='justify-self-start' href='/'>
+          Go home
+        </Link>
+        <Link class='justify-self-start' href='https://google.com' external>
+          Gooogle
+        </Link>
+        <Link class='justify-self-start' href='/' color='dark'>
+          Go home
+        </Link>
+        <Link class='justify-self-start' href='/' btnStyle>
+          Go home
+        </Link>
+        <Link class='justify-self-start' href='/' color='dark' btnStyle>
+          Go home
+        </Link>
+        <Link
+          class='justify-self-start'
+          activeClassName='bg-brand-200'
+          href='/ui-lib/'
+        >
+          Go home
+        </Link>
+        <p class='max-w-2xl'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam sit
+          illo commodi praesentium{' '}
+          <Link class='justify-self-start' href='/'>
+            go home
+          </Link>{' '}
+          voluptatum. Maxime qui similique, suscipit unde doloribus voluptates
+          quasi ipsam voluptatum! Perferendis modi voluptatum esse laboriosam!
+        </p>
+      </div>
+    </section>
+    <section class='mt-6'>
+      <h3 class='text-xl font-extralight mb-2 text-brand-800'>Project Item</h3>
+      <div class='grid gap-4 p-4 border-l-2 border-gray-300 bg-gray-50'>
+        <ProjectItem
+          title='devfest.gdgcasablanca.com'
+          description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque suscipit, autem distinctio quod amet praesentium sequi inventore, tempore obcaecati, voluptatibus assumenda neque? Quidem laboriosam ratione doloribus reiciendis nobis veritatis! Nam.'
+          link={{ href: 'https://google.com', external: true }}
+        />
+        <ProjectList projects={allProjects.slice(0, 2)} />
+      </div>
+    </section>
+  </div>
+</Layout>

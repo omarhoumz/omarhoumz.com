@@ -5,6 +5,5 @@ Source code for [https://omarhoumz.com](https://omarhoumz.com)
 
 # This project uses:
 
-- [React](https://reactjs.org/)
-- [Nextjs](https://www.nextjs.org/)
+- [Astro](https://astro.build/)
 - [Tailwind CSS](https://tailwindcss.com/)

@@ -1,0 +1,64 @@
+---
+// Preview of the OG image design: /thumbnail/?title=...&url=...
+// Static site, so the query string is read in the browser.
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout title='Thumbnail' bare>
+  <div
+    data-thumbnail
+    hidden
+    style='display: flex; height: 100vh; padding: 2.5rem; background-color: #0f0b64'
+  >
+    <div
+      class='shadow-2xl shadow-slate-800'
+      style='display: flex; flex-direction: column; padding: 4rem; background-color: #fff; border-radius: 1rem'
+    >
+      <main>
+        <h1
+          data-title-size
+          style='position: relative; line-height: 1; font-weight: 700'
+        >
+          <span
+            class='bg-yellow-200'
+            style='position: absolute; width: 5rem; height: 5rem; top: -1rem; left: -1.5rem; border-radius: 9999px'
+          ></span>
+          <span style='position: relative' data-title></span>
+        </h1>
+      </main>
+      <footer style='margin-top: auto; display: flex; column-gap: 1.5rem; align-items: center'>
+        <img src='/omar-circle.png' alt='' width='112' height='112' />
+        <div style='display: flex; flex-direction: column; justify-content: center'>
+          <h3 style='color: #0f0b64; font-size: 1.875rem; line-height: 2.25rem'>
+            omar<span style='font-weight: 700'>houmz</span>.com
+          </h3>
+          <h3
+            data-url
+            style='font-size: 2.25rem; line-height: 2.5rem; background-color: #f7f3ff; padding: 0.25rem 0.5rem'
+          ></h3>
+        </div>
+        <img
+          src='/icon.png'
+          alt=''
+          width='48'
+          height='48'
+          style='align-self: flex-end; margin-left: auto'
+        />
+      </footer>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const params = new URLSearchParams(window.location.search)
+  const title = params.get('title')
+  const root = document.querySelector<HTMLElement>('[data-thumbnail]')
+
+  if (title && root) {
+    root.querySelector('[data-title]')!.textContent = title
+    root.querySelector('[data-url]')!.textContent = params.get('url') ?? ''
+    root.querySelector<HTMLElement>('[data-title-size]')!.style.fontSize =
+      title.length > 44 ? '6rem' : '8rem'
+    root.hidden = false
+  }
+</script>

@@ -14,29 +14,21 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "export": "next export",
-    "start": "next start",
-    "gen:feed": "node scripts/generate-sitemap.js",
-    "lint": "eslint --ext .js",
-    "prettier": "prettier --write \"**/*.{html,js,json,md,mdx,yml}\""
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "prettier": "prettier --write \"**/*.{html,js,mjs,ts,json,md,mdx,yml,css}\""
   },
   "dependencies": {
-    "@mapbox/rehype-prism": "^0.9.0",
-    "@vercel/og": "^0.8.5",
-    "classnames": "^2.5.1",
-    "gray-matter": "^4.0.3",
-    "next": "^16.0.1",
-    "next-mdx-remote": "^5.0.0",
-    "next-seo": "^6.6.0",
-    "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-share": "^5.2.2",
+    "@astrojs/markdown-remark": "^7.3.6",
+    "@astrojs/mdx": "^8.1.3",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@resvg/resvg-js": "^2.6.2",
+    "astro": "^7.4.7",
     "rehype-autolink-headings": "^7.1.0",
-    "rehype-slug": "^6.0.0",
-    "terser-webpack-plugin": "^5.3.14"
+    "satori": "^0.63.2"
   },
   "repository": {
     "type": "git",
@@ -45,22 +37,17 @@
   "bugs": {
     "url": "https://github.com/omarhoumz/omarhoumz.github.io/issues"
   },
+  "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.16",
-    "@tailwindcss/typography": "^0.5.19",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.39.0",
-    "eslint-config-next": "^16.0.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "globby": "^15.0.0",
-    "postcss": "^8.5.6",
-    "prettier": "^3.6.2",
-    "rss": "^1.2.2",
-    "tailwindcss": "^4.1.16",
+    "@astrojs/check": "^0.9.12",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.5",
+    "prettier": "^3.9.10",
+    "tailwindcss": "^4.3.5",
     "typescript": "^5.9.3"
-  }
+  },
+  "packageManager": "pnpm@12.18.0"
 }
