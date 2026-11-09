@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { Resvg } from '@resvg/resvg-js'
 import satori from 'satori'
 
-// Build-time replacement for the old @vercel/og edge route (same design).
+// Renders a Post's OG card (1200x630 PNG) at build time.
 // Static output only: files are read relative to the project root.
 const root = process.cwd()
 const fileData = (path: string) => readFile(join(root, path))
@@ -17,7 +17,7 @@ const h = (
   ...children: Array<Node | string | null>
 ): Node => ({ type, props: { style, children: children.filter(Boolean) } })
 
-export async function renderOgImage({
+export async function renderOgCard({
   title,
   url,
 }: {

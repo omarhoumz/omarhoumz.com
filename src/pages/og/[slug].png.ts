@@ -1,5 +1,5 @@
 import type { APIRoute, GetStaticPaths } from 'astro'
-import { renderOgImage } from '@/lib/og-image'
+import { renderOgCard } from '@/lib/og-card'
 import { getPosts } from '@/lib/posts'
 
 export const getStaticPaths = (async () => {
@@ -11,7 +11,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 export const GET: APIRoute = async ({ props }) => {
-  const png = await renderOgImage({ title: props.title, url: props.url })
+  const png = await renderOgCard({ title: props.title, url: props.url })
   return new Response(new Uint8Array(png), {
     headers: { 'Content-Type': 'image/png' },
   })
