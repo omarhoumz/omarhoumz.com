@@ -3,3 +3,4 @@
 # pair crashes `astro check` on exit (bridge.deleteEnv is not a function).
 overrides:
   '@emnapi/runtime': ^1.11.3
+  '@emnapi/core': ^1.11.3
