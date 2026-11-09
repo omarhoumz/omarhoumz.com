@@ -1,70 +1,83 @@
-# Check this source
-# https://github.com/OskarAhl/Lighthouse-github-action-comment/blob/main/.github/workflows/lighthouse-on-vercel-preview-url.yml
-
-name: Vercel Preview URL Lighthouse Audit
+# Lighthouse audit of each Vercel preview, posted as a sticky PR comment.
+# Vercel reports previews as GitHub deployments, so this runs on deployment_status.
+name: Lighthouse
 
 on:
-  issue_comment:
-    types: [edited]
+  deployment_status:
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
-  generate_lighthouse_audit:
-    timeout-minutes: 30
+  lighthouse:
+    if: >-
+      github.event.deployment_status.state == 'success' &&
+      !contains(github.event.deployment.environment, 'Production')
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - name: Add comment to PR
-        id: loading_comment_to_pr
-        uses: marocchino/sticky-pull-request-comment@v1
+      - name: Find PR for this deployment
+        id: pr
+        uses: actions/github-script@v9
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ github.event.issue.number }}
-          header: lighthouse
-          message: |
-            Running Lighthouse audit...
-      - name: Capture Vercel preview URL
-        id: vercel_preview_url
-        uses: aaron-binary/vercel-preview-url-action@v0.0.3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@v2
-      - name: Audit preview URL with Lighthouse
-        id: lighthouse_audit
-        uses: treosh/lighthouse-ci-action@v3
+          script: |
+            const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.payload.deployment.sha,
+            })
+            const pr = prs.find((p) => p.state === 'open')
+            core.setOutput('number', pr ? String(pr.number) : '')
+
+      - name: Audit preview
+        id: lighthouse
+        if: steps.pr.outputs.number != ''
+        uses: treosh/lighthouse-ci-action@12.6.2
+        env:
+          # No checkout in this job; LHCI otherwise reads the hash via `git rev-parse HEAD`.
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.deployment.sha }}
         with:
           urls: |
-            ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
+            ${{ github.event.deployment_status.environment_url }}/
+            ${{ github.event.deployment_status.environment_url }}/blog/
+            ${{ github.event.deployment_status.environment_url }}/blog/firebase-hosting/
           uploadArtifacts: true
           temporaryPublicStorage: true
-      - name: Format lighthouse score
-        id: format_lighthouse_score
-        uses: actions/github-script@v3
+
+      - name: Format results
+        id: format
+        if: steps.pr.outputs.number != ''
+        uses: actions/github-script@v9
+        env:
+          MANIFEST: ${{ steps.lighthouse.outputs.manifest }}
+          LINKS: ${{ steps.lighthouse.outputs.links }}
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const result = ${{ steps.lighthouse_audit.outputs.manifest }}[0].summary
-            const links = ${{ steps.lighthouse_audit.outputs.links }}
-            const formatResult = (res) => Math.round((res * 100))
-            Object.keys(result).forEach(key => result[key] = formatResult(result[key]))
-            const score = res => res >= 90 ? '🟢' : res >= 50 ? '🟠' : '🔴'
-            const comment = [
-                `⚡️ [Lighthouse report](${Object.values(links)[0]}) for the changes in this PR:`,
-                '| Category | Score |',
-                '| --- | --- |',
-                `| ${score(result.performance)} Performance | ${result.performance} |`,
-                `| ${score(result.accessibility)} Accessibility | ${result.accessibility} |`,
-                `| ${score(result['best-practices'])} Best practices | ${result['best-practices']} |`,
-                `| ${score(result.seo)} SEO | ${result.seo} |`,
-                `| ${score(result.pwa)} PWA | ${result.pwa} |`,
-                ' ',
-                `*Lighthouse ran on [${Object.keys(links)[0]}](${Object.keys(links)[0]})*`
-            ].join('\n')
-             core.setOutput("comment", comment); 
-      - name: Add comment to PR
-        id: comment_to_pr
-        uses: marocchino/sticky-pull-request-comment@v1
+            const manifest = JSON.parse(process.env.MANIFEST)
+            const links = JSON.parse(process.env.LINKS)
+            const base = context.payload.deployment_status.environment_url
+            const pct = (v) => Math.round(v * 100)
+            const dot = (v) => (v >= 90 ? '🟢' : v >= 50 ? '🟠' : '🔴')
+            const cell = (v) => `${dot(pct(v))} ${pct(v)}`
+            const rows = manifest
+              .filter((run) => run.isRepresentativeRun)
+              .map(({ url, summary: s }) => {
+                const path = url.replace(base, '') || '/'
+                return `| [${path}](${links[url]}) | ${cell(s.performance)} | ${cell(s.accessibility)} | ${cell(s['best-practices'])} | ${cell(s.seo)} |`
+              })
+            core.setOutput('comment', [
+              `⚡️ Lighthouse for ${context.payload.deployment.sha.slice(0, 7)} on [preview](${base})`,
+              '',
+              '| Page | Performance | Accessibility | Best practices | SEO |',
+              '| --- | --- | --- | --- | --- |',
+              ...rows,
+            ].join('\n'))
+
+      - name: Comment on PR
+        if: steps.pr.outputs.number != ''
+        uses: marocchino/sticky-pull-request-comment@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ github.event.issue.number }}
+          number: ${{ steps.pr.outputs.number }}
           header: lighthouse
-          message: |
-            ${{ steps.format_lighthouse_score.outputs.comment }}
+          message: ${{ steps.format.outputs.comment }}
