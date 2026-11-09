@@ -27,7 +27,7 @@ export default defineConfig({
         [rehypeAutolinkHeadings, { behavior: 'wrap' }],
       ],
     }),
-    shikiConfig: { theme: 'night-owl-light' },
+    shikiConfig: { theme: 'github-light-default' },
   },
   integrations: [
     mdx(),
