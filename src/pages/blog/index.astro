@@ -1,0 +1,27 @@
+---
+import BlogListItem from '@/components/BlogListItem.astro'
+import PageTitle from '@/components/PageTitle.astro'
+import Layout from '@/layouts/Layout.astro'
+import formatDate from '@/lib/format-date'
+import { getPosts } from '@/lib/posts'
+
+const posts = await getPosts()
+---
+
+<Layout title='Blog' mainClass='py-32 space-y-12'>
+  <section class='block xl:w-full xl:max-w-2xl xl:mx-auto'>
+    <div class='flex flex-col items-start space-y-6 xl:px-0'>
+      <PageTitle class='px-5'>Blog</PageTitle>
+      <div>
+        {posts.map((post) => (
+          <BlogListItem
+            title={post.data.title}
+            excerpt={post.data.description}
+            href={`/blog/${post.id}/`}
+            date={formatDate(post.data.date)}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

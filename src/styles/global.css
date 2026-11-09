@@ -1,0 +1,95 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Inter-Bold.woff2') format('woff2');
+}
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand colors */
+  --color-brand-50: #edecff;
+  --color-brand-100: #d3d1fe;
+  --color-brand-200: #a8a4fd;
+  --color-brand-300: #7c76fb;
+  --color-brand-400: #5149fa;
+  --color-brand-500: #251bf9;
+  --color-brand-600: #1e16c7;
+  --color-brand-700: #161095;
+  --color-brand-800: #0f0b64;
+  --color-brand-900: #070532;
+
+  /* Accent colors */
+  --color-accent-1: #333;
+
+  /* BlueGray colors (using underscore to match camelCase class names) */
+  --color-blueGray-50: #f8fafc;
+  --color-blueGray-100: #f1f5f9;
+  --color-blueGray-200: #e2e8f0;
+  --color-blueGray-300: #cbd5e1;
+  --color-blueGray-400: #94a3b8;
+  --color-blueGray-500: #64748b;
+  --color-blueGray-600: #475569;
+  --color-blueGray-700: #334155;
+  --color-blueGray-800: #1e293b;
+  --color-blueGray-900: #0f172a;
+}
+
+/* Write your own custom base styles here */
+
+html,
+body {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+::selection {
+  @apply text-white bg-brand-500;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+/* MDX post content (replaces the old React pre/code/blockquote overrides) */
+.prose :not(pre) > code {
+  @apply bg-gray-100 text-gray-700 rounded-sm px-0.5 py-px border border-gray-200 text-[88%];
+}
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+.prose blockquote {
+  @apply block py-1 px-4! md:px-8! md:-mx-8 -mx-4 border-s-4 border-brand-700 bg-brand-50/50;
+}
+
+/* Shiki output, with line numbers */
+.prose pre.astro-code {
+  @apply my-4 -mx-3 md:-mx-8 p-2 rounded shadow text-start;
+  counter-reset: line;
+}
+.prose pre.astro-code .line::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply inline-block w-6 me-4 text-end select-none opacity-50;
+}

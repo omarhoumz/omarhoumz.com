@@ -1,0 +1,13 @@
+---
+interface Props {
+  as?: 'h1' | 'p'
+  class?: string
+}
+const { as: Tag = 'h1', class: className } = Astro.props
+const content = (await Astro.slots.render('default')).trim()
+---
+
+<Tag
+  class:list={['text-3xl text-blueGray-800 font-bold', className]}
+  set:html={content}
+/>

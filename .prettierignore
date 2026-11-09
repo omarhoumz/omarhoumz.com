@@ -1,4 +1,7 @@
-.cache
-.next
+.astro
+dist
+pnpm-lock.yaml
 .github
 public
+# prettier-plugin-astro reflows inline whitespace around components (stray spaces before punctuation)
+*.astro
