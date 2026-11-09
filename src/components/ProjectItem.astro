@@ -9,8 +9,7 @@ const { icon, title, description, link, status } = Astro.props
 
 <Link
   href={link.href}
-  external={link.external}
-  unstyled
+  variant='card'
   class:list={[
     'group flex flex-col gap-2 p-6 border border-brand-50 rounded-lg transition-shadow',
     '[--shadow:0_1px_16px_-4px_var(--color-brand-100)]',

@@ -17,12 +17,12 @@ const posts = (await getPosts()).slice(0, 2)
       <p class='text-lg max-w-xl'>
         I’m <strong>Omar Houmz</strong>, I’m a software engineer based in
         Casablanca, Morocco. I work at{' '}
-        <Link href='https://remotepass.com' nofollow external color='dark' underline>
+        <Link href='https://remotepass.com' nofollow color='dark'>
           RemotePass.com
         </Link>{' '}
         as a <strong>front-end engineer</strong>.
       </p>
-      <Link href='/about/' btnStyle>
+      <Link href='/about/' variant='button'>
         More About Me ...
       </Link>
     </div>
@@ -40,7 +40,7 @@ const posts = (await getPosts()).slice(0, 2)
           />
         ))}
       </div>
-      <Link href='/blog/' btnStyle>
+      <Link href='/blog/' variant='button'>
         See all posts
       </Link>
     </div>
@@ -49,7 +49,7 @@ const posts = (await getPosts()).slice(0, 2)
     <div class='flex flex-col items-start space-y-6 px-5 xl:px-0'>
       <h2 class='text-3xl font-bold'>Latest projects</h2>
       <ProjectList projects={allProjects.slice(0, 2)} />
-      <Link href='/projects/' btnStyle>
+      <Link href='/projects/' variant='button'>
         See all projects
       </Link>
     </div>

@@ -9,7 +9,7 @@ export type ProjectStatus = keyof typeof projectStatuses
 export interface Project {
   icon?: string
   title: string
-  link: { href: string; external?: boolean }
+  link: { href: string }
   status?: ProjectStatus
   description: string
 }
@@ -19,7 +19,6 @@ const allProjects: Project[] = [
     title: 'devfest.gdgcasablanca.com',
     link: {
       href: 'https://devfest.gdgcasablanca.com/',
-      external: true,
     },
     status: projectStatuses.unmaintained,
     description:
@@ -30,7 +29,6 @@ const allProjects: Project[] = [
     title: 'gdgcasablanca.com',
     link: {
       href: 'https://gdgcasablanca.com/',
-      external: true,
     },
     status: projectStatuses.unmaintained,
     description:
@@ -41,7 +39,6 @@ const allProjects: Project[] = [
     title: 'wtm.gdgcasablanca.com',
     link: {
       href: 'https://wtm.gdgcasablanca.com/',
-      external: true,
     },
     status: projectStatuses.unmaintained,
     description:
@@ -51,7 +48,6 @@ const allProjects: Project[] = [
     title: 'LineApp.',
     link: {
       href: 'https://github.com/omhoumz/lineapp',
-      external: true,
     },
     status: projectStatuses.unmaintained,
     description: 'Yet another to do app that uses Firebase Auth.',
@@ -60,7 +56,6 @@ const allProjects: Project[] = [
     title: 'CC Platform.',
     link: {
       href: 'https://github.com/omarhoumz/ccp',
-      external: true,
     },
     status: projectStatuses.unmaintained,
     description:
