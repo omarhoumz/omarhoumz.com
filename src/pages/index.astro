@@ -4,7 +4,6 @@ import Link from '@/components/Link.astro'
 import PageTitle from '@/components/PageTitle.astro'
 import ProjectList from '@/components/ProjectList.astro'
 import Layout from '@/layouts/Layout.astro'
-import formatDate from '@/lib/format-date'
 import { getPosts } from '@/lib/posts'
 import allProjects from '@/lib/projects'
 
@@ -34,10 +33,10 @@ const posts = (await getPosts()).slice(0, 2)
       <div class='flex flex-col gap-y-4 py-4'>
         {posts.map((post) => (
           <BlogListItem
-            title={post.data.title}
-            excerpt={post.data.description}
-            href={`/blog/${post.id}/`}
-            date={formatDate(post.data.date)}
+            title={post.title}
+            excerpt={post.description}
+            href={post.url}
+            date={post.dateLabel}
           />
         ))}
       </div>
