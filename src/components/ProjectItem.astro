@@ -1,22 +1,37 @@
 ---
+// A Project card. The title links to the live site (or the source when there is none)
+// and is stretched over the card, so the whole card stays clickable; the "Live site" /
+// "Source" row sits above that overlay as separate links.
 import Link from './Link.astro'
 import Pill from './Pill.astro'
 import { projectStatuses, type Project } from '@/lib/projects'
 
-type Props = Project
-const { icon, title, description, link, status } = Astro.props
+type Props = Project & { headingLevel?: 2 | 3 }
+const {
+  icon,
+  title,
+  description,
+  live,
+  repo,
+  status,
+  headingLevel = 3,
+} = Astro.props
+const Heading = `h${headingLevel}` as const
+const primary = live ?? repo
+const secondary = [
+  live && { href: live, label: 'Live site' },
+  repo && { href: repo, label: 'Source' },
+].filter(Boolean) as { href: string; label: string }[]
 ---
 
-<Link
-  href={link.href}
-  variant='card'
+<article
   class:list={[
-    'group flex flex-col gap-2 p-6 border border-brand-50 rounded-lg transition-shadow',
+    'group relative flex flex-col gap-2 p-6 border border-brand-50 rounded-lg transition-shadow',
     '[--shadow:0_1px_16px_-4px_var(--color-brand-100)]',
-    'hover:shadow-(--shadow) focus-visible:shadow-(--shadow) focus-within:shadow-brand-100 focus-visible:outline-2 focus-visible:outline-brand-100 focus-visible:-outline-offset-2',
+    'hover:shadow-(--shadow) has-[a:focus-visible]:shadow-(--shadow) has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-brand-100 has-[a:focus-visible]:-outline-offset-2',
   ]}
 >
-  <h3 class='flex items-center gap-3 text-lg'>
+  <Heading class='flex items-center gap-3 text-lg'>
     {status && status !== projectStatuses.active && (
       <Pill label={projectStatuses[status]} />
     )}
@@ -30,10 +45,14 @@ const { icon, title, description, link, status } = Astro.props
         style='max-width: 100%; height: auto'
       />
     )}
-    <span class='font-bold transition-colors text-brand-800 group-hover:text-brand-600'>
+    <Link
+      href={primary!}
+      variant='card'
+      class="font-bold transition-colors text-brand-800 group-hover:text-brand-600 focus:outline-none after:absolute after:inset-0 after:content-['']"
+    >
       {title}
-    </span>
-    <span class='text-gray-300 transition-colors group-hover:text-gray-400'>
+    </Link>
+    <span class='text-gray-300 transition-colors group-hover:text-gray-400' aria-hidden='true'>
       <svg
         class='w-4 h-4'
         fill='none'
@@ -49,6 +68,15 @@ const { icon, title, description, link, status } = Astro.props
         ></path>
       </svg>
     </span>
-  </h3>
+  </Heading>
   <p class='max-w-2xl text-gray-500'>{description}</p>
-</Link>
+  {secondary.length > 0 && (
+    <p class='relative z-1 flex gap-4 text-sm'>
+      {secondary.map(({ href, label }) => (
+        <Link href={href} color='brand'>
+          {label}
+        </Link>
+      ))}
+    </p>
+  )}
+</article>
