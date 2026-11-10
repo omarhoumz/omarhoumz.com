@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
-  site: 'https://www.omarhoumz.com',
+  site: 'https://omarhoumz.com',
   trailingSlash: 'always',
   // Astro 7 defaults to 'jsx', which drops whitespace between inline elements.
   compressHTML: true,
