@@ -16,33 +16,32 @@ export interface Project {
 const allProjects: Project[] = [
   {
     icon: 'https://devfest-casablanca-2020.web.app/icons/icon-144x144.png',
-    title: 'devfest.gdgcasablanca.com',
-    link: {
-      href: 'https://github.com/gdgcasablanca/devfest-casablanca-2020',
-    },
+    title: 'DevFest Casablanca 2020',
+    link: { href: 'https://devfest-casablanca-2020.web.app/' },
     status: projectStatuses.unmaintained,
     description:
-      'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the website with NextJs and ReactJs. Deployed with Vercel.',
+      'DevFest is the yearly developer festival organized by GDG Casablanca. I built the 2020 season site with Gatsby and React, as an offline-ready PWA on Firebase Hosting.',
   },
   {
-    // icon: 'https://gdgcasablanca.com/gdg-casa-icon.png',
-    title: 'gdgcasablanca.com',
-    link: {
-      href: 'https://github.com/gdgcasablanca/gdgcasablanca.com',
-    },
+    title: 'DevFest Casablanca 2019',
+    link: { href: 'https://github.com/gdgcasablanca/devfest-casablanca-2019' },
     status: projectStatuses.unmaintained,
     description:
-      'GDG (Google Developer Groups) is global program for developers. GDG Casablanca is a local chapter. I created the website with NextJs, ReactJs and meetup API. Deployed with Vercel.',
+      'The 2019 season site, built with Gatsby and React as an offline-ready PWA on Firebase Hosting. The site is no longer online; this links to its source.',
   },
   {
-    // icon: 'https://wtm.gdgcasablanca.com/icons/icon-144x144.png',
-    title: 'wtm.gdgcasablanca.com',
-    link: {
-      href: 'https://github.com/gdgcasablanca/wtm-casablanca',
-    },
+    title: 'GDG Casablanca',
+    link: { href: 'https://github.com/gdgcasablanca/gdgcasablanca.com' },
     status: projectStatuses.unmaintained,
     description:
-      'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. WTM Casablanca is a local chapter. I created the website with gatsby and reactjs.',
+      'GDG (Google Developer Groups) is a global program for developers, and GDG Casablanca is a local chapter. I built its site with Gatsby, React and Material UI, with events pulled from the Meetup API. Hosted on Firebase.',
+  },
+  {
+    title: 'WTM Casablanca',
+    link: { href: 'https://github.com/gdgcasablanca/wtm-casablanca' },
+    status: projectStatuses.unmaintained,
+    description:
+      'WTM (Women Techmakers) is a global program that provides visibility and community for women in tech, and WTM Casablanca is a local chapter. I built its site with Gatsby and React. Hosted on Firebase.',
   },
   {
     title: 'LineApp.',
