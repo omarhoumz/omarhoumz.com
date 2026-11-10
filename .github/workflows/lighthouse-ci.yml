@@ -1,5 +1,6 @@
-# Lighthouse audit of each Vercel preview, posted as a sticky PR comment.
-# Vercel reports previews as GitHub deployments, so this runs on deployment_status.
+# Lighthouse audit of each preview deploy, posted as a sticky PR comment.
+# The host (Vercel, Netlify) reports previews as GitHub deployments, so this runs on
+# deployment_status and skips production environments.
 name: Lighthouse
 
 on:
