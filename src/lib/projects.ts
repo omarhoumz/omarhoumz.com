@@ -18,7 +18,7 @@ const allProjects: Project[] = [
     icon: 'https://devfest-casablanca-2020.web.app/icons/icon-144x144.png',
     title: 'devfest.gdgcasablanca.com',
     link: {
-      href: 'https://devfest.gdgcasablanca.com/',
+      href: 'https://github.com/gdgcasablanca/devfest-casablanca-2020',
     },
     status: projectStatuses.unmaintained,
     description:
@@ -28,7 +28,7 @@ const allProjects: Project[] = [
     // icon: 'https://gdgcasablanca.com/gdg-casa-icon.png',
     title: 'gdgcasablanca.com',
     link: {
-      href: 'https://gdgcasablanca.com/',
+      href: 'https://github.com/gdgcasablanca/gdgcasablanca.com',
     },
     status: projectStatuses.unmaintained,
     description:
@@ -38,7 +38,7 @@ const allProjects: Project[] = [
     // icon: 'https://wtm.gdgcasablanca.com/icons/icon-144x144.png',
     title: 'wtm.gdgcasablanca.com',
     link: {
-      href: 'https://wtm.gdgcasablanca.com/',
+      href: 'https://github.com/gdgcasablanca/wtm-casablanca',
     },
     status: projectStatuses.unmaintained,
     description:
@@ -47,7 +47,7 @@ const allProjects: Project[] = [
   {
     title: 'LineApp.',
     link: {
-      href: 'https://github.com/omhoumz/lineapp',
+      href: 'https://github.com/omarhoumz/lineapp',
     },
     status: projectStatuses.unmaintained,
     description: 'Yet another to do app that uses Firebase Auth.',
