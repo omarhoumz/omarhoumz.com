@@ -14,6 +14,9 @@ export default defineConfig({
   compressHTML: true,
   // CSS is ~9 KB; inlining saves a render-blocking round trip before first paint.
   build: { inlineStylesheets: 'always' },
+  // Fetch a page's HTML on link hover/focus, so the click navigates instantly.
+  // https://docs.astro.build/en/guides/prefetch/
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   redirects: {
     '/writing/firebase-cloud-functions/': '/blog/firebase-cloud-functions/',
   },
