@@ -4,14 +4,15 @@ import type { Project } from '@/lib/projects'
 
 interface Props {
   projects: Project[]
+  headingLevel?: 2 | 3
 }
-const { projects } = Astro.props
+const { projects, headingLevel } = Astro.props
 ---
 
 <ul class='flex flex-col max-w-2xl gap-4'>
   {projects.map((project) => (
     <li>
-      <ProjectItem {...project} />
+      <ProjectItem {...project} headingLevel={headingLevel} />
     </li>
   ))}
 </ul>

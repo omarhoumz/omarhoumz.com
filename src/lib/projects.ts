@@ -9,54 +9,57 @@ export type ProjectStatus = keyof typeof projectStatuses
 export interface Project {
   icon?: string
   title: string
-  link: { href: string }
+  /** Live site, when it is still up. */
+  live?: string
+  /** Source repository. */
+  repo?: string
   status?: ProjectStatus
   description: string
 }
 const allProjects: Project[] = [
   {
     icon: 'https://devfest-casablanca-2020.web.app/icons/icon-144x144.png',
-    title: 'devfest.gdgcasablanca.com',
-    link: {
-      href: 'https://devfest.gdgcasablanca.com/',
-    },
+    title: 'DevFest Casablanca 2020',
+    live: 'https://devfest-casablanca-2020.web.app/',
+    repo: 'https://github.com/gdgcasablanca/devfest-casablanca-2020',
     status: projectStatuses.unmaintained,
     description:
-      'DevFest is a yearly Developer festival organized by GDG Casablanca. I created the website with NextJs and ReactJs. Deployed with Vercel.',
+      'DevFest is the yearly developer festival organized by GDG Casablanca. I built the 2020 season site with Gatsby and React, as an offline-ready PWA on Firebase Hosting.',
   },
   {
-    // icon: 'https://gdgcasablanca.com/gdg-casa-icon.png',
-    title: 'gdgcasablanca.com',
-    link: {
-      href: 'https://gdgcasablanca.com/',
-    },
+    title: 'DevFest Casablanca 2019',
+    live: 'https://devfest-casablanca-2019.web.app/',
+    repo: 'https://github.com/gdgcasablanca/devfest-casablanca-2019',
     status: projectStatuses.unmaintained,
     description:
-      'GDG (Google Developer Groups) is global program for developers. GDG Casablanca is a local chapter. I created the website with NextJs, ReactJs and meetup API. Deployed with Vercel.',
+      'The 2019 season site, built with Gatsby and React as an offline-ready PWA on Firebase Hosting.',
   },
   {
-    // icon: 'https://wtm.gdgcasablanca.com/icons/icon-144x144.png',
-    title: 'wtm.gdgcasablanca.com',
-    link: {
-      href: 'https://wtm.gdgcasablanca.com/',
-    },
+    title: 'GDG Casablanca',
+    live: 'https://gdgcasablanca-website.web.app/',
+    repo: 'https://github.com/gdgcasablanca/gdgcasablanca.com',
     status: projectStatuses.unmaintained,
     description:
-      'WTM (Women TechMakers) is a global program that provides visibility and community for women in tech. WTM Casablanca is a local chapter. I created the website with gatsby and reactjs.',
+      'GDG (Google Developer Groups) is a global program for developers, and GDG Casablanca is a local chapter. I built its site with Gatsby, React and Material UI, with events pulled from the Meetup API. Hosted on Firebase.',
+  },
+  {
+    title: 'WTM Casablanca',
+    live: 'https://wtm-casablanca.web.app/',
+    repo: 'https://github.com/gdgcasablanca/wtm-casablanca',
+    status: projectStatuses.unmaintained,
+    description:
+      'WTM (Women Techmakers) is a global program that provides visibility and community for women in tech, and WTM Casablanca is a local chapter. I built its site with Gatsby and React. Hosted on Firebase.',
   },
   {
     title: 'LineApp.',
-    link: {
-      href: 'https://github.com/omhoumz/lineapp',
-    },
+    live: 'https://lineapp.netlify.app/',
+    repo: 'https://github.com/omarhoumz/lineapp',
     status: projectStatuses.unmaintained,
     description: 'Yet another to do app that uses Firebase Auth.',
   },
   {
     title: 'CC Platform.',
-    link: {
-      href: 'https://github.com/omarhoumz/ccp',
-    },
+    repo: 'https://github.com/omarhoumz/ccp',
     status: projectStatuses.unmaintained,
     description:
       'Get free and high res photos from around the web. An agregation of APIs for CC images.',
