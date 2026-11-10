@@ -71,3 +71,22 @@ button {
   content: counter(line);
   @apply inline-block w-6 me-4 text-end select-none opacity-50;
 }
+
+/* Cross-fade between pages instead of a blank repaint (MPA view transitions; no JS).
+   Unsupported browsers navigate normally. */
+@view-transition {
+  navigation: auto;
+}
+
+/* The sticky header stays put while the page content cross-fades. */
+.site-header {
+  view-transition-name: site-header;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
