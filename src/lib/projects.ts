@@ -51,18 +51,19 @@ const allProjects: Project[] = [
       'WTM (Women Techmakers) is a global program that provides visibility and community for women in tech, and WTM Casablanca is a local chapter. I built its site with Gatsby and React. Hosted on Firebase.',
   },
   {
-    title: 'LineApp.',
+    title: 'LineApp',
     live: 'https://lineapp.netlify.app/',
     repo: 'https://github.com/omarhoumz/lineapp',
     status: projectStatuses.unmaintained,
-    description: 'Yet another to do app that uses Firebase Auth.',
+    description:
+      "A to-do app for lining up the day's tasks. Built with React (Create React App), with sign-in through Google or GitHub via Firebase Auth. Hosted on Netlify.",
   },
   {
-    title: 'CC Platform.',
+    title: 'CC Platform',
     repo: 'https://github.com/omarhoumz/ccp',
     status: projectStatuses.unmaintained,
     description:
-      'Get free and high res photos from around the web. An agregation of APIs for CC images.',
+      'One search for free, high-resolution photos: it brings together Creative Commons images from the Unsplash and Flickr APIs. Built with React (Create React App).',
   },
 ]
 
