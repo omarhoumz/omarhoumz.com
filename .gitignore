@@ -91,3 +91,6 @@ yarn-error.log
 # astro
 dist/
 .astro/
+
+# netlify
+.netlify
