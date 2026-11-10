@@ -1,10 +1,13 @@
 # Lighthouse audit of each preview deploy, posted as a sticky PR comment.
-# The host (Vercel, Netlify) reports previews as GitHub deployments, so this runs on
-# deployment_status and skips production environments.
+# - Vercel reports previews as GitHub deployments → deployment_status.
+# - Netlify reports them only as a commit status (netlify/<site>/deploy-preview) → status;
+#   its preview URL is https://deploy-preview-<PR>--<site>.netlify.app.
+# Note: `status` workflows always run from the default branch's copy of this file.
 name: Lighthouse
 
 on:
   deployment_status:
+  status:
 
 permissions:
   contents: read
@@ -13,51 +16,75 @@ permissions:
 jobs:
   lighthouse:
     if: >-
-      github.event.deployment_status.state == 'success' &&
-      !contains(github.event.deployment.environment, 'Production')
+      (github.event_name == 'deployment_status' &&
+        github.event.deployment_status.state == 'success' &&
+        !contains(github.event.deployment.environment, 'Production')) ||
+      (github.event_name == 'status' &&
+        github.event.state == 'success' &&
+        startsWith(github.event.context, 'netlify/') &&
+        endsWith(github.event.context, '/deploy-preview'))
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Find PR for this deployment
-        id: pr
+      - name: Resolve preview, commit and PR
+        id: target
         uses: actions/github-script@v9
         with:
           script: |
+            const p = context.payload
+            const sha = context.eventName === 'status' ? p.sha : p.deployment.sha
             const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              commit_sha: context.payload.deployment.sha,
+              commit_sha: sha,
             })
-            const pr = prs.find((p) => p.state === 'open')
-            core.setOutput('number', pr ? String(pr.number) : '')
+            const pr = prs.find((x) => x.state === 'open')
+            if (!pr) return core.setOutput('number', '')
+
+            let url, host
+            if (context.eventName === 'status') {
+              const site = p.context.split('/')[1]
+              url = `https://deploy-preview-${pr.number}--${site}.netlify.app`
+              host = 'Netlify'
+            } else {
+              url = p.deployment_status.environment_url
+              host = 'Vercel'
+            }
+            core.setOutput('number', String(pr.number))
+            core.setOutput('sha', sha)
+            core.setOutput('url', url.replace(/\/$/, ''))
+            core.setOutput('host', host)
 
       - name: Audit preview
         id: lighthouse
-        if: steps.pr.outputs.number != ''
+        if: steps.target.outputs.number != ''
         uses: treosh/lighthouse-ci-action@12.6.2
         env:
           # No checkout in this job; LHCI otherwise reads the hash via `git rev-parse HEAD`.
-          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.deployment.sha }}
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ steps.target.outputs.sha }}
         with:
           urls: |
-            ${{ github.event.deployment_status.environment_url }}/
-            ${{ github.event.deployment_status.environment_url }}/blog/
-            ${{ github.event.deployment_status.environment_url }}/blog/firebase-hosting/
+            ${{ steps.target.outputs.url }}/
+            ${{ steps.target.outputs.url }}/blog/
+            ${{ steps.target.outputs.url }}/blog/firebase-hosting/
           uploadArtifacts: true
           temporaryPublicStorage: true
 
       - name: Format results
         id: format
-        if: steps.pr.outputs.number != ''
+        if: steps.target.outputs.number != ''
         uses: actions/github-script@v9
         env:
           MANIFEST: ${{ steps.lighthouse.outputs.manifest }}
           LINKS: ${{ steps.lighthouse.outputs.links }}
+          BASE: ${{ steps.target.outputs.url }}
+          SHA: ${{ steps.target.outputs.sha }}
+          HOST: ${{ steps.target.outputs.host }}
         with:
           script: |
             const manifest = JSON.parse(process.env.MANIFEST)
             const links = JSON.parse(process.env.LINKS)
-            const base = context.payload.deployment_status.environment_url
+            const { BASE: base, SHA: sha, HOST: host } = process.env
             const pct = (v) => Math.round(v * 100)
             const dot = (v) => (v >= 90 ? '🟢' : v >= 50 ? '🟠' : '🔴')
             const cell = (v) => `${dot(pct(v))} ${pct(v)}`
@@ -68,7 +95,7 @@ jobs:
                 return `| [${path}](${links[url]}) | ${cell(s.performance)} | ${cell(s.accessibility)} | ${cell(s['best-practices'])} | ${cell(s.seo)} |`
               })
             core.setOutput('comment', [
-              `⚡️ Lighthouse for ${context.payload.deployment.sha.slice(0, 7)} on [preview](${base})`,
+              `⚡️ Lighthouse for ${sha.slice(0, 7)} on [${host} preview](${base})`,
               '',
               '| Page | Performance | Accessibility | Best practices | SEO |',
               '| --- | --- | --- | --- | --- |',
@@ -76,9 +103,10 @@ jobs:
             ].join('\n'))
 
       - name: Comment on PR
-        if: steps.pr.outputs.number != ''
+        if: steps.target.outputs.number != ''
         uses: marocchino/sticky-pull-request-comment@v3
         with:
-          number: ${{ steps.pr.outputs.number }}
-          header: lighthouse
+          number: ${{ steps.target.outputs.number }}
+          # One sticky comment per host while both deploy previews.
+          header: lighthouse-${{ steps.target.outputs.host }}
           message: ${{ steps.format.outputs.comment }}
